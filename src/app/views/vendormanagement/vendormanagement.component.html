@@ -1,1 +1,477 @@
-<p>vendormanagement works!</p>
+<!-- <div> -->
+    <div class="container">
+        <p class="mainheading Vendortitle" >Vendor Details</p>
+    
+        
+        
+            <div class="row" style="padding-bottom: 8px;">
+                <div class="col-sm-5 innerlinefont usernamediv">
+                    <!-- <mat-form-field> -->
+                    <label class="labelwidth"> User Name </label>
+                    <input class="toggle username" type="type" id="user_name"  (keyup)="EmptyErrorMessage('errormessage')">
+                    <p style="color: red;" id="errormessage"></p>
+                <!-- </mat-form-field> -->
+                </div>
+    
+                <div class="col-sm-5 innerlinefont vendortypelabel usernamediv">
+                    <label class="labelwidth">Vendor Type</label> 
+                 <!-- <div class="btndiv1"> -->
+                    <label  >Individual</label>
+                     &nbsp;&nbsp;
+                    <label class="switch">
+                    <input class="" type="checkbox"  id="active"  (change)="Displayvendortype()">
+                    <span class="slider round"></span>
+                    </label>&nbsp;&nbsp;
+                    <label  class=" " >Business</label>  
+                   <!-- </div> -->
+                </div>
+            </div>
+    
+    <!--Contact Information Start -->
+    <div id="vendor-individual">
+    
+        <p class="mainheading heading">Contact Information</p>
+    
+    <div class="row Generaldiv individual">
+      <div class="col-sm-6 innerlinefont" >  
+    
+        <div class="labelheight">
+            <label class="labelwidth">First Name</label>    
+            <input type="text" class="firstname" id="first_name" (keypress)="EmptyErrorMessage('errormessage52')">
+        </div>
+        <div class="row">
+            <p style="color: red;" id="errormessage52"></p>
+        </div>
+    
+            <div class="labelheight">
+                <label class="labelwidth">Last Name</label>
+            <input type="text" class="lastname" id="last_name" (keypress)="EmptyErrorMessage('errormessage23')" >
+            </div>
+            <div class="row">
+                <p style="color: red;" id="errormessage23"></p>
+            </div>
+    
+            <div class="labelheight">
+                <label class="labelwidth">Middle Name</label>
+                <input type="text" class="middlename" id="middle_name" (keypress)="EmptyErrorMessage('errormessage24')">
+            </div>
+            <div class="row">
+                <p style="color: red;" id="errormessage24"></p>
+            </div>
+    
+            <div class="labelheight">
+            <label class="wouldla">Would you like to receive outreach emails from us ?</label>
+            <!-- <label style="width:10px;"></label> -->
+                            <label class="switch">
+                            <input  type="checkbox" name="active" id="active" checked>
+                            <span class="slider round"></span>
+                            </label></div>
+        </div>
+    
+    
+      <div class="col-sm-6 innerlinefont">
+        <div class="labelheight">
+            <label class="labelwidth">Social Security Number</label>
+            <input type="text" class="social" id="social_no" (keypress)="EmptyErrorMessage('errormessage25')">
+        </div>
+        <div class="row">
+            <p style="color: red;" id="errormessage25"></p>
+        </div>
+    
+        <div class="labelheight">
+            <label class="labelwidth">Email</label>
+            <input type="email" class="emailt" id="email_individual" (keypress)="EmptyErrorMessage('errormessage26')">
+        </div>
+        <div class="row">
+            <p style="color: red;" id="errormessage26"></p>
+        </div>
+        
+        <div class="labelheight">
+            <label class="labelwidth">Phone</label>
+            <input type="text" class="phone" id="phone_no" (keypress)="EmptyErrorMessage('errormessage27')">
+        </div>
+        <div class="row">
+            <p style="color: red;" id="errormessage27"></p>
+        </div>
+    
+              
+      </div>
+    </div>
+    </div>
+    <!--Contact Information End -->
+    
+     <!--General Information Start -->
+    <div id="General_Information" style="display: none;">
+            <p class="mainheading heading">General Information</p>
+    
+            <div class="row Generaldiv" >
+    
+                <div class="col-sm-6 innerlinefont">
+                    <div class="labelheight">
+                    <label class="labelwidth"> Legal Business Name</label>
+                    <input type="text" class="Legalbusiness" id="business_name" (keypress)="EmptyErrorMessage('errormessage2')" >
+                </div>
+                     <div class="row">
+                        <p style="color: red;" id="errormessage2"></p>
+                    </div>
+                    
+    
+                    <div class="labelheight">
+                        <label class="labelwidth">Federal EIN</label>
+                        <input type="text" class="Federal" id="federal" (keypress)="EmptyErrorMessage('errormessage3')">
+                          </div>
+                        <div class="row">
+                            <p style="color: red;" id="errormessage3"></p>
+                        </div>
+     
+    
+                                    <div class="labelheight">
+                                        <label class="Mailingaddress">Mailing address same as physical address ?</label>
+                                        <!--<label style="width:10px"></label>-->
+                                        <label class="switch">
+                                        <input  type="checkbox" name="active" id="active" checked>
+                                        <span class="slider round"></span>
+                                        </label>
+                                </div>
+    
+                                <div class="labelheight">
+                                    <label class="Businessregistered" >Is this Business Registered with this County/State ?</label>
+                                    <!--<label style="width:10px"></label>-->
+                                    <label class="switch">
+                                    <input  type="checkbox" name="active" id="active" checked>
+                                    <span class="slider round"></span>
+                                    </label>
+                            </div>
+    
+                            <div class="form-group form-inline">
+                                <label class="businessfranchisee" >Is this business a franchisee ?</label>
+                                <!--<label style="width:10px"></label>-->
+                                <label class="switch">
+                                <input class="" type="checkbox" name="active" id="active" checked>
+                                <span class="slider round"></span>
+                                </label>
+                        </div>
+    </div>
+                  
+     <div class="col-sm-6" style="font-size:12px !important;;">
+    
+                    <div class="labelheight">
+                    <label class="labelwidth"> Trade Name</label> 
+                    <input type="text" class="Vendortype" id="trade_name" (keypress)="EmptyErrorMessage('errormessage10')"> 
+                  </div>
+                <div class="row">
+                    <p style="color: red;" id="errormessage10"></p>
+                    </div>
+    
+                    <div class="labelheight">
+                        <label class="labelwidth">DUNS Number</label>
+                        <input type="text" class="DUNSno" id="duns_no" (keypress)="EmptyErrorMessage('errormessage11')"> 
+                      </div>
+                    <div class="row">
+                        <p style="color: red;" id="errormessage11"></p>
+                        </div>
+    
+                       <div class="labelheight">
+                             <label class="labelwidth">Business Website</label>
+                             <input type="text" class="Businesswebsite" id="business_website" (keypress)="EmptyErrorMessage('errormessage18')">
+                             </div>
+                            <div class="row"> <p style="color: red;" id="errormessage18"></p></div>
+    
+                            <div class="labelheight">
+                                <label class="businessregistered1">Is this business registered with this State Corporation Commission ? </label>
+                                <!--<label style="width:10px"></label>-->
+                                <label class="switch">
+                                <input class="" type="checkbox" name="active" id="active" checked>
+                                <span class="slider round"></span>
+                                </label>
+                        </div>
+    
+                </div>
+            </div>
+    
+     </div> 
+     <!--General Information end -->
+    
+    
+    
+     <!-- Address Information -->
+    <div id="address_information">
+     <p class="mainheading heading" style=" padding-bottom: 5px; padding-top: 16px;">Address Information</p>
+    
+     <div class="row Generaldiv" >
+    
+         <div class="col-sm-6 innerlinefont">
+          
+    
+             <div class="labelheight">
+                 <label class="labelwidth">Current Address</label>
+                 <input type="text" class="Physicaladdress" id="physical_address" (keypress)="EmptyErrorMessage('errormessage4')">
+                 </div>
+                 <div class="row">
+                     <p style="color: red;" id="errormessage4"></p>
+                 </div>
+    
+                <div class="labelheight">
+                 <label class="labelwidth">state_province</label>
+                 <select class="State" id="state_province" (keypress)="EmptyErrorMessage('errormessage5')">
+                     <option value="value1">Virginia</option>
+                     <option value="value2">Alabama</option>
+                     <option value="value3">Alaska</option>
+                     <option value="value4">California</option>
+                     <option value="value5">Florida</option>
+                     <option value="value6">Ohio</option>
+                     <option value="value7">Washington</option>
+                 </select> 
+             </div>
+             <div class="row">
+                 <p style="color: red;" id="errormessage5"></p>
+             </div>
+                 
+                  <div class="labelheight">
+                 <label class="labelwidth">city</label>
+                         <input type="text" class="city" id="city" (keypress)="EmptyErrorMessage('errormessage6')">
+                  </div>
+                  <div class="row">
+                     <p style="color: red;" id="errormessage6"></p>
+                 </div>
+    
+    
+                  <div class="labelheight">
+                     <label class="labelwidth">Zip Code</label>
+                     <input type="text" class="zip" id="zip_code" (keypress)="EmptyErrorMessage('errormessage7')">
+                       </div>
+                     <div class="row">
+                     <p style="color: red;" id="errormessage7"></p>
+                     </div>
+    
+                     <div class="labelheight">
+                         <label class="labelwidth">County</label>
+                         <input type="text" class="County" id="county" (keypress)="EmptyErrorMessage('errormessage8')">
+                         </div>
+                         <div class="row">
+                         <p style="color: red;" id="errormessage8"></p>
+                         </div>
+             
+                         <div class="labelheight">
+                             <label class="labelwidth">Country</label>
+                             <select class="Country" id="country" (keypress)="EmptyErrorMessage('errormessage9')">
+                                 <option value="value1">USA</option>
+                                 <option value="value2">India</option>
+                             </select> 
+                         </div>
+                         <div class="row">
+                         <p style="color: red;" id="errormessage9"></p>
+                         </div>
+    
+    </div>
+           
+    <div class="col-sm-6" style="font-size:12px !important;;">
+    
+          <div class="accordion">
+                <h2 class="title mainheading" (click)="opened = !opened">Mailing Address</h2>
+                <div class="content-container" [class.opened]="opened">
+                    <div class="labelheight">
+                        <label class="labelwidth" style="margin-left: 9px;">Mailing Address</label>
+                        <input type="text" class="Mailingaddress1" id="mailing_address" (keypress)="EmptyErrorMessage('errormessage12')">
+                        </div>
+                        <div class="row">
+                        <p style="color: red;" id="errormessage12"></p>
+                        </div>
+    
+                        <div class="labelheight">
+                            <label class="labelwidth" style="margin-left: 9px;">State/Province</label>
+                            <select class="State" id="state_province1" (keypress)="EmptyErrorMessage('errormessage13')">
+                                <option value="value"></option>
+                                <option value="value1">Virginia</option>
+                                <option value="value2">Alabama</option>
+                                <option value="value3">Alaska</option>
+                                <option value="value4">California</option>
+                                <option value="value5">Florida</option>
+                                <option value="value6">Ohio</option>
+                                <option value="value7">Washington</option>
+                            </select>
+                          </div>
+                          <div class="row">
+                            <p style="color: red;" id="errormessage13"></p>
+                            </div>
+    
+                            <div class="labelheight">
+                                <label class="labelwidth" style="margin-left: 9px;">City</label>
+                                 <input type="text" class="City1" id="city_1" (keypress)="EmptyErrorMessage('errormessage14')">
+                                </div>
+                                <div class="row">
+                                 <p style="color: red;" id="errormessage14"></p>
+                                </div>
+    
+                                <div class="labelheight">
+                                    <label class="labelwidth" style="margin-left: 9px;">Zip Code</label>
+                                    <input type="text" class="zip1" id="zip_code1" (keypress)="EmptyErrorMessage('errormessage15')">
+                                    </div>
+                                    <div class="row">
+                                   <p style="color: red;" id="errormessage15"></p> 
+                                    </div>
+    
+                                    <div class="labelheight">
+                                        <label class="labelwidth" style="margin-left: 9px;">County</label>
+                                        <input type="text" class="County1" id="county_1" (keypress)="EmptyErrorMessage('errormessage16')">
+                                        </div>
+                                        <div class="row"> <p style="color: red;" id="errormessage16"></p> </div>
+    
+                                        <div class="labelheight" style="margin-left: 9px;">
+                                            <label class="labelwidth">Country</label>
+                                            <select class="Country1" id="country_1" (keypress)="EmptyErrorMessage('errormessage17')">
+                                                <option value="value"></option>
+                                                <option value="value1">USA</option>
+                                                <option value="value2">India</option>
+                                            </select> 
+                                        </div>
+                                        <div class="row"> <p style="color: red;" id="errormessage17"></p></div>
+               
+                </div>
+              </div><br>
+    
+              <div class="accordion" style="margin-top: 0px;">
+                <h2 class="title mainheading" (click)="opened2 = !opened2">Past Address</h2>
+                <div class="content-container" [class.opened2]="opened2">
+    
+                    <div class="labelheight">
+                        <label class="labelwidth" style="margin-left: 9px;">Mailing Address</label>
+                        <input type="text" class="Mailingaddress1" id="mailing_address" (keypress)="EmptyErrorMessage('errormessage12')">
+                        </div>
+                        <div class="row">
+                        <p style="color: red;" id="errormessage12"></p>
+                        </div>
+    
+                        <div class="labelheight">
+                            <label class="labelwidth" style="margin-left: 9px;">State/Province</label>
+                            <select class="State" id="state_province1" (keypress)="EmptyErrorMessage('errormessage13')">
+                                <option value="value1">Virginia</option>
+                                <option value="value2">Alabama</option>
+                                <option value="value3">Alaska</option>
+                                <option value="value4">California</option>
+                                <option value="value5">Florida</option>
+                                <option value="value6">Ohio</option>
+                                <option value="value7">Washington</option>
+                            </select>
+                          </div>
+                          <div class="row">
+                            <p style="color: red;" id="errormessage13"></p>
+                            </div>
+    
+                            <div class="labelheight">
+                                <label class="labelwidth" style="margin-left: 9px;">City</label>
+                                 <input type="text" class="City1" id="city_1" (keypress)="EmptyErrorMessage('errormessage14')">
+                                </div>
+                                <div class="row">
+                                 <p style="color: red;" id="errormessage14"></p>
+                                </div>
+    
+                                <div class="labelheight">
+                                    <label class="labelwidth" style="margin-left: 9px;">Zip Code</label>
+                                    <input type="text" class="zip1" id="zip_code1" (keypress)="EmptyErrorMessage('errormessage15')">
+                                    </div>
+                                    <div class="row">
+                                   <p style="color: red;" id="errormessage15"></p> 
+                                    </div>
+    
+                                    <div class="labelheight">
+                                        <label class="labelwidth" style="margin-left: 9px;">County</label>
+                                        <input type="text" class="County1" id="county_1" (keypress)="EmptyErrorMessage('errormessage16')">
+                                        </div>
+                                        <div class="row"> <p style="color: red;" id="errormessage16"></p> </div>
+    
+                                        <div class="labelheight" style="margin-left: 9px;">
+                                            <label class="labelwidth">Country</label>
+                                            <select class="Country1" id="country_1" (keypress)="EmptyErrorMessage('errormessage17')">
+                                                <option value="value1">USA</option>
+                                                <option value="value2">India</option>
+                                            </select> 
+                                        </div>
+                                        <div class="row"> <p style="color: red;" id="errormessage17"></p></div>
+               
+                </div>
+              </div>
+    
+          <!-- </div> -->
+     </div></div>
+    </div>
+     <!-- Address Information -->
+    
+     <!-- Contact Information Start -->
+    <div id="contact_inforation" style="display: none;">
+    
+     <p class="mainheading heading" style=" padding-bottom: 5px; padding-top: 16px;">Contact Information</p>
+    
+     <div class="row Generaldiv" style="height: 141px;">
+    
+         <div class="col-sm-6 innerlinefont">
+             <div class="labelheight">
+             <label class="labelwidth"> Contact Person Name</label>
+             <input type="text" class="Contactperson" id="contact_name" (keypress)="EmptyErrorMessage('errormessage19')">
+              </div>
+             <div class="row"> <p style="color: red;" id="errormessage19"></p></div>
+    
+             <div class="labelheight">
+                 <label class="labelwidth">Business Phone</label>
+                 <input type="text" class="Businessphone" id="business_phone" (keypress)="EmptyErrorMessage('errormessage20')">
+                
+                 </div>
+                 <div class="row"> <p style="color: red;" id="errormessage20"></p></div>
+    
+                <div class="labelheight">
+                    <label class=" labelwidth" style="width: 146px;">Primary Contact</label>
+                   <label class="switch">
+                     <input class="" type="checkbox" name="active" id="active" checked>
+                     <span class="slider round"></span>
+                     </label>
+                    </div>
+    
+                    <div class="labelheight">
+                        <label class="labelwidth" style="width: 146px;">Active</label>
+                       <label class="switch">
+                         <input class="" type="checkbox" name="active" id="active" checked>
+                         <span class="slider round"></span>
+                         </label>
+                        </div>
+                         
+    </div>
+           
+    <div class="col-sm-6 innerlinefont">
+    
+               <div class="labelheight">
+                 <label class="labelwidth">Title</label>
+                 <input type="text" class="Title" id="title" (keypress)="EmptyErrorMessage('errormessage21')"> 
+             </div>
+                 <p style="color: red;" id="errormessage21"></p>
+                 <div class="row"></div>
+    
+             <div class="labelheight">
+                 <label class="labelwidth">Business Email</label>
+                 <input type="text" class="Businessemail" id="business_email" (keypress)="EmptyErrorMessage('errormessage22')">
+                 </div>
+                 <div class="row"> <p style="color: red;" id="errormessage22"></p> </div>
+    
+                 <div>
+                    <label class="Wouldyoulike" >Would you like to receive outreach emails from us?</label>
+                     <!--<label style="width:10px"></label>-->
+                  <label class="switch">
+                     <input class="" type="checkbox" name="active" id="active" checked>
+                     <span class="slider round"></span>
+                     </label>
+                    </div>
+    
+         </div>
+     </div>
+    </div>
+     <!-- Contact Information End-->
+    
+     <div class="btndiv">
+         <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />
+          <!-- <input value="Close" type="button" class="btn btn-success" style="background:red" data-dismiss="modal">   -->
+     &nbsp;&nbsp;
+          <input type="button"   class="btn btn-primary fixedwidthcls"  (click)="Userdata();mailingaddress()" value="Save " />  
+        <!-- <input value="Close" type="button" class="btn btn-success" style="background:red" data-dismiss="modal">   -->
+        </div><br> 
+    
+    </div>
+    

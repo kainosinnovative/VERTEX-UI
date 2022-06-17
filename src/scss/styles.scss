@@ -24,3 +24,30 @@ $enable-rtl: true;
 
 // If you want to add something do it here
 @import "custom";
+
+
+/* You can add global styles to this file, and also import other style files */
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.labelheight{
+    height: 36px;
+    /* this one used for per div label-height*/
+}
+
+.labelwidth{
+     width: 146px;
+      /* this one used for per div label-width*/
+}
+
+.mainheading{
+    font-size: 16px !important;
+    font-weight: 700;
+}
+
+.innerlinefont{
+    font-size: 12px !important;
+}
+
