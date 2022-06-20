@@ -53,9 +53,9 @@
   >
     </c-sidebar-nav> -->
 
- <p class="menulinkPtagcls">   <a class="menulinkcls"  routerLink="/vendormanagement">Vendor Management</a></p>
+ <p class="menulinkPtagcls" *ngIf="usertypeses=='EMPLOY' || usertypeses=='ADMIN'">   <a class="menulinkcls"  routerLink="/vendormanagement">Vendor Management</a></p>
 <!-- <br> -->
-   <p class="menulinkPtagcls"> <a class="menulinkcls" routerLink="/adminmanagement">User Management</a></p>
+   <p class="menulinkPtagcls" *ngIf="usertypeses=='ADMIN'"> <a class="menulinkcls" routerLink="/adminmanagement">User Management</a></p>
 
   <!-- <a routerlinkactive="active" ng-reflect-router-link-active="active" ng-reflect-ng-class="[object Object]" ng-reflect-c-html-attr="[object Object]" ng-reflect-preserve-fragment="false" ng-reflect-skip-location-change="false" ng-reflect-replace-url="false" ng-reflect-state="[object Object]" ng-reflect-router-link="/vendormanagement" ng-reflect-router-link-active-options="[object Object]" class="nav-link active" href="/vendormanagement">
     

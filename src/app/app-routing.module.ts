@@ -32,11 +32,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/adminmanagement/adminmanagement.module').then((m) => m.AdminModule)
       },
-      // {
-      //   path: 'dashboard',
-      //   loadChildren: () =>
-      //     import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
-      // },
+      {
+        path: 'Logout',
+        loadChildren: () =>
+          import('./views/logout/logout.module').then((m) => m.LogoutModule)
+      },
       // {
       //   path: 'theme',
       //   loadChildren: () =>
