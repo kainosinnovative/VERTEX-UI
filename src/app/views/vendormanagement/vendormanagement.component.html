@@ -444,7 +444,7 @@
      <p class="mainheading heading" style=" padding-bottom: 5px; padding-top: 16px;">Contact Information</p>
 
      <form [formGroup]="ContactBusiness">
-     <div class="row Generaldiv" style="height: 141px;">
+     <div class="row Generaldiv" >
     
       
          <div class="col-sm-6 innerlinefont">
@@ -504,6 +504,63 @@
                      <span class="slider round"></span>
                      </label>
                     </div>
+
+                    <!-- <form [formGroup]="addtionalcontact"></form> -->
+                    <div class="accordion">
+                        <h2 class="title mainheading" (click)="opened3 = !opened3">Additional Contact Details Added</h2>
+                        <div class="content-container" [class.opened3]="opened3">
+                            <div class="labelheight">
+                                <label class="labelwidth" style="margin-left: 9px;">Contact Person Name</label>
+                                <input type="text" class="Contactperson" formControlName="addtional_name" (keypress)="EmptyErrorMessage('errormessage37')">
+                                </div>
+                                <div class="row">
+                                <p style="color: red;" id="errormessage37"></p>
+                                </div>
+        
+                                <div class="labelheight">
+                                    <label class="labelwidth" style="margin-left: 9px;">Title</label>
+                                    <input type="text" class="Title" formControlName="addtional_title" (keypress)="EmptyErrorMessage('errormessage38')">
+                                    </div>
+                                    <div class="row">
+                                    <p style="color: red;" id="errormessage38"></p>
+                                    </div>
+            
+                                <div class="labelheight">
+                                    <label class="labelwidth" style="margin-left: 9px;">Business Email</label>
+                                    <input type="text" class="Businessemail" formControlName="addtional_businessmail" (keypress)="EmptyErrorMessage('errormessage39')">
+                                  </div>
+                                  <div class="row">
+                                    <p style="color: red;" id="errormessage39"></p>
+                                    </div>
+            
+                                    <div class="labelheight">
+                                        <label class="labelwidth" style="margin-left: 9px;">Business Phone</label>
+                                         <input type="text" class="City1" formControlName="addtional_businessphone" (keypress)="EmptyErrorMessage('errormessage40')">
+                                        </div>
+                                        <div class="row">
+                                         <p style="color: red;" id="errormessage40"></p>
+                                        </div>
+
+                                    <div style="height: 22px;">
+                                        <label class="labelwidth" style="width: 146px;margin-left: 9px;">Active</label>
+                                        <label class="switch">
+                                        <input class="" type="checkbox" name="active" id="active" checked>
+                                        <span class="slider round"></span>
+                                         </label>
+                                    </div>
+
+                                    <div>
+                                        <label class="Wouldyoulike" style="margin-left: 9px;" >Would you like to receive outreach emails from us?</label>
+                                         <!--<label style="width:10px"></label>-->
+                                      <label class="switch">
+                                         <input class="" type="checkbox" name="active" id="active" checked>
+                                         <span class="slider round"></span>
+                                         </label>
+                                        </div>
+            
+                                 </div>
+                      </div>
+
               </div>
      </div>
     </form>
@@ -512,11 +569,9 @@
     
      <div class="btndiv">
          <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />
-          <!-- <input value="Close" type="button" class="btn btn-success" style="background:red" data-dismiss="modal">   -->
      &nbsp;&nbsp;
           <input type="button"   class="btn btn-primary fixedwidthcls"  (click)="Userdata(vendorMgmt.value,contactindividual.value,generalinformation.value,currentaddress.value,mailingaddress.value,Pastaddress.value,ContactBusiness.value)" value="Save " />  
-        <!-- <input value="Close" type="button" class="btn btn-success" style="background:red" data-dismiss="modal">   -->
-        </div><br> 
+       </div><br> 
 
         <!-- </form> -->
     

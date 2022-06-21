@@ -23,7 +23,7 @@
   padding: 0px;
   margin-top: -8px;
   margin-left: 8px;
-  margin-bottom: 2px;
+  margin-bottom: 6px;
   font-size: 12px !important;
   font-weight: 600;
   }
@@ -44,6 +44,10 @@
   .content-container.opened2 {
   max-height: none;
   }
+
+  .content-container.opened3 {
+    max-height: none;
+    }
   
   .toggledesign{
     background: #1593E4;

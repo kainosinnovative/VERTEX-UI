@@ -22,6 +22,7 @@ export class VendormanagementComponent implements OnInit {
   mailingaddress: any;
   Pastaddress: any;
   ContactBusiness: any;
+  addtionalcontact: any;
 
   constructor(
     private frmbuilder: FormBuilder
@@ -93,7 +94,17 @@ export class VendormanagementComponent implements OnInit {
       business_phone: [],
       title: [],
       business_email: [],
+      addtional_name: [],
+      addtional_title: [],
+      addtional_businessmail: [],
+      addtional_businessphone: [],
      })
+
+    //  this.addtionalcontact = this.frmbuilder.group({
+
+      
+
+    //  })
 
   }
 
@@ -363,7 +374,8 @@ else {
   let business_phone = this.ContactBusiness.get('business_phone').value;
   let title= this.ContactBusiness.get('title').value;
   let business_email = this.ContactBusiness.get('business_email').value;
-  
+
+
 
     if(user_name == null){
             (document.getElementById('errormessage') as HTMLFormElement).innerHTML = "Enter the User Name";
@@ -464,8 +476,49 @@ else {
         return;
       }
 
+     
+      let addtional_name = this.ContactBusiness.get('addtional_name').value;
+      let addtional_title = this.ContactBusiness.get('addtional_title').value;
+      let addtional_businessmail = this.ContactBusiness.get('addtional_businessmail').value;
+      let addtional_businessphone = this.ContactBusiness.get('addtional_businessphone').value;
+  
+      if(addtional_name == null && addtional_title == null && addtional_businessmail == null && addtional_businessphone == null){
+  
+         alert("pls enter all value");
+         return;
+         }
+         
+         else{
+  
+          // alert("hi");
+  
+           if(addtional_name == null){
+            (document.getElementById('errormessage37') as HTMLFormElement).innerHTML = "Enter the Contact Person Name";
+            (document.getElementById('errormessage37') as HTMLFormElement).focus();
+            return;
+          }
+    
+          else if(addtional_title == null){
+            (document.getElementById('errormessage38') as HTMLFormElement).innerHTML = "Enter the Title";
+            (document.getElementById('errormessage38') as HTMLFormElement).focus();
+            return;
+          }
+    
+          else if(addtional_businessmail == null){
+            (document.getElementById('errormessage39') as HTMLFormElement).innerHTML = "Enter the Business Mailid";
+            (document.getElementById('errormessage39') as HTMLFormElement).focus();
+            return;
+          }
+    
+          else if(addtional_businessphone == null){
+            (document.getElementById('errormessage40') as HTMLFormElement).innerHTML = "Enter the business Phone";
+            (document.getElementById('errormessage40') as HTMLFormElement).focus();
+            return;
+          }
+         }
 
-       let mailing_address =this.mailingaddress.get('mailing_address').value;
+
+    let mailing_address =this.mailingaddress.get('mailing_address').value;
     let mailing_street = this.mailingaddress.get('mailing_street').value;
     let state_province1 = this.mailingaddress.get('state_province1').value;
     let city_1 = this.mailingaddress.get('city_1').value;
@@ -585,6 +638,9 @@ else if(city_1 == null){
           }
 
     }
+
+  
+    
       
 
 }
