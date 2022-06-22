@@ -466,7 +466,7 @@
                 <div class="labelheight">
                     <label class=" labelwidth" style="width: 146px;">Primary Contact</label>
                    <label class="switch">
-                     <input class="" type="checkbox" name="active" id="active" checked>
+                     <input class="" type="checkbox" name="businessprimaryContact" id="businessprimaryContact" formControlName="VendorContactPrimary" checked>
                      <span class="slider round"></span>
                      </label>
                     </div>
@@ -474,7 +474,7 @@
                     <div class="labelheight">
                         <label class="labelwidth" style="width: 146px;">Active</label>
                        <label class="switch">
-                         <input class="" type="checkbox" name="active" id="active" checked>
+                         <input class="" type="checkbox" name="businessContactActive" id="businessContactActive" formControlName="VendorContactActive" checked>
                          <span class="slider round"></span>
                          </label>
                         </div>
@@ -546,7 +546,7 @@
                                     <div style="height: 22px;">
                                         <label class="labelwidth" style="width: 146px;margin-left: 9px;">Active</label>
                                         <label class="switch">
-                                        <input class="" type="checkbox" name="active" id="active" checked>
+                                        <input class="" type="checkbox" name="active" id="active"  checked>
                                         <span class="slider round"></span>
                                          </label>
                                     </div>
@@ -573,6 +573,7 @@
          <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />
      &nbsp;&nbsp;
           <input type="button"   class="btn btn-primary fixedwidthcls"  (click)="Userdata(vendorMgmt.value,contactindividual.value,generalinformation.value,currentaddress.value,mailingaddress.value,Pastaddress.value,ContactBusiness.value)" value="Save " />  
+          <input type="button"   class="btn btn-primary fixedwidthcls"  (click)="Userdata1(ContactBusiness.value,vendorMgmt.value)" value="Test " />  
        </div><br> 
 
         <!-- </form> -->

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl,} from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-vendormanagement',
   templateUrl: './vendormanagement.component.html',
@@ -25,7 +25,7 @@ export class VendormanagementComponent implements OnInit {
   addtionalcontact: any;
 
   constructor(
-    private frmbuilder: FormBuilder
+    private frmbuilder: FormBuilder,private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -98,6 +98,8 @@ export class VendormanagementComponent implements OnInit {
       addtional_title: [],
       addtional_businessmail: [],
       addtional_businessphone: [],
+      VendorContactPrimary:[],
+      VendorContactActive:[]
      })
 
     //  this.addtionalcontact = this.frmbuilder.group({
@@ -114,7 +116,26 @@ export class VendormanagementComponent implements OnInit {
 
 
 
-
+ Userdata1(ContactBusiness:any,vendorMgmt:any){
+  let ContactBusiness1 = JSON.stringify(ContactBusiness);   
+  let vendorMgmt1 = JSON.stringify(ContactBusiness);         
+// console.log(ContactBusiness)
+// ContactBusiness.append(vendorMgmt);
+// console.log(vendorMgmt)
+// let formData = new FormData();
+// formData.append('username', 'Chris');
+// formData.append('ContactBusiness', vendorMgmt);
+// console.log(formData);
+// this.http.post("http://localhost/VERTEX-PHP-API/",formData).subscribe(
+//               (data: any) => {
+//             console.log(data);
+// });
+this.http.get("http://localhost/VERTEX-PHP-API/"+'vendor/InsertVendorContact?ContactBusiness='+ContactBusiness1+
+            '&vendorMgmt='+vendorMgmt1).subscribe(
+              (data: any) => {
+            console.log(data);
+});
+ }
 
 
   Userdata(vendorMgmt:any,contactindividual:any,generalinformation:any,currentaddress:any,mailingaddress:any,Pastaddress:any,ContactBusiness:any){
@@ -125,7 +146,7 @@ console.log('general bus', generalinformation);
 console.log('current adrs', currentaddress);
 console.log('mailing adrs', mailingaddress);
 console.log('past adrs', Pastaddress);
-console.log('contact bus', ContactBusiness)
+console.log('contact bus', ContactBusiness);
 
      if(this.is_business == 'individual'){
       
