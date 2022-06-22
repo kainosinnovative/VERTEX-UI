@@ -8,7 +8,7 @@
                 <div class="col-sm-5 innerlinefont usernamediv">
                     <!-- <mat-form-field> -->
                     <label class="labelwidth"> User Name </label>
-                    <input class="toggle username" type="type"  formControlName="user_name" (keyup)="EmptyErrorMessage('errormessage')">
+                    <input class="toggle username" type="type"  formControlName="user_name" id="user"  (keyup)="EmptyErrorMessage('errormessage')">
                     <p style="color: red;" id="errormessage"></p>
                 <!-- </mat-form-field> -->
                 </div>
@@ -40,7 +40,7 @@
     
         <div class="labelheight">
             <label class="labelwidth">Trade Name</label>    
-            <input type="text" class="firstname" formControlName="first_name" (keypress)="EmptyErrorMessage('errormessage52')">
+            <input type="text" class="firstname" formControlName="first_name" id="firstname_id" (keypress)="EmptyErrorMessage('errormessage52')">
         </div>
         <div class="row">
             <p style="color: red;" id="errormessage52"></p>
@@ -48,7 +48,7 @@
     
             <div class="labelheight">
                 <label class="labelwidth">Legal Name</label>
-            <input type="text" class="lastname" formControlName="last_name" (keypress)="EmptyErrorMessage('errormessage23')" >
+            <input type="text" class="lastname" formControlName="last_name" id="lastname_id" (keypress)="EmptyErrorMessage('errormessage23')" >
             </div>
             <div class="row">
                 <p style="color: red;" id="errormessage23"></p>
@@ -56,7 +56,7 @@
     
             <div class="labelheight">
                 <label class="labelwidth">Alias Name</label>
-                <input type="text" class="middlename" formControlName="middle_name" (keypress)="EmptyErrorMessage('errormessage24')">
+                <input type="text" class="middlename" id="middlename_id" formControlName="middle_name" (keypress)="EmptyErrorMessage('errormessage24')">
             </div>
             <div class="row">
                 <p style="color: red;" id="errormessage24"></p>
@@ -75,7 +75,7 @@
       <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
             <label class="labelwidth">Social Security Number</label>
-            <input type="text" class="social" formControlName="social_no" (keypress)="EmptyErrorMessage('errormessage25')">
+            <input type="text" class="social" id="socialsecurity_id" formControlName="social_no" (keypress)="EmptyErrorMessage('errormessage25')">
         </div>
         <div class="row">
             <p style="color: red;" id="errormessage25"></p>
@@ -450,9 +450,11 @@
          <div class="col-sm-6 innerlinefont">
              <div class="labelheight">
              <label class="labelwidth"> Contact Person Name</label>
-             <input type="text" class="Contactperson" formControlName="contact_name" (keypress)="EmptyErrorMessage('errormessage19')">
+             <input type="text" class="Contactperson" formControlName="contact_name"  (keypress)="EmptyErrorMessage('errormessage19')">
               </div>
-             <div class="row"> <p style="color: red;" id="errormessage19"></p></div>
+             <div class="row">
+                 <p style="color: red;" id="errormessage19"></p>
+                </div>
     
              <div class="labelheight">
                  <label class="labelwidth">Business Phone</label>

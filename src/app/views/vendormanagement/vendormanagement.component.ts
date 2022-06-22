@@ -112,6 +112,11 @@ export class VendormanagementComponent implements OnInit {
 
  mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
+
+
+
+
+
   Userdata(vendorMgmt:any,contactindividual:any,generalinformation:any,currentaddress:any,mailingaddress:any,Pastaddress:any,ContactBusiness:any){
 
 console.log('username', vendorMgmt);
@@ -146,8 +151,7 @@ console.log('contact bus', ContactBusiness)
 
     if(user_name == null){
         (document.getElementById('errormessage') as HTMLFormElement).innerHTML = "Enter the User Name";
-        (document.getElementById('errormessage') as HTMLFormElement).focus();
-    
+        (document.getElementById('user') as HTMLFormElement).focus();
       }
     // else if(active == null){
 
@@ -157,22 +161,22 @@ console.log('contact bus', ContactBusiness)
     // }
     else if(first_name == null){
       (document.getElementById('errormessage52') as HTMLFormElement).innerHTML = "Enter the First Name";
-      (document.getElementById('errormessage52') as HTMLFormElement).focus();
+      (document.getElementById('firstname_id') as HTMLFormElement).focus();
       return;
     }
     else if(last_name == null){
       (document.getElementById('errormessage23') as HTMLFormElement).innerHTML = "Enter the Last Name";
-      (document.getElementById('errormessage23') as HTMLFormElement).focus();
+      (document.getElementById('lastname_id') as HTMLFormElement).focus();
       return;
     }
     else if(middle_name == null){ 
       (document.getElementById('errormessage24') as HTMLFormElement).innerHTML = "Enter the Middle Name";
-      (document.getElementById('errormessage24') as HTMLFormElement).focus();
+      (document.getElementById('middlename_id') as HTMLFormElement).focus();
       return;
     }
     else if(social_no == ""){
       (document.getElementById('errormessage25') as HTMLFormElement).innerHTML = "Enter the Social Security Number";
-      (document.getElementById('errormessage25') as HTMLFormElement).focus();
+      (document.getElementById('socialsecurity_id') as HTMLFormElement).focus();
       return;
     }
     else if(email_individual == ""){
@@ -649,7 +653,7 @@ else if(city_1 == null){
 EmptyErrorMessage(errormessage: any) {
 
      (document.getElementById(errormessage) as HTMLFormElement).innerHTML = "";
-  
+
   }
 
   
