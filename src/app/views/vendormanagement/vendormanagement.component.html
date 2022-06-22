@@ -83,7 +83,7 @@
     
         <div class="labelheight">
             <label class="labelwidth">Email</label>
-            <input type="email" class="emailt"  formControlName="email_individual" (keypress)="EmptyErrorMessage('errormessage26')">
+            <input type="email" class="emailt" id="email_id"  formControlName="email_individual" (keypress)="EmptyErrorMessage('errormessage26')">
         </div>
         <div class="row">
             <p style="color: red;" id="errormessage26"></p>
@@ -91,7 +91,7 @@
         
         <div class="labelheight">
             <label class="labelwidth">Phone</label>
-            <input type="text" class="phone" formControlName="phone_no" (keypress)="EmptyErrorMessage('errormessage27')">
+            <input type="text" class="phone" id="phone_id" formControlName="phone_no" (keypress)="EmptyErrorMessage('errormessage27')">
         </div>
         <div class="row">
             <p style="color: red;" id="errormessage27"></p>
@@ -114,7 +114,7 @@
                 <div class="col-sm-6 innerlinefont">
                     <div class="labelheight">
                     <label class="labelwidth"> Legal Business Name</label>
-                    <input type="text" class="Legalbusiness" formControlName="business_name" (keypress)="EmptyErrorMessage('errormessage2')" >
+                    <input type="text" class="Legalbusiness" id="legalbusiness_id" formControlName="business_name" (keypress)="EmptyErrorMessage('errormessage2')" >
                 </div>
                      <div class="row">
                         <p style="color: red;" id="errormessage2"></p>
@@ -123,7 +123,7 @@
     
                     <div class="labelheight">
                         <label class="labelwidth">Federal EIN</label>
-                        <input type="text" class="Federal" formControlName="federal" (keypress)="EmptyErrorMessage('errormessage3')">
+                        <input type="text" class="Federal" id="federal_id" formControlName="federal" (keypress)="EmptyErrorMessage('errormessage3')">
                           </div>
                         <div class="row">
                             <p style="color: red;" id="errormessage3"></p>
@@ -155,7 +155,7 @@
     
                     <div class="labelheight">
                     <label class="labelwidth"> Trade Name</label> 
-                    <input type="text" class="Vendortype" formControlName="trade_name" (keypress)="EmptyErrorMessage('errormessage10')"> 
+                    <input type="text" id="tradename_id" class="Vendortype" formControlName="trade_name" (keypress)="EmptyErrorMessage('errormessage10')"> 
                   </div>
                 <div class="row">
                     <p style="color: red;" id="errormessage10"></p>
@@ -163,7 +163,7 @@
     
                     <div class="labelheight">
                         <label class="labelwidth">DUNS Number</label>
-                        <input type="text" class="DUNSno" formControlName="duns_no" (keypress)="EmptyErrorMessage('errormessage11')"> 
+                        <input type="text" id="dunsno_id" class="DUNSno" formControlName="duns_no" (keypress)="EmptyErrorMessage('errormessage11')"> 
                       </div>
                     <div class="row">
                         <p style="color: red;" id="errormessage11"></p>
@@ -171,7 +171,7 @@
     
                        <div class="labelheight">
                              <label class="labelwidth">Business Website</label>
-                             <input type="text" class="Businesswebsite" formControlName="business_website" (keypress)="EmptyErrorMessage('errormessage18')">
+                             <input type="text" class="Businesswebsite" id="businesswebsite_id" formControlName="business_website" (keypress)="EmptyErrorMessage('errormessage18')">
                              </div>
                             <div class="row"> <p style="color: red;" id="errormessage18"></p></div>
     
@@ -206,7 +206,7 @@
     
              <div class="labelheight">
                  <label class="labelwidth">Address</label>
-                 <input type="text" class="Physicaladdress" formControlName="physical_address" (keypress)="EmptyErrorMessage('errormessage4')">
+                 <input type="text" class="Physicaladdress" id="currentaddress_id" formControlName="physical_address" (keypress)="EmptyErrorMessage('errormessage4')">
                  </div>
                  <div class="row">
                      <p style="color: red;" id="errormessage4"></p>
@@ -214,7 +214,7 @@
 
                  <div class="labelheight">
                     <label class="labelwidth">Street Address</label>
-                    <input type="text" class="Physicaladdress" formControlName="street" (keypress)="EmptyErrorMessage('errormessage28')">
+                    <input type="text" class="Physicaladdress" id="currentstreet_id" formControlName="street" (keypress)="EmptyErrorMessage('errormessage28')">
                     </div>
                     <div class="row">
                         <p style="color: red;" id="errormessage28"></p>
@@ -222,7 +222,7 @@
 
                 <div class="labelheight">
                  <label class="labelwidth">state_province</label>
-                 <select class="State"  formControlName="state_province" (change)="EmptyErrorMessage('errormessage5')">
+                 <select class="State" id="stateprovice_id" formControlName="state_province" (change)="EmptyErrorMessage('errormessage5')">
                      <option value="value1">Virginia</option>
                      <option value="value2">Alabama</option>
                      <option value="value3">Alaska</option>
@@ -238,7 +238,7 @@
                  
                   <div class="labelheight">
                  <label class="labelwidth">city</label>
-                         <input type="text" class="city" formControlName="city" (keypress)="EmptyErrorMessage('errormessage6')">
+                         <input type="text" id="currentcity_id" class="city" formControlName="city" (keypress)="EmptyErrorMessage('errormessage6')">
                   </div>
                   <div class="row">
                      <p style="color: red;" id="errormessage6"></p>
@@ -247,7 +247,7 @@
     
                   <div class="labelheight">
                      <label class="labelwidth">Zip Code</label>
-                     <input type="text" class="zip" formControlName="zip_code" (keypress)="EmptyErrorMessage('errormessage7')">
+                     <input type="text" id="currentzipcode_id" class="zip" formControlName="zip_code" (keypress)="EmptyErrorMessage('errormessage7')">
                        </div>
                      <div class="row">
                      <p style="color: red;" id="errormessage7"></p>
@@ -255,7 +255,7 @@
     
                      <div class="labelheight">
                          <label class="labelwidth">County</label>
-                         <input type="text" class="County" id="" formControlName="county" (keypress)="EmptyErrorMessage('errormessage8')">
+                         <input type="text" id="currentcounty_id" class="County" id="" formControlName="county" (keypress)="EmptyErrorMessage('errormessage8')">
                          </div>
                          <div class="row">
                          <p style="color: red;" id="errormessage8"></p>
@@ -263,7 +263,7 @@
              
                          <div class="labelheight">
                              <label class="labelwidth">Country</label>
-                             <select class="Country" id="country" formControlName="country" (change)="EmptyErrorMessage('errormessage9')">
+                             <select class="Country" id="currentcountry_id" formControlName="country" (change)="EmptyErrorMessage('errormessage9')">
                                  <option value="value1">USA</option>
                                  <option value="value2">India</option>
                              </select> 
@@ -292,7 +292,7 @@
                 <div class="content-container" [class.opened]="opened">
                     <div class="labelheight">
                         <label class="labelwidth" style="margin-left: 9px;">Address</label>
-                        <input type="text" class="Mailingaddress1" formControlName="mailing_address"  (keypress)="EmptyErrorMessage('errormessage12')">
+                        <input type="text" id="mailingaddress_id" class="Mailingaddress1" formControlName="mailing_address"  (keypress)="EmptyErrorMessage('errormessage12')">
                         </div>
                         <div class="row">
                         <p style="color: red;" id="errormessage12"></p>
@@ -300,7 +300,7 @@
 
                         <div class="labelheight">
                             <label class="labelwidth" style="margin-left: 9px;">Street Address</label>
-                            <input type="text" class="Mailingaddress1" formControlName="mailing_street" (keypress)="EmptyErrorMessage('errormessage29')">
+                            <input type="text" id="mailingstreet_id" class="Mailingaddress1" formControlName="mailing_street" (keypress)="EmptyErrorMessage('errormessage29')">
                             </div>
                             <div class="row">
                             <p style="color: red;" id="errormessage29"></p>
@@ -308,7 +308,7 @@
     
                         <div class="labelheight">
                             <label class="labelwidth" style="margin-left: 9px;">State/Province</label>
-                            <select class="State" formControlName="state_province1" (change)="EmptyErrorMessage('errormessage13')">
+                            <select class="State" id="mailingstateprovince_id" formControlName="state_province1" (change)="EmptyErrorMessage('errormessage13')">
                                 <option value="value"></option>
                                 <option value="value1">Virginia</option>
                                 <option value="value2">Alabama</option>
@@ -325,7 +325,7 @@
     
                             <div class="labelheight">
                                 <label class="labelwidth" style="margin-left: 9px;">City</label>
-                                 <input type="text" class="City1"  formControlName="city_1" (keypress)="EmptyErrorMessage('errormessage14')">
+                                 <input type="text" id="mailingcity_id" class="City1"  formControlName="city_1" (keypress)="EmptyErrorMessage('errormessage14')">
                                 </div>
                                 <div class="row">
                                  <p style="color: red;" id="errormessage14"></p>
@@ -333,7 +333,7 @@
     
                                 <div class="labelheight">
                                     <label class="labelwidth" style="margin-left: 9px;">Zip Code</label>
-                                    <input type="text" class="zip1" formControlName="zip_code1" (keypress)="EmptyErrorMessage('errormessage15')">
+                                    <input type="text" id="mailingzipcode_id" class="zip1" formControlName="zip_code1" (keypress)="EmptyErrorMessage('errormessage15')">
                                     </div>
                                     <div class="row">
                                    <p style="color: red;" id="errormessage15"></p> 
@@ -341,13 +341,13 @@
     
                                     <div class="labelheight">
                                         <label class="labelwidth" style="margin-left: 9px;">County</label>
-                                        <input type="text" class="County1" formControlName="county_1" (keypress)="EmptyErrorMessage('errormessage16')">
+                                        <input type="text" id="mailingcounty_id" class="County1" formControlName="county_1" (keypress)="EmptyErrorMessage('errormessage16')">
                                         </div>
                                         <div class="row"> <p style="color: red;" id="errormessage16"></p> </div>
     
                                         <div class="labelheight" style="margin-left: 9px;">
                                             <label class="labelwidth">Country</label>
-                                            <select class="Country1" formControlName="country_1" (change)="EmptyErrorMessage('errormessage17')">
+                                            <select class="Country1" id="mailingcountry_id" formControlName="country_1" (change)="EmptyErrorMessage('errormessage17')">
                                                 <option value="value"></option>
                                                 <option value="value1">USA</option>
                                                 <option value="value2">India</option>
@@ -367,7 +367,7 @@
 
                       <div class="labelheight">
                         <label class="labelwidth" style="margin-left: 9px;">Address</label>
-                        <input type="text" class="Mailingaddress1" formControlName="past_address" (keypress)="EmptyErrorMessage('errormessage30')">
+                        <input type="text" id="pastaddress_id" class="Mailingaddress1" formControlName="past_address" (keypress)="EmptyErrorMessage('errormessage30')">
                         </div>
                         <div class="row">
                         <p style="color: red;" id="errormessage30"></p>
@@ -375,7 +375,7 @@
 
                         <div class="labelheight">
                             <label class="labelwidth" style="margin-left: 9px;"> Street Address</label>
-                            <input type="text" class="Mailingaddress1" formControlName="past_street" (keypress)="EmptyErrorMessage('errormessage31')">
+                            <input type="text" id="paststreet_id" class="Mailingaddress1" formControlName="past_street" (keypress)="EmptyErrorMessage('errormessage31')">
                             </div>
                             <div class="row">
                             <p style="color: red;" id="errormessage31"></p>
@@ -383,7 +383,7 @@
 
                           <div class="labelheight">
                             <label class="labelwidth" style="margin-left: 9px;">State/Province</label>
-                            <select class="State" formControlName="state_province2" (change)="EmptyErrorMessage('errormessage32')">
+                            <select class="State" id="paststateprovice_id" formControlName="state_province2" (change)="EmptyErrorMessage('errormessage32')">
                                 <option value="value1">Virginia</option>
                                 <option value="value2">Alabama</option>
                                 <option value="value3">Alaska</option>
@@ -399,7 +399,7 @@
     
                             <div class="labelheight">
                                 <label class="labelwidth" style="margin-left: 9px;">City</label>
-                                 <input type="text" class="City1" formControlName="city_2" (keypress)="EmptyErrorMessage('errormessage33')">
+                                 <input type="text" id="pastcity_id" class="City1" formControlName="city_2" (keypress)="EmptyErrorMessage('errormessage33')">
                                 </div>
                                 <div class="row">
                                  <p style="color: red;" id="errormessage33"></p>
@@ -407,7 +407,7 @@
     
                                 <div class="labelheight">
                                     <label class="labelwidth" style="margin-left: 9px;">Zip Code</label>
-                                    <input type="text" class="zip1" formControlName="zip_code2" (keypress)="EmptyErrorMessage('errormessage34')">
+                                    <input type="text" id="pastzipcode_id" class="zip1" formControlName="zip_code2" (keypress)="EmptyErrorMessage('errormessage34')">
                                     </div>
                                     <div class="row">
                                    <p style="color: red;" id="errormessage34"></p> 
@@ -415,13 +415,13 @@
     
                                     <div class="labelheight">
                                         <label class="labelwidth" style="margin-left: 9px;">County</label>
-                                        <input type="text" class="County1" formControlName="county_2" (keypress)="EmptyErrorMessage('errormessage35')">
+                                        <input type="text" id="pastcounty_id" class="County1" formControlName="county_2" (keypress)="EmptyErrorMessage('errormessage35')">
                                         </div>
                                         <div class="row"> <p style="color: red;" id="errormessage35"></p> </div>
     
                                         <div class="labelheight" style="margin-left: 9px;">
                                             <label class="labelwidth">Country</label>
-                                            <select class="Country1" id="country_2" (change)="EmptyErrorMessage('errormessage36')">
+                                            <select class="Country1" id="pastcountry_id" (change)="EmptyErrorMessage('errormessage36')">
                                                 <option ></option>
                                                 <option value="value1">USA</option>
                                                 <option value="value2">India</option>
@@ -450,7 +450,7 @@
          <div class="col-sm-6 innerlinefont">
              <div class="labelheight">
              <label class="labelwidth"> Contact Person Name</label>
-             <input type="text" class="Contactperson" formControlName="contact_name"  (keypress)="EmptyErrorMessage('errormessage19')">
+             <input type="text" class="Contactperson" id="contactperson_id" formControlName="contact_name"  (keypress)="EmptyErrorMessage('errormessage19')">
               </div>
              <div class="row">
                  <p style="color: red;" id="errormessage19"></p>
@@ -458,7 +458,7 @@
     
              <div class="labelheight">
                  <label class="labelwidth">Business Phone</label>
-                 <input type="text" class="Businessphone" formControlName="business_phone" (keypress)="EmptyErrorMessage('errormessage20')">
+                 <input type="text" class="Businessphone" id="businessphone_id" formControlName="business_phone" (keypress)="EmptyErrorMessage('errormessage20')">
                 
                  </div>
                  <div class="row"> <p style="color: red;" id="errormessage20"></p></div>
@@ -487,14 +487,14 @@
     
                <div class="labelheight">
                  <label class="labelwidth">Title</label>
-                 <input type="text" class="Title" formControlName="title" (keypress)="EmptyErrorMessage('errormessage21')"> 
+                 <input type="text" class="Title" id="title_id" formControlName="title" (keypress)="EmptyErrorMessage('errormessage21')"> 
              </div>
                  <p style="color: red;" id="errormessage21"></p>
                  <div class="row"></div>
     
              <div class="labelheight">
                  <label class="labelwidth">Business Email</label>
-                 <input type="text" class="Businessemail" formControlName="business_email" (keypress)="EmptyErrorMessage('errormessage22')">
+                 <input type="text" class="Businessemail" id="businessemail_id" formControlName="business_email" (keypress)="EmptyErrorMessage('errormessage22')">
                  </div>
                  <div class="row"> <p style="color: red;" id="errormessage22"></p> </div>
     
@@ -513,7 +513,7 @@
                         <div class="content-container" [class.opened3]="opened3">
                             <div class="labelheight">
                                 <label class="labelwidth" style="margin-left: 9px;">Contact Person Name</label>
-                                <input type="text" class="Contactperson" formControlName="addtional_name" (keypress)="EmptyErrorMessage('errormessage37')">
+                                <input type="text" class="Contactperson" id="addtionalcontactname_id" formControlName="addtional_name" (keypress)="EmptyErrorMessage('errormessage37')">
                                 </div>
                                 <div class="row">
                                 <p style="color: red;" id="errormessage37"></p>
@@ -521,7 +521,7 @@
         
                                 <div class="labelheight">
                                     <label class="labelwidth" style="margin-left: 9px;">Title</label>
-                                    <input type="text" class="Title" formControlName="addtional_title" (keypress)="EmptyErrorMessage('errormessage38')">
+                                    <input type="text" class="Title" id="addtionaltitle_id" formControlName="addtional_title" (keypress)="EmptyErrorMessage('errormessage38')">
                                     </div>
                                     <div class="row">
                                     <p style="color: red;" id="errormessage38"></p>
@@ -529,7 +529,7 @@
             
                                 <div class="labelheight">
                                     <label class="labelwidth" style="margin-left: 9px;">Business Email</label>
-                                    <input type="text" class="Businessemail" formControlName="addtional_businessmail" (keypress)="EmptyErrorMessage('errormessage39')">
+                                    <input type="text" class="Businessemail" id="addtionalbusinessmail_id" formControlName="addtional_businessmail" (keypress)="EmptyErrorMessage('errormessage39')">
                                   </div>
                                   <div class="row">
                                     <p style="color: red;" id="errormessage39"></p>
@@ -537,7 +537,7 @@
             
                                     <div class="labelheight">
                                         <label class="labelwidth" style="margin-left: 9px;">Business Phone</label>
-                                         <input type="text" class="City1" formControlName="addtional_businessphone" (keypress)="EmptyErrorMessage('errormessage40')">
+                                         <input type="text" class="City1" id="addtionalbusinessphone_id" formControlName="addtional_businessphone" (keypress)="EmptyErrorMessage('errormessage40')">
                                         </div>
                                         <div class="row">
                                          <p style="color: red;" id="errormessage40"></p>

@@ -174,62 +174,62 @@ console.log('contact bus', ContactBusiness)
       (document.getElementById('middlename_id') as HTMLFormElement).focus();
       return;
     }
-    else if(social_no == ""){
+    else if(social_no == null){
       (document.getElementById('errormessage25') as HTMLFormElement).innerHTML = "Enter the Social Security Number";
       (document.getElementById('socialsecurity_id') as HTMLFormElement).focus();
       return;
     }
-    else if(email_individual == ""){
+    else if(email_individual == null){
       (document.getElementById('errormessage26') as HTMLFormElement).innerHTML = "Enter the Email";
-      (document.getElementById('errormessage26') as HTMLFormElement).focus();
+      (document.getElementById('email_id') as HTMLFormElement).focus();
       return;
     }
     
     else if (!email_individual.match(this.mailformat)) {
       (document.getElementById('errormessage26') as HTMLFormElement).innerHTML = "Enter the Correct Emailid";
-      (document.getElementById('errormessage26') as HTMLFormElement).focus();
+      (document.getElementById('email_id') as HTMLFormElement).focus();
       return;
     }
 
-    else if(phone_no == ""){
+    else if(phone_no == null){
       (document.getElementById('errormessage27') as HTMLFormElement).innerHTML = "Enter the Phone";
-      (document.getElementById('errormessage27') as HTMLFormElement).focus();
+      (document.getElementById('phone_id') as HTMLFormElement).focus();
       return;
     }
-    else if(physical_address == ""){
+    else if(physical_address == null){
       (document.getElementById('errormessage4') as HTMLFormElement).innerHTML = "Enter the Physical Address";
-      (document.getElementById('errormessage4') as HTMLFormElement).focus();
+      (document.getElementById('currentaddress_id') as HTMLFormElement).focus();
       return;
     }
 
-    else if(street == ""){
+    else if(street == null){
       (document.getElementById('errormessage28') as HTMLFormElement).innerHTML = "Enter the Street";
-      (document.getElementById('errormessage28') as HTMLFormElement).focus();
+      (document.getElementById('currentstreet_id') as HTMLFormElement).focus();
       return;
     }
-    else if(state_province == ""){
+    else if(state_province == null){
       (document.getElementById('errormessage5') as HTMLFormElement).innerHTML = "Select state_province";
-      (document.getElementById('errormessage5') as HTMLFormElement).focus();
+      (document.getElementById('stateprovice_id') as HTMLFormElement).focus();
       return;
     }
-    else if(city == ""){
+    else if(city == null){
       (document.getElementById('errormessage6') as HTMLFormElement).innerHTML = "Enter the City";
-      (document.getElementById('errormessage6') as HTMLFormElement).focus();
+      (document.getElementById('currentcity_id') as HTMLFormElement).focus();
       return;
     }
-    else if(zip_code == ""){
+    else if(zip_code == null){
       (document.getElementById('errormessage7') as HTMLFormElement).innerHTML = "Enter the Zip Code";
-      (document.getElementById('errormessage7') as HTMLFormElement).focus();
+      (document.getElementById('currentzipcode_id') as HTMLFormElement).focus();
       return;
     }
-    else if(county == ""){
+    else if(county == null){
       (document.getElementById('errormessage8') as HTMLFormElement).innerHTML = "Enter the County";
-      (document.getElementById('errormessage8') as HTMLFormElement).focus();
+      (document.getElementById('currentcounty_id') as HTMLFormElement).focus();
       return;
     }
-    else if(country == ""){
+    else if(country == null){
       (document.getElementById('errormessage9') as HTMLFormElement).innerHTML = "Enter the Country";
-      (document.getElementById('errormessage9') as HTMLFormElement).focus();
+      (document.getElementById('currentcountry_id') as HTMLFormElement).focus();
       return;
     }
 
@@ -257,41 +257,41 @@ if( mailing_address == null){
 
   // alert("hi");
     (document.getElementById('errormessage12') as HTMLFormElement).innerHTML = "Enter the Mailing Address";
-    (document.getElementById('errormessage12') as HTMLFormElement).focus();
+    (document.getElementById('mailingaddress_id') as HTMLFormElement).focus();
     return;
 }
 
 else if(mailing_street == null){
 
   (document.getElementById('errormessage29') as HTMLFormElement).innerHTML = "Enter the  Street Address";
-   (document.getElementById('errormessage29') as HTMLFormElement).focus();
+   (document.getElementById('mailingstreet_id') as HTMLFormElement).focus();
    return;
 }
 
 else if(state_province1 == null){
 
      (document.getElementById('errormessage13') as HTMLFormElement).innerHTML = "Select State/Province";
-      (document.getElementById('errormessage13') as HTMLFormElement).focus();
+      (document.getElementById('mailingstateprovince_id') as HTMLFormElement).focus();
       return;
 }
 else if(city_1 == null){
       (document.getElementById('errormessage14') as HTMLFormElement).innerHTML = "Enter the City";
-      (document.getElementById('errormessage14') as HTMLFormElement).focus();
+      (document.getElementById('mailingcity_id') as HTMLFormElement).focus();
       return;
     }
   else if(zip_code1 == null){
       (document.getElementById('errormessage15') as HTMLFormElement).innerHTML = "Enter the Zip Code";
-      (document.getElementById('errormessage15') as HTMLFormElement).focus();
+      (document.getElementById('mailingzipcode_id') as HTMLFormElement).focus();
       return;
     }
     else if(county_1 == null){
       (document.getElementById('errormessage16') as HTMLFormElement).innerHTML = "Enter the County";
-      (document.getElementById('errormessage16') as HTMLFormElement).focus();
+      (document.getElementById('mailingcounty_id') as HTMLFormElement).focus();
       return;
     }
     else if(country_1 == null){
       (document.getElementById('errormessage17') as HTMLFormElement).innerHTML = "Enter the Country";
-      (document.getElementById('errormessage17') as HTMLFormElement).focus();
+      (document.getElementById('mailingcountry_id') as HTMLFormElement).focus();
       return;
     }
 
@@ -317,39 +317,39 @@ else if(city_1 == null){
         if(past_address == null){
 
           (document.getElementById('errormessage30') as HTMLFormElement).innerHTML = "Enter the Address";
-          (document.getElementById('errormessage30') as HTMLFormElement).focus();
+          (document.getElementById('pastaddress_id') as HTMLFormElement).focus();
         }
 
         else if(past_street == null){
 
             (document.getElementById('errormessage31') as HTMLFormElement).innerHTML = "Enter the Street";
-            (document.getElementById('errormessage31') as HTMLFormElement).focus();
+            (document.getElementById('paststreet_id') as HTMLFormElement).focus();
           }
 
           else if(state_province2 == null){
 
             (document.getElementById('errormessage32') as HTMLFormElement).innerHTML = "Enter the State/Province";
-            (document.getElementById('errormessage32') as HTMLFormElement).focus();
+            (document.getElementById('paststateprovice_id') as HTMLFormElement).focus();
           }
           else if(city_2 == null){
 
             (document.getElementById('errormessage33') as HTMLFormElement).innerHTML = "Enter the City";
-            (document.getElementById('errormessage33') as HTMLFormElement).focus();
+            (document.getElementById('pastcity_id') as HTMLFormElement).focus();
           }
           else if(zip_code2 == null){
 
             (document.getElementById('errormessage34') as HTMLFormElement).innerHTML = "Enter the Zipcode";
-            (document.getElementById('errormessage34') as HTMLFormElement).focus();
+            (document.getElementById('pastzipcode_id') as HTMLFormElement).focus();
           }
           else if(county_2 == null){
 
             (document.getElementById('errormessage35') as HTMLFormElement).innerHTML = "Enter the County";
-            (document.getElementById('errormessage35') as HTMLFormElement).focus();
+            (document.getElementById('pastcounty_id') as HTMLFormElement).focus();
           }
           else if(country_2 == null){
 
             (document.getElementById('errormessage36') as HTMLFormElement).innerHTML = "Enter the Country";
-            (document.getElementById('errormessage36') as HTMLFormElement).focus();
+            (document.getElementById('pastcountry_id') as HTMLFormElement).focus();
           }
 
     }
@@ -383,7 +383,7 @@ else {
 
     if(user_name == null){
             (document.getElementById('errormessage') as HTMLFormElement).innerHTML = "Enter the User Name";
-            (document.getElementById('errormessage') as HTMLFormElement).focus();
+            (document.getElementById('user') as HTMLFormElement).focus();
             return;
           }
       // else if(active == ""){
@@ -394,89 +394,89 @@ else {
       // }    
      else if(Legal_business == null){
         (document.getElementById('errormessage2') as HTMLFormElement).innerHTML = "Enter the Legal Business Name";
-        (document.getElementById('errormessage2') as HTMLFormElement).focus();
+        (document.getElementById('legalbusiness_id') as HTMLFormElement).focus();
         return;
       }
       else if(federal == null){
         (document.getElementById('errormessage3') as HTMLFormElement).innerHTML = "Enter the Federal EIN";
-        (document.getElementById('errormessage3') as HTMLFormElement).focus();
+        (document.getElementById('federal_id') as HTMLFormElement).focus();
         return;
       }
      
       else if(trade_name == null){
         (document.getElementById('errormessage10') as HTMLFormElement).innerHTML = "Enter your Trade Name";
-        (document.getElementById('errormessage10') as HTMLFormElement).focus();
+        (document.getElementById('tradename_id') as HTMLFormElement).focus();
         return;
       }
       else if(duns_no == null){
         (document.getElementById('errormessage11') as HTMLFormElement).innerHTML = "Enter the DUNS Number";
-        (document.getElementById('errormessage11') as HTMLFormElement).focus();
+        (document.getElementById('dunsno_id') as HTMLFormElement).focus();
         return;
       }
       
       else if(business_website == null){
         (document.getElementById('errormessage18') as HTMLFormElement).innerHTML = "Enter the Business Website";
-        (document.getElementById('errormessage18') as HTMLFormElement).focus();
+        (document.getElementById('businesswebsite_id') as HTMLFormElement).focus();
         return;
       }
       else if(physical_address == null){
         (document.getElementById('errormessage4') as HTMLFormElement).innerHTML = "Enter the Current Address";
-        (document.getElementById('errormessage4') as HTMLFormElement).focus();
+        (document.getElementById('currentaddress_id') as HTMLFormElement).focus();
         return;
       }
       else if(street == null){
         (document.getElementById('errormessage28') as HTMLFormElement).innerHTML = "Enter the Street";
-        (document.getElementById('errormessage28') as HTMLFormElement).focus();
+        (document.getElementById('currentstreet_id') as HTMLFormElement).focus();
         return;
       }
       else if(state_province == null){
         (document.getElementById('errormessage5') as HTMLFormElement).innerHTML = "Select state_province";
-        (document.getElementById('errormessage5') as HTMLFormElement).focus();
+        (document.getElementById('stateprovice_id') as HTMLFormElement).focus();
         return;
       }
       else if(city == null){
         (document.getElementById('errormessage6') as HTMLFormElement).innerHTML = "Enter the City";
-        (document.getElementById('errormessage6') as HTMLFormElement).focus();
+        (document.getElementById('currentcity_id') as HTMLFormElement).focus();
         return;
       }
       else if(zip_code == null){
         (document.getElementById('errormessage7') as HTMLFormElement).innerHTML = "Enter the Zip Code";
-        (document.getElementById('errormessage7') as HTMLFormElement).focus();
+        (document.getElementById('currentzipcode_id') as HTMLFormElement).focus();
         return;
       }
       else if(county == null){
         (document.getElementById('errormessage8') as HTMLFormElement).innerHTML = "Enter the County";
-        (document.getElementById('errormessage8') as HTMLFormElement).focus();
+        (document.getElementById('currentcounty_id') as HTMLFormElement).focus();
         return;
       }
       else if(country == null){
         (document.getElementById('errormessage9') as HTMLFormElement).innerHTML = "Enter the Country";
-        (document.getElementById('errormessage9') as HTMLFormElement).focus();
+        (document.getElementById('currentcountry_id') as HTMLFormElement).focus();
         return;
       }
       else if(contact_name == null){
         (document.getElementById('errormessage19') as HTMLFormElement).innerHTML = "Enter your Contact Person Name";
-        (document.getElementById('errormessage19') as HTMLFormElement).focus();
+        (document.getElementById('contactperson_id') as HTMLFormElement).focus();
         return;
       }
       else if(business_phone == null){
         (document.getElementById('errormessage20') as HTMLFormElement).innerHTML = "Enter the Business Phone";
-        (document.getElementById('errormessage20') as HTMLFormElement).focus();
+        (document.getElementById('businessphone_id') as HTMLFormElement).focus();
         return;
       }
       else if(title == null){
         (document.getElementById('errormessage21') as HTMLFormElement).innerHTML = "Enter the Title";
-        (document.getElementById('errormessage21') as HTMLFormElement).focus();
+        (document.getElementById('title_id') as HTMLFormElement).focus();
         return;
       }
       else if(business_email == null){
         (document.getElementById('errormessage22') as HTMLFormElement).innerHTML = "Enter the Business Email";
-        (document.getElementById('errormessage22') as HTMLFormElement).focus();
+        (document.getElementById('businessemail_id') as HTMLFormElement).focus();
         return;
       }
       else if(!business_email.match(this.mailformat)){
         (document.getElementById('errormessage22') as HTMLFormElement).innerHTML = "Enter the Correct Business Email";
-        (document.getElementById('errormessage22') as HTMLFormElement).focus();
+        (document.getElementById('businessemail_id') as HTMLFormElement).focus();
         return;
       }
 
@@ -498,25 +498,25 @@ else {
   
            if(addtional_name == null){
             (document.getElementById('errormessage37') as HTMLFormElement).innerHTML = "Enter the Contact Person Name";
-            (document.getElementById('errormessage37') as HTMLFormElement).focus();
+            (document.getElementById('addtionalcontactname_id') as HTMLFormElement).focus();
             return;
           }
     
           else if(addtional_title == null){
             (document.getElementById('errormessage38') as HTMLFormElement).innerHTML = "Enter the Title";
-            (document.getElementById('errormessage38') as HTMLFormElement).focus();
+            (document.getElementById('addtionaltitle_id') as HTMLFormElement).focus();
             return;
           }
     
           else if(addtional_businessmail == null){
             (document.getElementById('errormessage39') as HTMLFormElement).innerHTML = "Enter the Business Mailid";
-            (document.getElementById('errormessage39') as HTMLFormElement).focus();
+            (document.getElementById('addtionalbusinessmail_id') as HTMLFormElement).focus();
             return;
           }
     
           else if(addtional_businessphone == null){
             (document.getElementById('errormessage40') as HTMLFormElement).innerHTML = "Enter the business Phone";
-            (document.getElementById('errormessage40') as HTMLFormElement).focus();
+            (document.getElementById('addtionalbusinessphone_id') as HTMLFormElement).focus();
             return;
           }
          }
@@ -546,41 +546,41 @@ if( mailing_address == null){
 
   // alert("hi");
     (document.getElementById('errormessage12') as HTMLFormElement).innerHTML = "Enter the Mailing Address";
-    (document.getElementById('errormessage12') as HTMLFormElement).focus();
+    (document.getElementById('mailingaddress_id') as HTMLFormElement).focus();
     return;
 }
 
 else if(mailing_street == null){
 
   (document.getElementById('errormessage29') as HTMLFormElement).innerHTML = "Enter the  Street Address";
-   (document.getElementById('errormessage29') as HTMLFormElement).focus();
+   (document.getElementById('mailingstreet_id') as HTMLFormElement).focus();
    return;
 }
 
 else if(state_province1 == null){
 
      (document.getElementById('errormessage13') as HTMLFormElement).innerHTML = "Select State/Province";
-      (document.getElementById('errormessage13') as HTMLFormElement).focus();
+      (document.getElementById('mailingstateprovince_id') as HTMLFormElement).focus();
       return;
 }
 else if(city_1 == null){
       (document.getElementById('errormessage14') as HTMLFormElement).innerHTML = "Enter the City";
-      (document.getElementById('errormessage14') as HTMLFormElement).focus();
+      (document.getElementById('mailingcity_id') as HTMLFormElement).focus();
       return;
     }
   else if(zip_code1 == null){
       (document.getElementById('errormessage15') as HTMLFormElement).innerHTML = "Enter the Zip Code";
-      (document.getElementById('errormessage15') as HTMLFormElement).focus();
+      (document.getElementById('mailingzipcode_id') as HTMLFormElement).focus();
       return;
     }
     else if(county_1 == null){
       (document.getElementById('errormessage16') as HTMLFormElement).innerHTML = "Enter the County";
-      (document.getElementById('errormessage16') as HTMLFormElement).focus();
+      (document.getElementById('mailingcounty_id') as HTMLFormElement).focus();
       return;
     }
     else if(country_1 == null){
       (document.getElementById('errormessage17') as HTMLFormElement).innerHTML = "Enter the Country";
-      (document.getElementById('errormessage17') as HTMLFormElement).focus();
+      (document.getElementById('mailingcountry_id') as HTMLFormElement).focus();
       return;
     }
 
@@ -606,39 +606,39 @@ else if(city_1 == null){
         if(past_address == null){
 
           (document.getElementById('errormessage30') as HTMLFormElement).innerHTML = "Enter the Address";
-          (document.getElementById('errormessage30') as HTMLFormElement).focus();
+          (document.getElementById('pastaddress_id') as HTMLFormElement).focus();
         }
 
         else if(past_street == null){
 
             (document.getElementById('errormessage31') as HTMLFormElement).innerHTML = "Enter the Street";
-            (document.getElementById('errormessage31') as HTMLFormElement).focus();
+            (document.getElementById('paststreet_id') as HTMLFormElement).focus();
           }
 
           else if(state_province2 == null){
 
             (document.getElementById('errormessage32') as HTMLFormElement).innerHTML = "Enter the State/Province";
-            (document.getElementById('errormessage32') as HTMLFormElement).focus();
+            (document.getElementById('paststateprovice_id') as HTMLFormElement).focus();
           }
           else if(city_2 == null){
 
             (document.getElementById('errormessage33') as HTMLFormElement).innerHTML = "Enter the City";
-            (document.getElementById('errormessage33') as HTMLFormElement).focus();
+            (document.getElementById('pastcity_id') as HTMLFormElement).focus();
           }
           else if(zip_code2 == null){
 
             (document.getElementById('errormessage34') as HTMLFormElement).innerHTML = "Enter the Zipcode";
-            (document.getElementById('errormessage34') as HTMLFormElement).focus();
+            (document.getElementById('pastzipcode_id') as HTMLFormElement).focus();
           }
           else if(county_2 == null){
 
             (document.getElementById('errormessage35') as HTMLFormElement).innerHTML = "Enter the County";
-            (document.getElementById('errormessage35') as HTMLFormElement).focus();
+            (document.getElementById('pastcounty_id') as HTMLFormElement).focus();
           }
           else if(country_2 == null){
 
             (document.getElementById('errormessage36') as HTMLFormElement).innerHTML = "Enter the Country";
-            (document.getElementById('errormessage36') as HTMLFormElement).focus();
+            (document.getElementById('pastcountry_id') as HTMLFormElement).focus();
           }
 
     }
