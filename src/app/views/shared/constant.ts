@@ -1,1 +1,1 @@
-export const config_url = "https://localhost/VERTEX-PHP-API";
+export const config_url = "https:/localhost/VERTEX-PHP-API";

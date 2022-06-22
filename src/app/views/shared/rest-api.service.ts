@@ -22,23 +22,11 @@ export class RestAPIService {
     } ),responseType: 'text' as 'json'
   };
 
-  postBlog(blog: any) {
-    let url = "https://kainosinnovative.com/VERTEX-PHP-API";
-    return this.http.post(url, blog, this.httpOptions);
-  }
 
-// getmasterstatelist(){
-
-//   return this.http.get(config_url+'app/selectallstate').subscribe(
-//   (data: any) => {
-//   console.log(data)
-// });
-
-// }
 
 getstatelist(): Observable<any> {
 
-  return this.http.get<any>(this.apiURL + "/app/selectallstate")
+  return this.http.get<any>(this.apiURL + "app/selectallstate")
 
   .pipe(
   retry(1),
