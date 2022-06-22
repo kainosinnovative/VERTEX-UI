@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl,} from '@angular/forms';
+import { RestAPIService } from "../shared/rest-api.service";
 
 @Component({
   selector: 'app-vendormanagement',
@@ -23,12 +24,18 @@ export class VendormanagementComponent implements OnInit {
   Pastaddress: any;
   ContactBusiness: any;
   addtionalcontact: any;
+  citytype: any;
+  citydata: any
+  statelistdata: any;
 
   constructor(
-    private frmbuilder: FormBuilder
+    private frmbuilder: FormBuilder,public restApi: RestAPIService,
   ) { }
 
   ngOnInit(): void {
+
+    
+   this.getstate_list();
 
     this.vendorMgmt = this.frmbuilder.group({
 
@@ -113,7 +120,27 @@ export class VendormanagementComponent implements OnInit {
  mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 
+ getstate_list(){
 
+  return this.restApi.getstatelist().subscribe(
+    (data: any) => {
+  console.log(data)
+
+    // this.statelistdata = data;
+  
+   
+    // console.log(statelistdata)
+//      this.citytype = statelistdata;
+
+//      console.log(this.citytype)
+//  //console.log("hi")
+//      this.citydata = this.citytype.data.list;
+     
+//       console.log("data>>>>",this.citydata)
+   })
+ }
+
+ 
 
 
 
