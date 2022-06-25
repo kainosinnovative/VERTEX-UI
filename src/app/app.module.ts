@@ -48,6 +48,9 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { LogoutComponent } from './views/logout/logout.component';
+import { RegisterComponent } from './register/register.component';
+// import { RegisterComponent } from './register/register.component';
+
 // import { AdminmanagementComponent } from './views/adminmanagement/adminmanagement.component';
 // import { VendormanagementComponent } from './views/vendormanagement/vendormanagement.component';
 // import { VendormanagementComponent } from './vendormanagement/vendormanagement.component';
@@ -63,7 +66,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, LogoutComponent],
+  declarations: [AppComponent, ...APP_CONTAINERS, LogoutComponent, RegisterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,0 +1,154 @@
+<div class="container">
+    <p class="mainheading Vendortitle" >Register Form</p>
+ 
+    
+        <p class="mainheading heading">Contact Information</p>
+    <form [formGroup]="registercontactinformation"></form>
+    <div class="row Generaldiv">
+      <div class="col-sm-6 innerlinefont" >  
+    
+        <div class="labelheight">
+            <label class="labelwidth">First Name <span class="requiredfield ">  *</span> </label>    
+            <input type="text" class="firstname" formControlName="first_name" id="firstname_id" (keypress)="inputErrorMessage('firstname_id')">
+        </div>
+     
+    
+            <div class="labelheight">
+                <label class="labelwidth">Last Name <span class="requiredfield ">  *</span> </label>
+            <input type="text" class="lastname"  formControlName="last_name" id="lastname_id" (keypress)="inputErrorMessage('lastname_id')">
+            </div>
+          
+    
+            <div class="labelheight">
+                <label class="labelwidth">User Type</label>
+                <input type="text" formControlName="usertype" id="usertype_id" (keypress)="inputErrorMessage('usertype_id')">
+            </div>
+          
+     </div>
+    
+    
+      <div class="col-sm-6 innerlinefont">
+        <div class="labelheight">
+            <label class="labelwidth"> Legal Business Name<span class="requiredfield "> *</span></label>
+            <input type="text" class="Legalbusiness" formControlName="legalbusinessname" id="legal_id" (keypress)="inputErrorMessage('legal_id')">
+        </div>
+ 
+    
+        <div class="labelheight">
+            <label class="labelwidth"> Trade Name <span class="requiredfield ">  *</span></label> 
+            <input type="text"  class="tradename" formControlName="tradename" id="trade_id" (keypress)="inputErrorMessage('trade_id')"> 
+          </div>
+
+        
+        <div class="labelheight">
+            <label class="labelwidth">User Id<span class="requiredfield ">  *</span> </label>
+            <input type="text" class="tradename" formControlName="user_id" id="userid" (keypress)="inputErrorMessage('userid')">
+        </div>
+
+        <div class="labelheight">
+            <label class="labelwidth">password<span class="requiredfield ">  *</span> </label>
+            <input type="text" class="tradename" formControlName="password" id="password_id" (keypress)="inputErrorMessage('password_id')">
+        </div>
+     
+    
+              
+      </div>
+    </div>
+
+
+<!-- Current Address Start -->
+<p class="mainheading heading">Address Information</p>
+    
+<form [formGroup]="registercurrentaddress">
+
+<div class="row Generaldiv ">
+  <div class="col-sm-6 innerlinefont" >  
+
+    <div class="labelheight">
+        <label class="labelwidth">Address<span class="requiredfield ">  *</span> </label>
+        <input type="text" class="Physicaladdress" formcontrolname="regcurrentaddress_name" id="regcurrentaddress_id" (keypress)="inputErrorMessage('regcurrentaddress_id')">
+        </div>
+      
+
+        <div class="labelheight">
+            <label class="labelwidth">State/province<span class="requiredfield ">  *</span> </label>
+            <select class="State" formcontrolname="regcurrentstate_name" id="regcurrentstate_id" (change)="inputErrorMessage('regcurrentstate_id')">
+                <option value="value"></option>
+                <option value="value1">Virginia</option>
+                <option value="value2">Alabama</option>
+                <option value="value3">Alaska</option>
+                <option value="value4">California</option>
+                <option value="value5">Florida</option>
+                <option value="value6">Ohio</option>
+                <option value="value7">Washington</option>
+            </select> 
+           </div>
+       
+
+           <div class="labelheight">
+            <label class="labelwidth">City<span class="requiredfield ">  *</span> </label>
+                    <input type="text"  class="city"  formcontrolname="regcurrentcity_name" id="regcurrentcity_id" (keypress)="inputErrorMessage('regcurrentcity_id')">
+             </div>
+           
+
+           <div class="labelheight">
+            <label class="labelwidth">Zip Code<span class="requiredfield ">  *</span> </label>
+            <input type="number"  class="zip" formcontrolname="regcurrentzip_name" id="regcurrentzip_id" (keypress)="inputErrorMessage('regcurrentzip_id')">
+              </div>
+             </div>
+
+
+  <div class="col-sm-6 innerlinefont">
+    <div class="labelheight">
+        <label class="labelwidth">Address Line2</label>
+        <input type="text" class="Physicaladdress" formcontrolname="regcurrentaddressline2_name" id="regcurrentaddressline2_id" (keypress)="inputErrorMessage('regcurrentaddressline2_id')">
+        </div>
+     
+
+        
+    
+            <div class="labelheight">
+                <label class="labelwidth">County<span class="requiredfield ">  *</span> </label>
+                <input type="text"  class="County" formcontrolname="county_name" id="county_id" (keypress)="inputErrorMessage('county_id')">
+                </div>
+              
+
+                <div class="labelheight">
+                    <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
+                    <select class="Country"  formcontrolName="country_name" id="country_id" (change)="inputErrorMessage('country_id')">
+                     <option value="value"></option>
+                        <option value="value1">USA</option>
+                        <option value="value2">India</option>
+                    </select> 
+                </div>
+             
+
+          
+  </div>
+</div>
+</form>
+<!-- current address end -->
+<br>
+<!-- vendor type -->
+<div class="row" style="padding-bottom: 8px;">
+  
+
+    <div class="col-sm-5 innerlinefont vendortypelabel usernamediv">
+        <label class="labelwidth">Vendor Type</label> 
+     <!-- <div class="btndiv1"> -->
+        <label  >Individual</label>
+         &nbsp;&nbsp;
+        <label class="switch">
+        <input class="" type="checkbox"  id="active" formControlName="active" >
+        <span class="slider round"></span>
+        </label>&nbsp;&nbsp;
+        <label  class=" " >Business</label>  
+       <!-- </div> -->
+    </div>
+</div>
+<!-- /vendor type -->  <div class="btndiv">
+         <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />
+         &nbsp;&nbsp;
+              <input type="button"   class="btn btn-primary fixedwidthcls" (click)="validation()"  value="Save " />  
+           </div><br>
+</div>
