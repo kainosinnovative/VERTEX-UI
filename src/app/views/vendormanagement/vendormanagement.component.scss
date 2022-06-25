@@ -1,3 +1,21 @@
+.requiredfield
+{
+    color:red;
+    // border: red;
+    
+}
+
+.requiredfield1
+{
+    // color:red;
+    // border: red;
+    font-size: 12px !important;
+    
+}
+
+.validation{
+  border: 1px solid red;
+}
 
 .accordion::before {
     content: "+" !important;
@@ -241,6 +259,10 @@
         width: 225px !important; 
         height: 28px;
       }
+      .mailingfromdate{
+        width:  105px !important; 
+          height: 28px;
+       }
       .Country1{
         width: 243px !important;
         height: 28px;
@@ -311,7 +333,7 @@
         height: 28px;
       }
       .social{
-        width: 85px !important;
+        width: 130px !important;
         height: 28px;
        }
       .emailt{
