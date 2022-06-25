@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { IpServiceService } from 'ip-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,16 +11,31 @@ export class LoginComponent implements OnInit {
   loginForm = {
     UserId: '',
     Password: '',
+    IPAddress:''
   };
+  ipAddress:any; 
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-   
+    this.getIP();  
   }
 
+  getIP()  
+  {  
+    this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
+      this.ipAddress=res.ip;  
+      console.log("ip>>>",this.ipAddress);
+    });
+    // this.ip.getIPAddress().subscribe((res:any)=>{  
+      
+    // });  
+  }  
+
   userLogin() {
+    this.loginForm.IPAddress = this.ipAddress;
     console.log(this.loginForm);
     // alert("hi");
+    
     (<HTMLInputElement>document.getElementById("invalidid")).innerText = "";
     // alert("hi");
     // console.log(this.loginForm);

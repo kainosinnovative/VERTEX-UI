@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl,} from '@angular/forms';
-import { RestAPIService } from "../shared/rest-api.service";
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-vendormanagement',
   templateUrl: './vendormanagement.component.html',
@@ -30,7 +29,7 @@ export class VendormanagementComponent implements OnInit {
   mail: any;
 
   constructor(
-    private frmbuilder: FormBuilder,public restApi: RestAPIService,
+    private frmbuilder: FormBuilder,private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -109,6 +108,8 @@ export class VendormanagementComponent implements OnInit {
       addtional_title: [],
       addtional_businessmail: [],
       addtional_businessphone: [],
+      VendorContactPrimary:[],
+      VendorContactActive:[]
      })
 
    
