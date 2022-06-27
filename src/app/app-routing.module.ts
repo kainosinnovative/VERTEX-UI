@@ -33,6 +33,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/vendormanagement/vendormanagement.module').then((m) => m.VendorModule)
       },
+    
      
       {
         path: 'adminmanagement',
