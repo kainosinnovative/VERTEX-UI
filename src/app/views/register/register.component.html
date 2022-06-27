@@ -1,1 +1,216 @@
-<p>register works!</p>
+<div class="container">
+    <form [formGroup]="registercontactinformation">
+    <p class="mainheading Vendortitle" style="text-align: center;">Register Form</p>
+ 
+    
+        <p class="mainheading heading">Contact Information</p>
+    
+    <div class="row Generaldiv">
+      <div class="col-sm-6 innerlinefont" >  
+    
+        <div class="labelheight">
+            <label class="labelwidth">First Name <span class="requiredfield ">  *</span> </label>    
+            <input type="text" class="first" formControlName="first_name" id="firstname_id" (keypress)="inputErrorMessage('firstname_id')">
+        </div>
+     
+    
+            <div class="labelheight">
+                <label class="labelwidth">Last Name <span class="requiredfield ">  *</span> </label>
+            <input type="text" class="lastname"  formControlName="last_name" id="lastname_id" (keypress)="inputErrorMessage('lastname_id')">
+            </div>
+        
+    
+          <div class="labelheight">
+                <label class="labelwidth">User Type</label>
+                  <select class="Country"  formControlName="usertype" id="usertype_id" (change)="inputErrorMessage('usertype_id');vendordetails_display()">
+                    <option value="value"></option>
+                       <option value="vendor">Vendor</option>
+                       <option value="employee">Employee</option>
+                       <option value="other">Other</option>
+                   </select> 
+            </div> 
+
+            <div class="labelheight">
+                <label class="labelwidth">User Id<span class="requiredfield ">  *</span> </label>
+                <input type="text" class="tradename" formControlName="user_id" id="userid" (keypress)="inputErrorMessage('userid')">
+            </div>
+
+            <div class="labelheight">
+                <label class="labelwidth">password<span class="requiredfield ">  *</span> </label>
+                <input type="text" class="tradename" formControlName="password" id="password_id" (keypress)="inputErrorMessage('password_id')">
+            </div>
+
+            <div class="labelheight">
+                <label class="labelwidth">Conform password<span class="requiredfield ">  *</span> </label>
+                <input type="text" class="tradename" formControlName="conform_password" id="comformpassword_id" (keypress)="inputErrorMessage('comformpassword_id')">
+            </div>  
+          
+     </div>
+    
+    
+      <div class="col-sm-6 innerlinefont">
+       
+
+         <div class="labelheight">
+            <label class="labelwidth">Address<span class="requiredfield ">  *</span> </label>
+            <input type="text" class="Physicaladdress" formcontrolname="regcurrentaddress_name" id="regcurrentaddress_id" (keypress)="inputErrorMessage('regcurrentaddress_id')">
+            </div>
+
+             <div class="labelheight">
+                <label class="labelwidth">Address Line2</label>
+                <input type="text" class="Physicaladdress" formcontrolname="regcurrentaddressline2_name" id="regcurrentaddressline2_id" (keypress)="inputErrorMessage('regcurrentaddressline2_id')">
+                </div>
+
+            <div class="labelheight">
+            <label class="labelwidth">State/province<span class="requiredfield "> *</span> </label>
+             <select class="State" formcontrolname="regcurrentstate_name" id="regcurrentstate_id" (change)="inputErrorMessage('regcurrentstate_id')">
+              <option value="value"></option>
+                        <option value="value1">Virginia</option>
+                        <option value="value2">Alabama</option>
+                        <option value="value3">Alaska</option>
+                        <option value="value4">California</option>
+                        <option value="value5">Florida</option>
+                        <option value="value6">Ohio</option>
+                        <option value="value7">Washington</option>
+                    </select> 
+                   </div>
+
+                   <div class="labelheight">
+                    <label class="labelwidth">City<span class="requiredfield ">  *</span> </label>
+                    <input type="text"  class="city"  formcontrolname="regcurrentcity_name" id="regcurrentcity_id" (keypress)="inputErrorMessage('regcurrentcity_id')">
+                     </div>
+
+                    <div class="labelheight">
+                    <label class="labelwidth">Zip Code<span class="requiredfield ">  *</span> </label>
+                    <input type="number"  class="zip" formcontrolname="regcurrentzip_name" id="regcurrentzip_id" (keypress)="inputErrorMessage('regcurrentzip_id')">
+                    </div>
+
+        
+                     <div class="labelheight">
+                        <label class="labelwidth">County<span class="requiredfield ">  *</span> </label>
+                        <input type="text"  class="County" formcontrolname="county_name" id="county_id" (keypress)="inputErrorMessage('county_id')">
+                        </div>
+                      
+        
+                        <div class="labelheight">
+                            <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
+                            <select class="Country"  formcontrolName="country_name" id="country_id" (change)="inputErrorMessage('country_id')">
+                             <option value="value"></option>
+                                <option value="value1">USA</option>
+                                <option value="value2">India</option>
+                            </select> 
+                        </div> 
+
+                        
+     
+    
+              
+      </div>
+    </div>
+<br>
+
+
+<!-- vendor type -->
+
+<div id="vendordetails" style="display: none;">
+<div class="row" style="padding-bottom: 8px;">
+  
+
+    <div class="col-sm-5 innerlinefont vendortypelabel usernamediv">
+        <label class="labelwidth">Vendor Type</label> 
+         <label >Individual</label>
+         &nbsp;&nbsp;
+        <label class="switch">
+        <input class="" type="checkbox"  id="active"  (change)="vendortype_display('active')">
+        <span class="slider round"></span>
+        </label>&nbsp;&nbsp;
+        <label >Business</label>  
+      
+    </div>
+</div>
+
+<!-- vendor individual start -->
+
+<div id="vendorindividual">
+<div class="row Generaldiv">
+  
+    <div class="col-sm-6 innerlinefont">
+        <div class="labelheight">
+            <label class="labelwidth">Social Security Number<span class="requiredfield ">  *</span> </label>
+            <input type="number" class="social" formControlName="socialno_name" id="socialno_id" (keypress)="inputErrorMessage('socialno_id')">
+        </div>
+    </div>
+    <div class="col-sm-6 innerlinefont">
+        <div class="labelheight">
+            <label class="wouldla">Would you like to receive outreach emails from us ?</label>
+            <!-- <label style="width:10px;"></label> -->
+                            <label class="switch">
+                            <input  type="checkbox" name="outreach_active" id="outreach_activeid" checked>
+                            <span class="slider round"></span>
+                            </label></div>
+    </div>
+
+</div>
+</div>
+<!-- vendor type end -->
+
+<!-- vendor Business start -->
+
+<div id="vendorbusiness" style="display: none;">
+<div class="row Generaldiv">
+   <div class="col-sm-6 innerlinefont">
+        <div class="labelheight">
+            <label class="labelwidth">Business Size<span class="requiredfield ">  *</span> </label>
+            <input type="number" formControlName="businesssize_name" id="business_id"  (keypress)="inputErrorMessage('business_id')">
+        </div>
+        <div class="labelheight">
+            <label class="wouldla">Is this Business Registered with this County/State ?</label>
+            <!-- <label style="width:10px;"></label> -->
+            <label class="switch">
+            <input  type="checkbox" name="state_active" id="state_activeid" checked>
+            <span class="slider round"></span>
+            </label></div>
+
+        <div class="">
+        <label class="wouldla">Is this business a franchisee ? </label>
+        <label class="switch">
+        <input  type="checkbox" name="franchisee_active" id="franchisee_activeid" checked>
+        <span class="slider round"></span>
+        </label></div>
+
+      </div>
+
+        <div class="col-sm-6 innerlinefont">
+        <div class="labelheight">
+            <label class="labelwidth">BE Classification ID<span class="requiredfield ">  *</span> </label>
+            <select class="Country" formControlName="be_classificationname" id="be_classificationid" >
+                <option value="value"></option>
+             <option value="value1">xxxx</option>
+             <option value="value2">YYY</option>
+             </select> 
+        </div>
+
+        <div>
+            <label class="statecorporation">Is this business registered with this State Corporation Commission ? </label>
+            <label class="switch">
+                            <input  type="checkbox" name="statecoms_active" id="statecms_activeid" checked>
+                            <span class="slider round"></span>
+                            </label></div>
+    </div>
+
+</div>
+</div>
+</div>
+</form> 
+<!-- vendor business end -->
+
+
+<div class="btndiv">
+         <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />
+         &nbsp;&nbsp;
+              <input type="button"   class="btn btn-primary fixedwidthcls" (click)="validation()"  value="Save " />  
+           </div><br>
+
+               
+    </div>
+<!-- </form> -->
