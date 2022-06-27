@@ -204,6 +204,58 @@
 </form> 
 <!-- vendor business end -->
 
+  <!-- Employee information start -->
+  <div id="employeeinfo" style="display: none;">
+    <p class="mainheading heading">Employee Information</p>
+    <p style="color: red;border: none !important;" id="phoneErr"></p>
+    <form [formGroup]="employeeinformation">
+        <div class="row Generaldiv">
+            <div class="col-sm-6 innerlinefont">
+                <div class="labelheight">
+                    <label class="labelwidth">Job Title <span class="requiredfield "> *</span> </label>
+                    <select formControlName="jobtitle" class="jobtitle" id="jobtitle_id">
+                        <option value="value"></option>
+                        <option *ngFor="let jobtitle of jobdetail" [value]="jobtitle.JobTitleId">
+                            {{jobtitle.JobTitleDesc}}</option>
+                    </select>
+                </div>
+                <div class="labelheight">
+                    <label class="labelwidth">Employment Type <span class="requiredfield "> *</span> </label>
+                    <select formControlName="employeeid" class="employeeid" id="employee_id"
+                        (change)="inputErrorMessage('employee_id');">
+                        <option value="value"></option>
+                        <option *ngFor="let employeetype of employeedetail" [value]="employeetype.EmploymentTypeId">
+                            {{employeetype.EmploymentTypeDesc}}</option>
+                    </select>
+                </div>
+               
+                <div class="labelheight">
+                    <label class="labelwidth">Start Date<span class="requiredfield "> *</span> </label>
+                    <input type="date" class="startdate" formControlName="startdate" id="startdate_id"
+                        (change)="inputErrorMessage('startdate_id')">
+                </div>
+            </div>
+            <div class="col-sm-6 innerlinefont">
+                <div class="labelheight">
+                    <label class="labelwidth">Phone Number <span class="requiredfield "> *</span> </label>
+                    <input type="text" class="phoneno" formControlName="phoneno" id="phoneno_id"
+                        (keypress)="inputErrorMessage('phoneno_id')">
+                </div>
+                <div>
+                    <div class="labelheight">
+                        <label class="labelwidth">Is Admin user <span class="requiredfield "> *</span> </label>
+                        <label class="switch">
+                            <input class="" type="checkbox" id="admin_activeid" >
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- Employee information end -->
+
 
 <div class="btndiv">
          <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />

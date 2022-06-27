@@ -148,35 +148,47 @@ export class VendormanagementComponent implements OnInit {
        let county =this.currentaddress.get('county').value;
        let country =this.currentaddress.get('country').value;
 
-      
+       if(first_name == null){
+        (document.getElementById('firstname_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(last_name == null ){
+        (document.getElementById('lastname_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(social_no == null ){
+        (document.getElementById('socialsecurity_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(email_individual == null ){
+        (document.getElementById('email_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(phone_no == null ){
+        (document.getElementById('phone_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(physical_address == null  ){
+        (document.getElementById('currentaddress_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(street == null){
+        (document.getElementById('currentstreet_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(state_province == null){
+        (document.getElementById('stateprovice_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(city == null){
+        (document.getElementById('currentcity_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(zip_code == null){
+        (document.getElementById('currentzipcode_id') as HTMLFormElement).classList.add("validation");
+       }
+       if(county == null){
+        (document.getElementById('currentcounty_id' ) as HTMLFormElement).classList.add("validation");
+       }
+       if(country == null){
+        (document.getElementById('currentcountry_id') as HTMLFormElement).classList.add("validation");
+       }
 
-
-     if(first_name == null && last_name == null && social_no == null && email_individual == null && phone_no == null && 
-      
-      physical_address == null 
-     && street == null && state_province == null && city == null && zip_code == null && county == null && country == null){
-
-      (document.getElementById('firstname_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('lastname_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('socialsecurity_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('email_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('phone_id') as HTMLFormElement).classList.add("validation");
-
-
-      (document.getElementById('currentaddress_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('currentstreet_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('stateprovice_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('currentcity_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('currentzipcode_id') as HTMLFormElement).classList.add("validation");
-      (document.getElementById('currentcounty_id' ) as HTMLFormElement).classList.add("validation");
-      (document.getElementById('currentcountry_id') as HTMLFormElement).classList.add("validation");
-
-  }
-
-  else if(!email_individual.match(this.mailformat)){
-    (document.getElementById('email_idmsg') as HTMLFormElement).innerHTML = "Enter valid email address";
-    (document.getElementById('email_idmsg') as HTMLFormElement).focus();
-    return;
+       if(!email_individual.match(this.mailformat)){
+      (document.getElementById('email_idmsg') as HTMLFormElement).innerHTML = "Enter valid email address";
+      (document.getElementById('email_idmsg') as HTMLFormElement).focus();
+     return;
   }
 }
 
@@ -205,7 +217,7 @@ export class VendormanagementComponent implements OnInit {
 
 
     
-     if(Legal_business == null && federal == null && trade_name == null  && duns_no == null && business_website == null &&Legal_business == null && federal == null && trade_name == null  && duns_no == null && business_website == null &&
+     if(Legal_business == null && federal == null && trade_name == null  && duns_no == null && business_website == null &&
       physical_address == null  && street == null && state_province == null && city == null && zip_code == null && county == null && country == null &&
       contact_name == null && business_phone ==  null && title == null  && business_email == null ){
 
