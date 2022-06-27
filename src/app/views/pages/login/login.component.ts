@@ -48,14 +48,18 @@ export class LoginComponent implements OnInit {
  }
 
 else {
+  console.log("else");
     this.http.post("http://localhost/VERTEX-PHP-API/"+'login/loginauth', this.loginForm).subscribe(
       
       data => {
+        console.log("data");
           console.log('POST Request is successful >>>>>>>>', data);
 
       },
       success => {
+        console.log("success");
           console.log('Error>>>>>', success.status);
+          // console.log(success.status);
           // if(success.status == 404) {
          
             
@@ -63,7 +67,7 @@ else {
           
           if(success.status == 404) {
             let msg = success.error;
-           
+            console.log(msg);
             // let text = "How are you doing today?";
 const myArray = msg.split("message");
 const secondArr = myArray[1].split(",");
@@ -74,8 +78,9 @@ console.log(newStr);
           }
           else {
             let msg3 = success.error.text;
-// console.log(msg3);
+
 // alert(msg3)
+console.log(success);
 var msg4 = msg3.split("token");
 // alert(msg4);
 var msg5 = msg4[1].replace('"}}}', '');
