@@ -146,10 +146,10 @@ phoneformat= /^[0-9]{10}$/;
 
       (document.getElementById('comformpassword_id') as HTMLFormElement).classList.add("validation");
     }
-alert(usertype_id);
+// alert(usertype_id);
     if(usertype_id == "employee"){
     
-alert("in");
+// alert("in");
       if(jobtitle == null)
       {
        (document.getElementById('jobtitle_id') as HTMLFormElement).classList.add("validation");
