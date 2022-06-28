@@ -21,19 +21,19 @@
     
         <div class="labelheight">
             <label class="labelwidth">First Name <span class="requiredfield ">  *</span> </label>    
-            <input type="text"  class="first" formControlName="first_name" id="firstname_id" (keypress)="inputErrorMessage('firstname_id');alpha($event)">
+            <input type="text"  class="first" formControlName="FirstName" id="firstname_id" (keypress)="inputErrorMessage('firstname_id');alpha($event)">
         </div>
      
     
             <div class="labelheight">
                 <label class="labelwidth">Last Name <span class="requiredfield ">  *</span> </label>
-            <input type="text" class="lastname"  formControlName="last_name" id="lastname_id" (keypress)="inputErrorMessage('lastname_id');alpha($event)">
+            <input type="text" class="lastname"  formControlName="LastName" id="lastname_id" (keypress)="inputErrorMessage('lastname_id');alpha($event)">
             </div>
         
     
           <div class="labelheight">
                 <label class="labelwidth">User Type</label>
-                  <select class="Country"  formControlName="usertype" id="usertype_id" (change)="inputErrorMessage('usertype_id');vendordetails_display()">
+                  <select class="Country"  formControlName="UserTypeId" id="usertype_id" (change)="inputErrorMessage('usertype_id');vendordetails_display()">
                     <option value="value"></option>
                     <option *ngFor="let userlist of usertypedata" [value]="userlist.UserTypeId">
                         {{userlist.UserTypeDesc}}</option>
@@ -46,17 +46,17 @@
 
             <div class="labelheight">
                 <label class="labelwidth">User Id<span class="requiredfield ">  *</span> </label>
-                <input type="text" class="tradename" formControlName="user_id" id="userid" (keypress)="inputErrorMessage('userid');alphanumeric($event)">
+                <input type="text" class="tradename" formControlName="UserId" id="userkey" (keypress)="inputErrorMessage('userkey');alphanumeric($event)">
             </div>
 
             <div class="labelheight">
                 <label class="labelwidth">Password<span class="requiredfield ">  *</span> </label>
-                <input type="text" class="tradename" formControlName="password" id="password_id" (keypress)="inputErrorMessage('password_id')">
+                <input type="text" class="tradename" formControlName="UserPassword" id="userpswd_id" (keypress)="inputErrorMessage('userpswd_id')">
             </div>
 
             <div class="labelheight">
                 <label class="labelwidth">Confirm Password<span class="requiredfield ">  *</span> </label>
-                <input type="text" class="tradename" formControlName="conform_password" id="comformpassword_id" (keypress)="inputErrorMessage('comformpassword_id')">
+                <input type="text" class="tradename" formControlName="conformpassword" id="comformpswd_id" (keypress)="inputErrorMessage('comformpswd_id')">
             </div>  
           
      </div>
@@ -66,17 +66,17 @@
 
          <div class="labelheight">
             <label class="labelwidth">Address<span class="requiredfield ">  *</span> </label>
-            <input type="text" class="Physicaladdress"  formControlName="current_add" id="currentadd_id" (keypress)="inputErrorMessage('currentadd_id')">
+            <input type="text" class="Physicaladdress"  formControlName="Address1" id="currentadd_id" (keypress)="inputErrorMessage('currentadd_id')">
             </div>
 
              <div class="labelheight">
                 <label class="labelwidth">Address Line2</label>
-                <input type="text" class="Physicaladdress" formControlName="current_secadd"  id="currentsecadd_id" (keypress)="inputErrorMessage('currentsecadd_id')">
+                <input type="text" class="Physicaladdress" formControlName="Address2"  id="currentsecadd_id" (keypress)="inputErrorMessage('currentsecadd_id')">
                 </div>
 
             <div class="labelheight">
             <label class="labelwidth">State/Province<span class="requiredfield "> *</span> </label>
-             <select class="State"  formControlName="currentstate" id="curstate_id"
+             <select class="State"  formControlName="StateId" id="curstate_id"
               (change)="inputErrorMessage('curstate_id');onChangeObj($event)" >
             
 
@@ -88,7 +88,7 @@
 
                    <div class="labelheight">
                     <label class="labelwidth">City<span class="requiredfield ">  *</span> </label>
-                    <select class="city"  formControlName="currentcity"  id="currentcity_id"
+                    <select class="city"  formControlName="CityId"  id="currentcity_id"
                     (change)="inputErrorMessage('currentcity_id');onchangezip()">
 
                           <option value="value"></option>
@@ -99,8 +99,8 @@
 
                     <div class="labelheight">
                     <label class="labelwidth">Zip Code<span class="requiredfield ">  *</span> </label>
-                    <select class="zip" formControlName="regcurrentzip_name" id="regcurrentzip_id"
-                    (keypress)="inputErrorMessage('regcurrentzip_id')" >
+                    <select class="zip" formControlName="Zipcode" id="regcurrentzip_id"
+                    (change)="inputErrorMessage('regcurrentzip_id')" >
 
                           <option value="value"></option>
                              <option *ngFor="let ziplist of zipcodedetail" >
@@ -111,13 +111,17 @@
         
                      <div class="labelheight">
                         <label class="labelwidth">County<span class="requiredfield ">  *</span> </label>
-                        <input type="text"  class="County" formControlName="county_name" id="county_id" (keypress)="inputErrorMessage('county_id')">
+                        <select type="text"  class="County" formControlName="county_name" id="county_id" (change)="inputErrorMessage('county_id')">
+                            <option ></option>
+                            <option value="1">Fairfax</option>
+                        </select>
+
                         </div>
                       
         
                         <div class="labelheight">
                             <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
-                            <select class="Country"  formControlName="country_name" id="country_id" (change)="inputErrorMessage('country_id')">
+                            <select class="Country"  formControlName="CountryId" id="country_id" (change)="inputErrorMessage('country_id')">
                              <option value="value"></option>
                                 <option value="value1">USA</option>
                                 <option value="value2">India</option>
@@ -160,7 +164,7 @@
     <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
             <label class="labelwidth">Social Security Number<span class="requiredfield ">  *</span> </label>
-            <input type="text" class="social" formControlName="socialno_name" id="socialno_id" (keypress)="inputErrorMessage('socialno_id')">
+            <input type="text" class="social" formControlName="EIN_SSN" id="socialno_id" (keypress)="inputErrorMessage('socialno_id')">
         </div>
     </div>
     <div class="col-sm-6 innerlinefont">
@@ -184,7 +188,10 @@
    <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
             <label class="labelwidth">Business Size<span class="requiredfield ">  *</span> </label>
-            <input type="text" formControlName="businesssize_name" id="business_id"  (keypress)="inputErrorMessage('business_id');number($event)">
+            <select  type="text" class="Country" formControlName="BusinessSize" id="business_id"  (change)="inputErrorMessage('business_id');number($event)">
+                <option></option>
+                <option value="1">Display</option>
+            </select>
         </div>
         <div class="labelheight">
             <label class="wouldla">Is this Business Registered with this County/State ?</label>
@@ -206,7 +213,7 @@
         <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
             <label class="labelwidth">BE Classification ID<span class="requiredfield ">  *</span> </label>
-            <select class="Country" formControlName="be_classificationname" id="be_classificationid" >
+            <select class="Country" formControlName="BEClassificationId" id="be_classificationid" (change)="inputErrorMessage('be_classificationid')" >
                 <option value="value"></option>
              <option value="value1">xxxx</option>
              <option value="value2">YYY</option>
@@ -236,7 +243,7 @@
             <div class="col-sm-6 innerlinefont">
                 <div class="labelheight">
                     <label class="labelwidth">Job Title <span class="requiredfield "> *</span> </label>
-                    <select formControlName="jobtitle" class="jobtitle" id="jobtitle_id">
+                    <select formControlName="JobTitleId" class="jobtitle" id="job_title" (change)="inputErrorMessage('job_title')">
                         <option value="value"></option>
                         <option *ngFor="let jobtitle of jobdetail" [value]="jobtitle.JobTitleId">
                             {{jobtitle.JobTitleDesc}}</option>
@@ -244,7 +251,7 @@
                 </div>
                 <div class="labelheight">
                     <label class="labelwidth">Employment Type <span class="requiredfield "> *</span> </label>
-                    <select formControlName="employeeid" class="employeeid" id="employee_id"
+                    <select formControlName="EmploymentTypeId" class="employeeid" id="employee_id"
                         (change)="inputErrorMessage('employee_id');">
                         <option value="value"></option>
                         <option *ngFor="let employeetype of employeedetail" [value]="employeetype.EmploymentTypeId">
@@ -254,20 +261,20 @@
                
                 <div class="labelheight">
                     <label class="labelwidth">Start Date<span class="requiredfield "> *</span> </label>
-                    <input type="date" class="startdate" formControlName="startdate" id="startdate_id"
+                    <input type="date" class="startdate" formControlName="StartDate" id="startdate_id"
                         (change)="inputErrorMessage('startdate_id')">
                 </div>
             </div>
             <div class="col-sm-6 innerlinefont">
                 <div class="labelheight">
                     <label class="labelwidth">Phone Number <span class="requiredfield "> *</span> </label>
-                    <input type="text" class="phoneno" formControlName="phoneno" id="phoneno_id"
+                    <input type="text" class="phoneno" formControlName="Phone" id="phoneno_id"
                         (keypress)="inputErrorMessage('phoneno_id'); number($event)">
                 </div>
                 <div>
                     <div class="labelheight">
                         <label class="labelwidth">Is Admin User <span class="requiredfield "> *</span> </label>
-                        <label class="switch">
+                        <label class="switch" formControlName="AdminUser">
                             <input class="" type="checkbox" id="admin_activeid" >
                             <span class="slider round"></span>
                         </label>
@@ -283,7 +290,7 @@
 <div class="btndiv">
          <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />
          &nbsp;&nbsp;
-              <input type="button"   class="btn btn-primary fixedwidthcls" (click)="validation()"  value="Save " />  
+              <input type="button"   class="btn btn-primary fixedwidthcls" (click)="validation(registercontactinformation.value,employeeinformation.value)"  value="Save " />  
            </div><br>
 
                

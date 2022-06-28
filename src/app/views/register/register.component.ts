@@ -40,34 +40,34 @@ export class RegisterComponent implements OnInit {
 
     this.registercontactinformation = this.frmbuilder.group({
 
-      first_name: [],
-      last_name: [],
-      usertype: [],
-      user_id: [],
-      password: [],
-      conform_password: [],
+      FirstName: [],
+      LastName: [],
+      UserTypeId: [],
+      UserId: [],
+      UserPassword: [],
+      conformpassword: [],
 
-      current_add: [],
-      current_secadd: [],
-      currentstate: [],
-      currentcity: [],
-
+      Address1: [],
+      Address2: [],
+      StateId: [],
+      CityId: [],
+      Zipcode: [],
+       county_name: [],
+      CountryId: [],
      
-      county_name: [],
-      country_name: [],
-      regcurrentzip_name: [],
 
-      socialno_name:[],
-      businesssize_name: [],
-      be_classificationname: [],
+      EIN_SSN:[],
+      BusinessSize: [],
+      BEClassificationId: [],
 
 })
 
 this. employeeinformation = this.frmbuilder.group({
-  jobtitle:[],
-  employeeid:[],
-  startdate:[],
-  phoneno:[]
+  JobTitleId:[],
+  EmploymentTypeId:[],
+  StartDate:[],
+  Phone:[],
+  AdminUser: []
  })
 
 }
@@ -105,90 +105,99 @@ number(event: any) {
   }
 }
 
-  validation(){
+  validation(registercontactinformation:any,employeeinformation:any){
 
-    let first_name = this.registercontactinformation.get('first_name').value;
-    // alert(first_name);
-    let last_name = this.registercontactinformation.get('last_name').value;
-    let usertype = this.registercontactinformation.get('usertype').value;
-    let user_id = this.registercontactinformation.get('user_id').value;
-    let password = this.registercontactinformation.get('password').value;
-    let conform_password = this.registercontactinformation.get('conform_password').value;
+    console.log( 'Contact Information',registercontactinformation);
+    console.log('employee', employeeinformation);
+
+    let FirstName = this.registercontactinformation.get('FirstName').value;
+    // alert(FirstName);
+    let LastName = this.registercontactinformation.get('LastName').value;
+    // alert(LastName);
+    let UserTypeId = this.registercontactinformation.get('UserTypeId').value;
+    // alert(UserTypeId);
+    let UserId = this.registercontactinformation.get('UserId').value;
+    // alert(UserId);
+    let UserPassword = this.registercontactinformation.get('UserPassword').value;
+    // alert(UserPassword);
+    let conformpassword = this.registercontactinformation.get('conformpassword').value;
+    // alert(conformpassword);
 
 
-    let current_add = this.registercontactinformation.get('current_add').value;
-// alert(current_add);
-    let current_secadd = this.registercontactinformation.get('current_secadd').value;
-    // alert(current_secadd);
-    let currentstate = this.registercontactinformation.get('currentstate').value;
-    // alert(currentstate);
-    let currentcity = this.registercontactinformation.get('currentcity').value;
-    // alert(currentcity);
-    let regcurrentzip_name = this.registercontactinformation.get('regcurrentzip_name').value;
-    alert(regcurrentzip_name);
+    let Address1 = this.registercontactinformation.get('Address1').value;
+    // alert(Address1);
+    let Address2 = this.registercontactinformation.get('Address2').value;
+    // alert(Address2);
+    let StateId = this.registercontactinformation.get('StateId').value;
+    // alert(StateId);
+    let CityId = this.registercontactinformation.get('CityId').value;
+    // alert(CityId);
+    let Zipcode = this.registercontactinformation.get('Zipcode').value;
+    // alert(Zipcode);
     let county_name = this.registercontactinformation.get('county_name').value;
-    alert(county_name);
-    let country_name = this.registercontactinformation.get('country_name').value;
-    alert(country_name);
+    // alert(county_name);
+    let CountryId = this.registercontactinformation.get('CountryId').value;
+    // alert(CountryId);
     
 
     let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
 
-    let socialno_name = this.registercontactinformation.get('socialno_name').value;
-    let businesssize_name = this.registercontactinformation.get('businesssize_name').value;
-    let be_classificationname = this.registercontactinformation.get('be_classificationname').value;
+    let EIN_SSN = this.registercontactinformation.get('EIN_SSN').value;
+    let BusinessSize = this.registercontactinformation.get('BusinessSize').value;
+    let BEClassificationId = this.registercontactinformation.get('BEClassificationId').value;
 
-    let jobtitle = this.employeeinformation.get('jobtitle').value;
-    let employeeid = this.employeeinformation.get('employeeid').value;
-    let startdate = this.employeeinformation.get('startdate').value;
-    let phoneno = this.employeeinformation.get('phoneno').value;
+    let JobTitleId = this.employeeinformation.get('JobTitleId').value;
+    let EmploymentTypeId = this.employeeinformation.get('EmploymentTypeId').value;
+    let StartDate = this.employeeinformation.get('StartDate').value;
+    let Phone = this.employeeinformation.get('Phone').value;
 
 
     let usertype_id = (<HTMLInputElement>document.getElementById("usertype_id")).value;
 
-    if(first_name == null )
+    if(FirstName == null )
       {
        (document.getElementById('firstname_id') as HTMLFormElement).classList.add("validation");
      }
 
-    if(last_name == null)
+    if(LastName == null) 
       {
       (document.getElementById('lastname_id') as HTMLFormElement).classList.add("validation");
      }
 
-     if(usertype == null)
+     if(UserTypeId == null)
      {
      (document.getElementById('usertype_id') as HTMLFormElement).classList.add("validation");
       }
-      if(user_id == null)
+      if(UserId == null)
      {
-      (document.getElementById('userid') as HTMLFormElement).classList.add("validation");
+      (document.getElementById('userkey') as HTMLFormElement).classList.add("validation");
       }
-     if(password == null)
+     if(UserPassword == null)
      {
-      (document.getElementById('password_id') as HTMLFormElement).classList.add("validation");
+      (document.getElementById('userpswd_id') as HTMLFormElement).classList.add("validation");
       }
-      if(conform_password == null)
+      if(conformpassword == null)
      {
-      (document.getElementById('comformpassword_id') as HTMLFormElement).classList.add("validation");
+      (document.getElementById('comformpswd_id') as HTMLFormElement).classList.add("validation");
       }
-      if(current_add == null)
+      
+      if(Address1 == null)
       {
        (document.getElementById('currentadd_id') as HTMLFormElement).classList.add("validation");
        }
-       if(current_secadd == null)
+       if(Address2 == null)
        {
         (document.getElementById('currentsecadd_id') as HTMLFormElement).classList.add("validation");
         }
-        if(currentstate == null)
+        if(StateId == null)
         {
          (document.getElementById('curstate_id') as HTMLFormElement).classList.add("validation");
          }
-         if(regcurrentzip_name == null)
+         if(Zipcode == null)
         {
          (document.getElementById('regcurrentzip_id') as HTMLFormElement).classList.add("validation");
          }
-         if(currentcity == null)
+         if(CityId == null)
         {
          (document.getElementById('currentcity_id') as HTMLFormElement).classList.add("validation");
          }
@@ -196,32 +205,32 @@ number(event: any) {
          {
           (document.getElementById('county_id') as HTMLFormElement).classList.add("validation");
           }
-          if(country_name == null)
+          if(CountryId == null)
           {
            (document.getElementById('country_id') as HTMLFormElement).classList.add("validation");
            }
 
-     if(password != (conform_password)){
+     if(UserPassword != (conformpassword)){
 
-      (document.getElementById('comformpassword_id') as HTMLFormElement).classList.add("validation");
+      (document.getElementById('comformpswd_id') as HTMLFormElement).classList.add("validation");
     }
 
     if(usertype_id == "EMPLOY"){
     
 
-      if(jobtitle == null)
+      if(JobTitleId == null)
       {
-       (document.getElementById('jobtitle_id') as HTMLFormElement).classList.add("validation");
+       (document.getElementById('job_title') as HTMLFormElement).classList.add("validation");
        }
-       if(employeeid == null)
+       if(EmploymentTypeId == null)
       {
        (document.getElementById('employee_id') as HTMLFormElement).classList.add("validation");
        }
-       if(startdate == null)
+       if(StartDate == null)
       {
        (document.getElementById('startdate_id') as HTMLFormElement).classList.add("validation");
        }
-       if(phoneno == null)
+       if(Phone == null)
       {
        (document.getElementById('phoneno_id') as HTMLFormElement).classList.add("validation");
        }
@@ -231,10 +240,10 @@ number(event: any) {
 
     if(active1 == false){
 
-    if(socialno_name == null){
+    if(EIN_SSN == null){
       (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
     }
-    if(socialno_name != (this.socialno)){
+    if(EIN_SSN != (this.socialno)){
 
       (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
     }
@@ -243,11 +252,11 @@ number(event: any) {
 
     else{
 
-      if(businesssize_name == null){
+      if(BusinessSize == null){
         (document.getElementById('business_id') as HTMLFormElement).classList.add("validation");
       }
 
-      if(be_classificationname == null){
+      if(BEClassificationId == null){
         (document.getElementById('be_classificationid') as HTMLFormElement).classList.add("validation");
       }
         
