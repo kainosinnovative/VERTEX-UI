@@ -1,8 +1,19 @@
 <div class="container">
+
+ 
+
     <form [formGroup]="registercontactinformation">
     <p class="mainheading Vendortitle" style="text-align: center;">Register Form</p>
  
-    
+    <div style=" border: 1px solid yellow;background-color: #ffff00ba;width: 825px;">
+        <p style="    font-size: 15px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        padding-left: 23px;">User Id- must be between 8 to 20 characters in length.Must include upper and lower case letters and numbers 0-9</p>
+    </div>
+    <br>
+    <!-- <p style="color: red;border: none !important;" id="socialErr"></p> -->
+
         <p class="mainheading heading">Contact Information</p>
     
     <div class="row Generaldiv">
@@ -10,13 +21,13 @@
     
         <div class="labelheight">
             <label class="labelwidth">First Name <span class="requiredfield ">  *</span> </label>    
-            <input type="text" class="first" formControlName="first_name" id="firstname_id" (keypress)="inputErrorMessage('firstname_id')">
+            <input type="text"  class="first" formControlName="first_name" id="firstname_id" (keypress)="inputErrorMessage('firstname_id');alpha($event)">
         </div>
      
     
             <div class="labelheight">
                 <label class="labelwidth">Last Name <span class="requiredfield ">  *</span> </label>
-            <input type="text" class="lastname"  formControlName="last_name" id="lastname_id" (keypress)="inputErrorMessage('lastname_id')">
+            <input type="text" class="lastname"  formControlName="last_name" id="lastname_id" (keypress)="inputErrorMessage('lastname_id');alpha($event)">
             </div>
         
     
@@ -24,24 +35,27 @@
                 <label class="labelwidth">User Type</label>
                   <select class="Country"  formControlName="usertype" id="usertype_id" (change)="inputErrorMessage('usertype_id');vendordetails_display()">
                     <option value="value"></option>
-                       <option value="vendor">Vendor</option>
+                    <option *ngFor="let userlist of usertypedata" [value]="userlist.UserTypeId">
+                        {{userlist.UserTypeDesc}}</option>
+                      
+                       <!-- <option value="vendor">Vendor</option>
                        <option value="employee">Employee</option>
-                       <option value="other">Other</option>
+                       <option value="other">Other</option> -->
                    </select> 
-            </div> 
+             </div> 
 
             <div class="labelheight">
                 <label class="labelwidth">User Id<span class="requiredfield ">  *</span> </label>
-                <input type="text" class="tradename" formControlName="user_id" id="userid" (keypress)="inputErrorMessage('userid')">
+                <input type="text" class="tradename" formControlName="user_id" id="userid" (keypress)="inputErrorMessage('userid');alphanumeric($event)">
             </div>
 
             <div class="labelheight">
-                <label class="labelwidth">password<span class="requiredfield ">  *</span> </label>
+                <label class="labelwidth">Password<span class="requiredfield ">  *</span> </label>
                 <input type="text" class="tradename" formControlName="password" id="password_id" (keypress)="inputErrorMessage('password_id')">
             </div>
 
             <div class="labelheight">
-                <label class="labelwidth">Conform password<span class="requiredfield ">  *</span> </label>
+                <label class="labelwidth">Confirm Password<span class="requiredfield ">  *</span> </label>
                 <input type="text" class="tradename" formControlName="conform_password" id="comformpassword_id" (keypress)="inputErrorMessage('comformpassword_id')">
             </div>  
           
@@ -49,52 +63,61 @@
     
     
       <div class="col-sm-6 innerlinefont">
-       
 
          <div class="labelheight">
             <label class="labelwidth">Address<span class="requiredfield ">  *</span> </label>
-            <input type="text" class="Physicaladdress" formcontrolname="regcurrentaddress_name" id="regcurrentaddress_id" (keypress)="inputErrorMessage('regcurrentaddress_id')">
+            <input type="text" class="Physicaladdress"  formControlName="current_add" id="currentadd_id" (keypress)="inputErrorMessage('currentadd_id')">
             </div>
 
              <div class="labelheight">
                 <label class="labelwidth">Address Line2</label>
-                <input type="text" class="Physicaladdress" formcontrolname="regcurrentaddressline2_name" id="regcurrentaddressline2_id" (keypress)="inputErrorMessage('regcurrentaddressline2_id')">
+                <input type="text" class="Physicaladdress" formControlName="current_secadd"  id="currentsecadd_id" (keypress)="inputErrorMessage('currentsecadd_id')">
                 </div>
 
             <div class="labelheight">
-            <label class="labelwidth">State/province<span class="requiredfield "> *</span> </label>
-             <select class="State" formcontrolname="regcurrentstate_name" id="regcurrentstate_id" (change)="inputErrorMessage('regcurrentstate_id')">
-              <option value="value"></option>
-                        <option value="value1">Virginia</option>
-                        <option value="value2">Alabama</option>
-                        <option value="value3">Alaska</option>
-                        <option value="value4">California</option>
-                        <option value="value5">Florida</option>
-                        <option value="value6">Ohio</option>
-                        <option value="value7">Washington</option>
-                    </select> 
+            <label class="labelwidth">State/Province<span class="requiredfield "> *</span> </label>
+             <select class="State"  formControlName="currentstate" id="curstate_id"
+              (change)="inputErrorMessage('curstate_id');onChangeObj($event)" >
+            
+
+              <option value=""></option>
+              <option *ngFor="let statelist of statedetail" value="{{statelist.StateId}}">
+                {{statelist.StateName}}</option>
+               </select> 
                    </div>
 
                    <div class="labelheight">
                     <label class="labelwidth">City<span class="requiredfield ">  *</span> </label>
-                    <input type="text"  class="city"  formcontrolname="regcurrentcity_name" id="regcurrentcity_id" (keypress)="inputErrorMessage('regcurrentcity_id')">
-                     </div>
+                    <select class="city"  formControlName="currentcity"  id="currentcity_id"
+                    (change)="inputErrorMessage('currentcity_id');onchangezip()">
+
+                          <option value="value"></option>
+                             <option *ngFor="let citylist of citydetail" value="{{citylist.cityid}}">
+                               {{citylist.cityname}}</option>
+                          </select>      
+                           </div>
 
                     <div class="labelheight">
                     <label class="labelwidth">Zip Code<span class="requiredfield ">  *</span> </label>
-                    <input type="number"  class="zip" formcontrolname="regcurrentzip_name" id="regcurrentzip_id" (keypress)="inputErrorMessage('regcurrentzip_id')">
-                    </div>
+                    <select class="zip" formControlName="regcurrentzip_name" id="regcurrentzip_id"
+                    (keypress)="inputErrorMessage('regcurrentzip_id')" >
+
+                          <option value="value"></option>
+                             <option *ngFor="let ziplist of zipcodedetail" >
+                               {{ziplist.Zipcode}}</option>
+                          </select>
+                </div>
 
         
                      <div class="labelheight">
                         <label class="labelwidth">County<span class="requiredfield ">  *</span> </label>
-                        <input type="text"  class="County" formcontrolname="county_name" id="county_id" (keypress)="inputErrorMessage('county_id')">
+                        <input type="text"  class="County" formControlName="county_name" id="county_id" (keypress)="inputErrorMessage('county_id')">
                         </div>
                       
         
                         <div class="labelheight">
                             <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
-                            <select class="Country"  formcontrolName="country_name" id="country_id" (change)="inputErrorMessage('country_id')">
+                            <select class="Country"  formControlName="country_name" id="country_id" (change)="inputErrorMessage('country_id')">
                              <option value="value"></option>
                                 <option value="value1">USA</option>
                                 <option value="value2">India</option>
@@ -137,7 +160,7 @@
     <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
             <label class="labelwidth">Social Security Number<span class="requiredfield ">  *</span> </label>
-            <input type="number" class="social" formControlName="socialno_name" id="socialno_id" (keypress)="inputErrorMessage('socialno_id')">
+            <input type="text" class="social" formControlName="socialno_name" id="socialno_id" (keypress)="inputErrorMessage('socialno_id')">
         </div>
     </div>
     <div class="col-sm-6 innerlinefont">
@@ -161,7 +184,7 @@
    <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
             <label class="labelwidth">Business Size<span class="requiredfield ">  *</span> </label>
-            <input type="number" formControlName="businesssize_name" id="business_id"  (keypress)="inputErrorMessage('business_id')">
+            <input type="text" formControlName="businesssize_name" id="business_id"  (keypress)="inputErrorMessage('business_id');number($event)">
         </div>
         <div class="labelheight">
             <label class="wouldla">Is this Business Registered with this County/State ?</label>
@@ -172,7 +195,7 @@
             </label></div>
 
         <div class="">
-        <label class="wouldla">Is this business a franchisee ? </label>
+        <label class="wouldla">Is this Business a Franchisee ? </label>
         <label class="switch">
         <input  type="checkbox" name="franchisee_active" id="franchisee_activeid" checked>
         <span class="slider round"></span>
@@ -239,11 +262,11 @@
                 <div class="labelheight">
                     <label class="labelwidth">Phone Number <span class="requiredfield "> *</span> </label>
                     <input type="text" class="phoneno" formControlName="phoneno" id="phoneno_id"
-                        (keypress)="inputErrorMessage('phoneno_id')">
+                        (keypress)="inputErrorMessage('phoneno_id'); number($event)">
                 </div>
                 <div>
                     <div class="labelheight">
-                        <label class="labelwidth">Is Admin user <span class="requiredfield "> *</span> </label>
+                        <label class="labelwidth">Is Admin User <span class="requiredfield "> *</span> </label>
                         <label class="switch">
                             <input class="" type="checkbox" id="admin_activeid" >
                             <span class="slider round"></span>
