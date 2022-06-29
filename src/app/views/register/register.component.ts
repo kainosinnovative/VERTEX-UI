@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   citydetail:any;
   zipcodelist:any;
   zipcodedetail: any;
+  overalldata: any;
 
 
   constructor(private frmbuilder: FormBuilder,  private http: HttpClient) { }
@@ -64,7 +65,7 @@ export class RegisterComponent implements OnInit {
       EmploymentTypeId:[],
       StartDate:[],
       Phone:[],
-      AdminUser: [],
+      // AdminUser: [],
 
 })
 
@@ -76,6 +77,7 @@ export class RegisterComponent implements OnInit {
 
 phoneformat= /^[0-9]{10}$/;
 socialno = /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
+useridmatch=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
 
 alpha(event: any){
   var inp = String.fromCharCode(event.keyCode);
@@ -200,10 +202,16 @@ number(event: any) {
            (document.getElementById('country_id') as HTMLFormElement).classList.add("validation");
            }
 
+           if(!UserId.match(this.useridmatch)){
+
+            (document.getElementById('userkey') as HTMLFormElement).classList.add("validation");
+          }
+
      if(UserPassword != (conformpassword)){
 
       (document.getElementById('comformpswd_id') as HTMLFormElement).classList.add("validation");
     }
+
 
     if(usertype_id == "EMPLOY"){
     
@@ -250,6 +258,24 @@ number(event: any) {
         (document.getElementById('be_classificationid') as HTMLFormElement).classList.add("validation");
       }
         
+      }
+
+      if(FirstName != "" && LastName != "" && UserId != "" && UserPassword != "" && Address1 != "" && Address2 != "" && StateId != "" && 
+        CityId != "" && Zipcode != "" && CountryId != ""){
+        
+          
+          this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+      
+        data => {
+          console.log("data");
+            console.log('POST Request is successful >>>>>>>>', data);
+  
+        },
+        success => {
+          console.log("success");
+        }
+      );
+
       }
 
 
