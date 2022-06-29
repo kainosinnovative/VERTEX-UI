@@ -6,14 +6,18 @@ import { Page404Component } from './views/pages/page404/page404.component';
 import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { AdminmanagementComponent } from './views/adminmanagement/adminmanagement.component';
+import { RegistrationformComponent } from './registrationform/registrationform.component';
+// import { RegisterComponent } from './register/register.component';
 // import { RegisterComponent } from './register/register.component';
 
 const newLocal = './views/register/register.module';
-// import { RegisterComponent } from './views/pages/register/register.component';
 // import { DashboardComponent } from './views/dashboard/dashboard.component';
 const routes: Routes = [
   { path:'', component:LoginComponent, data: { title: 'login'}},
-  // { path:'', component:RegisterComponent, data: { title: 'register'}},
+  { path:'', component:RegistrationformComponent, data: { title: 'registrationform'}},
+  
+  // {path:'', component:RegisterComponent,data: { title: "registerpage"}},
+  // { path:'', component:RegisterComponent, data: { title: 'register1'}},
 
   // { path:'dashboard', component:DashboardComponent, data: { title: 'register'}},
   // {
@@ -118,6 +122,13 @@ const routes: Routes = [
     component: LoginComponent,
     data: {
       title: 'Login Page'
+    }
+  },
+  {
+    path: 'registrationform',
+    component: RegistrationformComponent,
+    data: {
+      title: 'registrationform'
     }
   },
   // {
