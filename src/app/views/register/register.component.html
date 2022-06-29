@@ -231,14 +231,14 @@
 </div>
 </div>
 </div>
-</form> 
+<!-- </form>  -->
 <!-- vendor business end -->
 
   <!-- Employee information start -->
   <div id="employeeinfo" style="display: none;">
     <p class="mainheading heading">Employee Information</p>
     <p style="color: red;border: none !important;" id="phoneErr"></p>
-    <form [formGroup]="employeeinformation">
+    <!-- <form [formGroup]="employeeinformation"> -->
         <div class="row Generaldiv">
             <div class="col-sm-6 innerlinefont">
                 <div class="labelheight">
@@ -282,15 +282,15 @@
                 </div>
             </div>
         </div>
-    </form>
+   
 </div>
 <!-- Employee information end -->
-
+</form>
 
 <div class="btndiv">
          <input type="button"  class="btn btn-primary fixedwidthcls" value="Cancel" />
          &nbsp;&nbsp;
-              <input type="button"   class="btn btn-primary fixedwidthcls" (click)="validation(registercontactinformation.value,employeeinformation.value)"  value="Save " />  
+              <input type="button"   class="btn btn-primary fixedwidthcls" (click)="validation(registercontactinformation.value)"  value="Save " />  
            </div><br>
 
                

@@ -60,15 +60,17 @@ export class RegisterComponent implements OnInit {
       BusinessSize: [],
       BEClassificationId: [],
 
+      JobTitleId:[],
+      EmploymentTypeId:[],
+      StartDate:[],
+      Phone:[],
+      AdminUser: [],
+
 })
 
-this. employeeinformation = this.frmbuilder.group({
-  JobTitleId:[],
-  EmploymentTypeId:[],
-  StartDate:[],
-  Phone:[],
-  AdminUser: []
- })
+// this. employeeinformation = this.frmbuilder.group({
+
+//  })
 
 }
 
@@ -105,39 +107,27 @@ number(event: any) {
   }
 }
 
-  validation(registercontactinformation:any,employeeinformation:any){
+  validation(registercontactinformation:any){
 
     console.log( 'Contact Information',registercontactinformation);
-    console.log('employee', employeeinformation);
+    // console.log('employee', employeeinformation);
 
     let FirstName = this.registercontactinformation.get('FirstName').value;
-    // alert(FirstName);
     let LastName = this.registercontactinformation.get('LastName').value;
-    // alert(LastName);
     let UserTypeId = this.registercontactinformation.get('UserTypeId').value;
-    // alert(UserTypeId);
     let UserId = this.registercontactinformation.get('UserId').value;
-    // alert(UserId);
     let UserPassword = this.registercontactinformation.get('UserPassword').value;
-    // alert(UserPassword);
     let conformpassword = this.registercontactinformation.get('conformpassword').value;
-    // alert(conformpassword);
+   
 
 
     let Address1 = this.registercontactinformation.get('Address1').value;
-    // alert(Address1);
     let Address2 = this.registercontactinformation.get('Address2').value;
-    // alert(Address2);
     let StateId = this.registercontactinformation.get('StateId').value;
-    // alert(StateId);
     let CityId = this.registercontactinformation.get('CityId').value;
-    // alert(CityId);
     let Zipcode = this.registercontactinformation.get('Zipcode').value;
-    // alert(Zipcode);
     let county_name = this.registercontactinformation.get('county_name').value;
-    // alert(county_name);
     let CountryId = this.registercontactinformation.get('CountryId').value;
-    // alert(CountryId);
     
 
     let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
@@ -146,10 +136,10 @@ number(event: any) {
     let BusinessSize = this.registercontactinformation.get('BusinessSize').value;
     let BEClassificationId = this.registercontactinformation.get('BEClassificationId').value;
 
-    let JobTitleId = this.employeeinformation.get('JobTitleId').value;
-    let EmploymentTypeId = this.employeeinformation.get('EmploymentTypeId').value;
-    let StartDate = this.employeeinformation.get('StartDate').value;
-    let Phone = this.employeeinformation.get('Phone').value;
+    let JobTitleId = this.registercontactinformation.get('JobTitleId').value;
+    let EmploymentTypeId = this.registercontactinformation.get('EmploymentTypeId').value;
+    let StartDate = this.registercontactinformation.get('StartDate').value;
+    let Phone = this.registercontactinformation.get('Phone').value;
 
 
     let usertype_id = (<HTMLInputElement>document.getElementById("usertype_id")).value;
@@ -381,6 +371,10 @@ number(event: any) {
             this.zipcodedetail=this.zipcodelist.data.zipcodedata;
             // console.log( 'zipcode', this.zipcodedetail)
           })
+
+      }
+
+      inputvalidation(){
 
       }
 
