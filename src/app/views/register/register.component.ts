@@ -27,6 +27,10 @@ export class RegisterComponent implements OnInit {
   zipcodelist:any;
   zipcodedetail: any;
   overalldata: any;
+  countrytype: any;
+  countrydetail: any;
+  beclassificationtype: any;
+  beclassificationdetail:any;
 
 
   constructor(private frmbuilder: FormBuilder,  private http: HttpClient) { }
@@ -37,6 +41,8 @@ export class RegisterComponent implements OnInit {
     this.getemployeedata();
     this.getusertypedata();
     this. getstatedata();
+    this.getcountrydata();
+    this.getbeclassificationdata();
     // this.onChangeObj();
 
     this.registercontactinformation = this.frmbuilder.group({
@@ -76,7 +82,7 @@ export class RegisterComponent implements OnInit {
 }
 
 phoneformat= /^[0-9]{10}$/;
-socialno = /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
+socialno =  /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
 useridmatch=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
 
 alpha(event: any){
@@ -117,6 +123,7 @@ number(event: any) {
     let FirstName = this.registercontactinformation.get('FirstName').value;
     let LastName = this.registercontactinformation.get('LastName').value;
     let UserTypeId = this.registercontactinformation.get('UserTypeId').value;
+    // alert(UserTypeId);
     let UserId = this.registercontactinformation.get('UserId').value;
     let UserPassword = this.registercontactinformation.get('UserPassword').value;
     let conformpassword = this.registercontactinformation.get('conformpassword').value;
@@ -241,10 +248,12 @@ number(event: any) {
     if(EIN_SSN == null){
       (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
     }
-    if(EIN_SSN != (this.socialno)){
 
-      (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
-    }
+      // if(!EIN_SSN.match(this.socialno)){
+
+    //   (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
+    // }
+  
       
     }
 
@@ -260,27 +269,107 @@ number(event: any) {
         
       }
 
-      if(FirstName != "" && LastName != "" && UserId != "" && UserPassword != "" && Address1 != "" && Address2 != "" && StateId != "" && 
-        CityId != "" && Zipcode != "" && CountryId != ""){
+      if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
+        CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != ""){
         
           
-          this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
-      
-        data => {
-          console.log("data");
-            console.log('POST Request is successful >>>>>>>>', data);
-  
-        },
-        success => {
-          console.log("success");
-        }
-      );
+          if(usertype_id == "OTHER"){
+
+            if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
+            CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != ""){
+    
+              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+          
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
+          
+                },
+                success => {
+                  console.log("success");
+                }
+              );
+    
+            }
+            
+          }
+
+
+          if(usertype_id == "EMPLOY"){
+
+            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && StartDate != null && StartDate != "" && Phone != null && Phone != ""){
+    
+              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+          
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
+          
+                },
+                success => {
+                  console.log("success");
+                }
+              );
+    
+            }
+            
+          }
+
+
+
+          if(usertype_id == "VENDOR"){
+
+            if(active1 == false){
+
+              if(EIN_SSN != null && EIN_SSN != ""){
+
+                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+          
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
+          
+                },
+                success => {
+                  console.log("success");
+                }
+              );
+    
+            }
+           if(!EIN_SSN.match(this.socialno)){
+                 (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
+                }
+              }
+            }
+
+            if(usertype_id == "VENDOR"){
+
+              if(BusinessSize != null && BusinessSize != "" && BEClassificationId != null && BEClassificationId != ""){
+
+                
+                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+          
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
+          
+                },
+                success => {
+                  console.log("success");
+                }
+              );
+    
+            }
+              }
+
+
+            // }
+
+
+             }
+          
 
       }
-
-
-
- }
 
   inputErrorMessage(errormessage: any) {
 
@@ -400,9 +489,27 @@ number(event: any) {
 
       }
 
-      inputvalidation(){
-
+      getcountrydata(){
+        this.http.get(config_url+'/app/selectAllCountry').subscribe(
+          (countrydata: {}) => {
+           
+            this.countrytype = countrydata;
+            this.countrydetail = this.countrytype.data.CountryDetails
+            // console.log("country",countrydata)
+      });
       }
+
+      getbeclassificationdata(){
+        console.log("in");
+        this.http.get(config_url+'/app/selectBEClassification').subscribe(
+          (beclassificationdata: {}) => {
+           
+            this.beclassificationtype = beclassificationdata;
+            this.beclassificationdetail = this.beclassificationtype.data.BEClassification
+            // console.log("country",countrydata)
+      });
+      }
+
 
     // inputErrorMessage1(phoneErr: any){
     //   (document.getElementById(phoneErr) as HTMLFormElement).innerHTML = "";

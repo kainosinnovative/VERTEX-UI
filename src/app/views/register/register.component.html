@@ -123,8 +123,8 @@
                             <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
                             <select class="Country"  formControlName="CountryId" id="country_id" (change)="inputErrorMessage('country_id')">
                              <option value="value"></option>
-                                <option value="value1">USA</option>
-                                <option value="value2">India</option>
+                             <option *ngFor="let countrylist of countrydetail" [value]="countrylist.CountryId">
+                                {{countrylist.CountryName}}</option>
                             </select> 
                         </div> 
 
@@ -188,10 +188,7 @@
    <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
             <label class="labelwidth">Business Size<span class="requiredfield ">  *</span> </label>
-            <select  type="text" class="Country" formControlName="BusinessSize" id="business_id"  (change)="inputErrorMessage('business_id');number($event)">
-                <option></option>
-                <option value="1">Display</option>
-            </select>
+            <input  type="text" class="Country" formControlName="BusinessSize" id="business_id"  (change)="inputErrorMessage('business_id');number($event)">
         </div>
         <div class="labelheight">
             <label class="wouldla">Is this Business Registered with this County/State ?</label>
@@ -215,13 +212,13 @@
             <label class="labelwidth">BE Classification ID<span class="requiredfield ">  *</span> </label>
             <select class="Country" formControlName="BEClassificationId" id="be_classificationid" (change)="inputErrorMessage('be_classificationid')" >
                 <option value="value"></option>
-             <option value="value1">xxxx</option>
-             <option value="value2">YYY</option>
+                <option *ngFor="let beclassificationlist of beclassificationdetail" [value]="beclassificationlist.BEClassificationId">
+                    {{beclassificationlist.BEClassificationDesc}}</option>
              </select> 
         </div>
 
         <div>
-            <label class="statecorporation">Is this business registered with this State Corporation Commission ? </label>
+            <label class="statecorporation">Is this Business registered with this State Corporation Commission ? </label>
             <label class="switch">
                             <input  type="checkbox" name="statecoms_active" id="statecms_activeid" checked>
                             <span class="slider round"></span>
