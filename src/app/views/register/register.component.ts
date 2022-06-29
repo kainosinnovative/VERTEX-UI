@@ -59,11 +59,12 @@ export class RegisterComponent implements OnInit {
       StateId: [],
       CityId: [],
       Zipcode: [],
-       county_name: [],
+      county_name: [],
       CountryId: [],
      
-
+      VendorTypeId: [],
       EIN_SSN:[],
+      OutreachEmailOptIn:[],
       BusinessSize: [],
       BEClassificationId: [],
 

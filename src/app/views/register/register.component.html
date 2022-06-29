@@ -148,7 +148,7 @@
          <label >Individual</label>
          &nbsp;&nbsp;
         <label class="switch">
-        <input class="" type="checkbox"  id="active"  (change)="vendortype_display('active')">
+        <input class="" type="checkbox"  id="active"  (change)="vendortype_display('active')" formControlName="VendorTypeId">
         <span class="slider round"></span>
         </label>&nbsp;&nbsp;
         <label >Business</label>  
@@ -172,7 +172,7 @@
             <label class="wouldla">Would you like to receive outreach emails from us ?</label>
             <!-- <label style="width:10px;"></label> -->
                             <label class="switch">
-                            <input  type="checkbox" name="outreach_active" id="outreach_activeid" checked>
+                            <input  type="checkbox" name="outreach_active" id="outreach_activeid" formControlName="OutreachEmailOptIn" checked>
                             <span class="slider round"></span>
                             </label></div>
     </div>
