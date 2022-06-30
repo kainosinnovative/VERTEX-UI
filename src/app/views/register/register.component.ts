@@ -45,10 +45,10 @@ export class RegisterComponent implements OnInit {
     this.gejobtitledata();
     this.getemployeedata();
     this.getusertypedata();
-    this.getcountrydata();
+    // this.getcountrydata();
     this.getbeclassificationdata();
     this.Getcityall_list();
-    this.getvendorlist()
+    // this.getvendorlist()
 
     this.registercontactinformation = this.frmbuilder.group({
 
@@ -62,24 +62,20 @@ export class RegisterComponent implements OnInit {
       Address1: [],
       Address2: [],
       StateId: [],
-      // CityId: [1],
-      CityId: [],
+       CityId: [],
       Zipcode: [],
-      // StateId: [],
       county_name: [],
       CountryId: [],
       StartDate:[],
       EndDate:[],
-      AStartDate:['2022-06-29'],
       VendorTypeId: [],
       EIN_SSN:[],
-      // VAStartDate:[],
+     
 
       OutreachEmailOptIn:[],
       BusinessSize: [],
       BusinessRegisteredInDistrict:[],
       BusinessIsFranchisee: [],
-      // VAbusStartDate: [],
       BEClassificationId: [],
 
       JobTitleId:[],
@@ -90,7 +86,7 @@ export class RegisterComponent implements OnInit {
       Phone:[],
       AdminUser: [],
       UserStatusId:['N'],
-      AEndDate: ['2022-06-30'],
+      // AEndDate: ['2022-06-30'],
 
 })
 
@@ -175,10 +171,8 @@ number(event: any) {
     let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
 
     let EIN_SSN = this.registercontactinformation.get('EIN_SSN').value;
-    // let VAStartDate = this.registercontactinformation.get('VAStartDate').value;
     let BusinessSize = this.registercontactinformation.get('BusinessSize').value;
     let BusinessRegisteredInDistrict = this.registercontactinformation.get('BusinessRegisteredInDistrict').value;
-    // let VAbusStartDate = this.registercontactinformation.get('VAbusStartDate').value;
     let BEClassificationId = this.registercontactinformation.get('BEClassificationId').value;
     let BusinessRegisteredInSCC = this.registercontactinformation.get('BusinessRegisteredInSCC').value;
     let BusinessIsFranchisee = this.registercontactinformation.get('BusinessIsFranchisee').value;
@@ -339,7 +333,7 @@ number(event: any) {
 
           if(usertype_id == "EMPLOY"){
 
-            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && Phone != null && Phone != "" && JobStartDate != null && JobStartDate != ""){
+            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && JobStartDate != null && JobStartDate != "" && Phone != null && Phone != "" ){
     
               this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
@@ -502,31 +496,35 @@ number(event: any) {
     });
     }
 
-    getvendorlist(){
+    // getvendorlist(){
       
-      this.http.get(config_url+'/vendor/GetVendorType').subscribe(
-        (vendordata: {}) => {
+    //   this.http.get(config_url+'/vendor/GetVendorType').subscribe(
+    //     (vendordata: {}) => {
 
-          // console.log(vendordata)
+    //       // console.log(vendordata)
          
-          this.vendordatalist = vendordata;
-          this.vendoralllist = this.vendordatalist.data.vendortype
-       console.log(this.vendoralllist.VendorTypeId);
+    //       this.vendordatalist = vendordata;
+    //       this.vendoralllist = this.vendordatalist.data.vendortype
+    //    console.log(this.vendoralllist.VendorTypeId);
        
-    });
+    // });
 
-    }
+    // }
   
 
-      getcountrydata(){
-        this.http.get(config_url+'/app/selectAllCountry').subscribe(
-          (countrydata: {}) => {
+      // getcountrydata(){
+
+      // let curstate_id = (<HTMLInputElement>document.getElementById("curstate_id")).value;
+      // alert(curstate_id);
+
+      // // this.http.get(config_url+'/app/getCountryByState?stateid='+countryid).subscribe(
+      // //     (countrydata: {}) => {
            
-            this.countrytype = countrydata;
-            this.countrydetail = this.countrytype.data.CountryDetails
-            // console.log("country",countrydata)
-      });
-      }
+      // //       this.countrytype = countrydata;
+      // //       this.countrydetail = this.countrytype.data.CountryDetails
+      // //       console.log("country",this.countrydetail);
+      // // });
+      // }
 
       getbeclassificationdata(){
         console.log("in");
@@ -580,6 +578,22 @@ number(event: any) {
             this.statetype=this.statedetails.data.Statelist;
             // console.log( 'zipcode', this.zipcodedetail)
           })
+
+      }
+
+      onchangecountry(){
+       
+        let state_id = (<HTMLInputElement>document.getElementById("curstate_id")).value;
+
+        this.http.get(config_url+'/app/getCountryByState?stateid='+state_id).subscribe(countrydata =>
+          {
+
+            // console.log( 'country',countrydata);
+            this.countrytype = countrydata;
+            this.countrydetail = this.countrytype.data.countrydata
+            // console.log( 'zipcode', this.countrydetail)
+          })
+
 
       }
 

@@ -126,7 +126,7 @@
                         <div class="labelheight">
                             <label class="labelwidth">State/Province<span class="requiredfield "> *</span> </label>
                              <select class="State"  formControlName="StateId" id="curstate_id"
-                              (change)="inputErrorMessage('curstate_id')" >
+                              (change)="inputErrorMessage('curstate_id');onchangecountry()" >
                             
                 
                               <option value=""></option>
@@ -139,7 +139,7 @@
                         <div class="labelheight">
                             <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
                             <select class="Country"  formControlName="CountryId" id="country_id" (change)="inputErrorMessage('country_id')">
-                             <!-- <option value="value"></option> -->
+                             <option value="value"></option>
                              <option *ngFor="let countrylist of countrydetail" [value]="countrylist.CountryId">
                                 {{countrylist.CountryName}}</option>
                             </select> 
@@ -308,7 +308,7 @@
                 <div class="labelheight">
                     <label class="labelwidth">Start Date<span class="requiredfield "> *</span> </label>
                     <input type="date" class="startdate" formControlName="JobStartDate" id="jobstartdate_id"
-                        (change)="inputErrorMessage('startdate_id')">
+                        (change)="inputErrorMessage('jobstartdate_id')">
                 </div>
             </div>
             <div class="col-sm-6 innerlinefont">
