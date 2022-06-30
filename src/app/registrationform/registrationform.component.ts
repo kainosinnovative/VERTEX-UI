@@ -31,6 +31,8 @@ export class RegistrationformComponent implements OnInit {
    countrydetail: any;
    beclassificationtype: any;
    beclassificationdetail:any;
+   citylist:any;
+   cityalldetail:any;
  
  
    constructor(private frmbuilder: FormBuilder,  private http: HttpClient) { }
@@ -43,6 +45,8 @@ export class RegistrationformComponent implements OnInit {
      this. getstatedata();
      this.getcountrydata();
      this.getbeclassificationdata();
+    //  this.Getcityall_list()
+    //  this. getzipcodebycityid();
      // this.onChangeObj();
  
      this.registercontactinformation = this.frmbuilder.group({
@@ -456,25 +460,25 @@ export class RegistrationformComponent implements OnInit {
      });
      }
  
-     onChangeObj(newObj: any) {
+//      onChangeObj(newObj: any) {
    
-    let stateid = (<HTMLInputElement>document.getElementById("curstate_id")).value;
+//     let stateid = (<HTMLInputElement>document.getElementById("curstate_id")).value;
  
   
  
- // alert(cityid);
+//  // alert(cityid);
   
-    this.http.get(config_url+'/app/getCityDistrictByState?stateid='+stateid).subscribe(data =>
-         {
-           this.citytype=data;
-           this.citydetail=this.citytype.data.citydistrictdata;
-           // console.log( 'city', this.citytype)
-         })
+//     this.http.get(config_url+'/app/getCityDistrictByState?stateid='+stateid).subscribe(data =>
+//          {
+//            this.citytype=data;
+//            this.citydetail=this.citytype.data.citydistrictdata;
+//            // console.log( 'city', this.citytype)
+//          })
  
  
          
  
-       }
+//        }
  
        onchangezip(){
  
@@ -486,7 +490,7 @@ export class RegistrationformComponent implements OnInit {
              console.log(data1);
              this.zipcodelist=data1;
              this.zipcodedetail=this.zipcodelist.data.zipcodedata;
-             // console.log( 'zipcode', this.zipcodedetail)
+             console.log( 'zipcode', this.zipcodedetail)
            })
  
        }
@@ -508,10 +512,33 @@ export class RegistrationformComponent implements OnInit {
             
              this.beclassificationtype = beclassificationdata;
              this.beclassificationdetail = this.beclassificationtype.data.BEClassification
-             // console.log("country",countrydata)
+            //  console.log("country",countrydata)
        });
        }
  
+       getzipcodebycityid(){
+        this.http.get(config_url+'/app/getZipcodeByCity').subscribe(
+          (zipcodeid: {}) => {
+
+            this.zipcodelist=zipcodeid;
+             this.zipcodedetail=this.zipcodelist.data.zipcodedata;
+
+          });
+       }
+
+      // Getcityall_list(){
+
+      //   this.http.get(config_url+'/app/selectAllcity').subscribe(
+      //         (citylist: {}) => {
+      //         //  console.log( 'citylist', citylist);
+    
+      //           this.citylist=citylist;
+      //            this.cityalldetail=this.citylist.data.citydetails;
+      //            console.log(this.cityalldetail)
+    
+      //         });
+
+      // }
  
      // inputErrorMessage1(phoneErr: any){
      //   (document.getElementById(phoneErr) as HTMLFormElement).innerHTML = "";
