@@ -18,12 +18,12 @@ export class RegisterComponent implements OnInit {
   employeedetail: any;
   employeetype: any;
   statetype:any;
-  statedetail:any;
+  // statedetail:any;
   userdata:any;
   usertypedata:any;
   selectedStateObj:any;
-  citytype:any;
-  citydetail:any;
+  // citytype:any;
+  // citydetail:any;
   zipcodelist:any;
   zipcodedetail: any;
   overalldata: any;
@@ -31,6 +31,9 @@ export class RegisterComponent implements OnInit {
   countrydetail: any;
   beclassificationtype: any;
   beclassificationdetail:any;
+  citylist: any;
+  cityalldetail:any;
+  statedetails:any;
 
 
   constructor(private frmbuilder: FormBuilder,  private http: HttpClient) { }
@@ -40,10 +43,11 @@ export class RegisterComponent implements OnInit {
     this.gejobtitledata();
     this.getemployeedata();
     this.getusertypedata();
-    this. getstatedata();
+    // this. getstatedata();
     this.getcountrydata();
     this.getbeclassificationdata();
     // this.onChangeObj();
+    this.Getcityall_list();
 
     this.registercontactinformation = this.frmbuilder.group({
 
@@ -461,51 +465,38 @@ number(event: any) {
     });
     }
 
-    getstatedata(){
+    // getstatedata(){
 
-      this.http.get(config_url+'/app/selectAllState').subscribe(
-        (statelistdata: {}) => {
+    //   this.http.get(config_url+'/app/selectAllState').subscribe(
+    //     (statelistdata: {}) => {
          
-          this.statetype = statelistdata;
-          this.statedetail = this.statetype.data.statedetails;
-          // console.log("state",this.statedetail)
-    });
-    }
+    //       this.statetype = statelistdata;
+    //       this.statedetail = this.statetype.data.statedetails;
+    //       // console.log("state",this.statedetail)
+    // });
+    // }
 
-    onChangeObj(newObj: any) {
+//     onChangeObj(newObj: any) {
   
-   let stateid = (<HTMLInputElement>document.getElementById("curstate_id")).value;
+//    let stateid = (<HTMLInputElement>document.getElementById("curstate_id")).value;
 
  
 
-// alert(cityid);
+// // alert(cityid);
  
-   this.http.get(config_url+'/app/getCityDistrictByState?stateid='+stateid).subscribe(data =>
-        {
-          this.citytype=data;
-          this.citydetail=this.citytype.data.citydistrictdata;
-          // console.log( 'city', this.citytype)
-        })
+//    this.http.get(config_url+'/app/getCityDistrictByState?stateid='+stateid).subscribe(data =>
+//         {
+//           this.citytype=data;
+//           this.citydetail=this.citytype.data.citydistrictdata;
+//           // console.log( 'city', this.citytype)
+//         })
 
 
         
 
-      }
+//       }
 
-      onchangezip(){
-
-        let cityid = (<HTMLInputElement>document.getElementById("currentcity_id")).value;
-
-        this.http.get(config_url+'/app/getZipcodeByCity?cityid='+cityid).subscribe(data1 =>
-          {
-
-            console.log(data1);
-            this.zipcodelist=data1;
-            this.zipcodedetail=this.zipcodelist.data.zipcodedata;
-            // console.log( 'zipcode', this.zipcodedetail)
-          })
-
-      }
+  
 
       getcountrydata(){
         this.http.get(config_url+'/app/selectAllCountry').subscribe(
@@ -528,6 +519,49 @@ number(event: any) {
       });
       }
 
+       Getcityall_list(){
+
+        this.http.get(config_url+'/app/selectAllcity').subscribe(
+              (citylist: {}) => {
+              //  console.log( 'citylist', citylist);
+    
+                this.citylist=citylist;
+                 this.cityalldetail=this.citylist.data.citydetails;
+                //  console.log(this.cityalldetail)
+    
+              });
+
+      }
+
+      onchangezip(){
+
+        let cityid = (<HTMLInputElement>document.getElementById("currentcity_id")).value;
+
+        this.http.get(config_url+'/app/getZipcodeByCity?cityid='+cityid).subscribe(data1 =>
+          {
+
+            // console.log(data1);
+            this.zipcodelist=data1;
+            this.zipcodedetail=this.zipcodelist.data.zipcodedata;
+            // console.log( 'zipcode', this.zipcodedetail)
+          })
+
+      }
+
+      onchangestate(){
+
+        let cityid = (<HTMLInputElement>document.getElementById("currentcity_id")).value;
+
+        this.http.get(config_url+'/app/getdistrictstatebycity?cityid='+cityid).subscribe(statelist =>
+          {
+
+            console.log(statelist);
+            this.statedetails=statelist;
+            this.statetype=this.statedetails.data.Statelist;
+            // console.log( 'zipcode', this.zipcodedetail)
+          })
+
+      }
 
     // inputErrorMessage1(phoneErr: any){
     //   (document.getElementById(phoneErr) as HTMLFormElement).innerHTML = "";

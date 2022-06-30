@@ -14,7 +14,7 @@ const newLocal = './views/register/register.module';
 // import { DashboardComponent } from './views/dashboard/dashboard.component';
 const routes: Routes = [
   { path:'', component:LoginComponent, data: { title: 'login'}},
-  { path:'', component:RegistrationformComponent, data: { title: 'registrationform'}},
+  { path:'registrationform', component:RegistrationformComponent, data: { title: 'registrationform'}},
   
   // {path:'', component:RegisterComponent,data: { title: "registerpage"}},
   // { path:'', component:RegisterComponent, data: { title: 'register1'}},
@@ -29,7 +29,7 @@ const routes: Routes = [
     path: '',
     component: DefaultLayoutComponent,
     data: {
-      // title: 'Home'
+     
     },
     children: [
       {
@@ -54,41 +54,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/register/register.module').then((m) => m.RegisterModule)
       },
-      // {
-      //   path: 'base',
-      //   loadChildren: () =>
-      //     import('./views/base/base.module').then((m) => m.BaseModule)
-      // },
-      // {
-      //   path: 'buttons',
-      //   loadChildren: () =>
-      //     import('./views/buttons/buttons.module').then((m) => m.ButtonsModule)
-      // },
-      // {
-      //   path: 'forms',
-      //   loadChildren: () =>
-      //     import('./views/forms/forms.module').then((m) => m.CoreUIFormsModule)
-      // },
-      // {
-      //   path: 'charts',
-      //   loadChildren: () =>
-      //     import('./views/charts/charts.module').then((m) => m.ChartsModule)
-      // },
+     
       {
         path: 'icons',
         loadChildren: () =>
           import('./views/icons/icons.module').then((m) => m.IconsModule)
       },
-      // {
-      //   path: 'notifications',
-      //   loadChildren: () =>
-      //     import('./views/notifications/notifications.module').then((m) => m.NotificationsModule)
-      // },
-      // {
-      //   path: 'widgets',
-      //   loadChildren: () =>
-      //     import('./views/widgets/widgets.module').then((m) => m.WidgetsModule)
-      // },
+ 
       {
         path: 'pages',
         loadChildren: () =>
@@ -124,13 +96,13 @@ const routes: Routes = [
       title: 'Login Page'
     }
   },
-  {
-    path: 'registrationform',
-    component: RegistrationformComponent,
-    data: {
-      title: 'registrationform'
-    }
-  },
+  // {
+  //   path: 'registrationform',
+  //   component: RegistrationformComponent,
+  //   data: {
+  //     title: 'registrationform'
+  //   }
+  // },
   // {
   //   path: 'register',
   //   component: RegisterComponent,

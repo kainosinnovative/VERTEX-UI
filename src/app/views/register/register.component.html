@@ -80,11 +80,11 @@
                    <div class="labelheight">
                     <label class="labelwidth">City<span class="requiredfield ">  *</span> </label>
                     <select class="city"  formControlName="CityId"  id="currentcity_id"
-                    (change)="inputErrorMessage('currentcity_id');onchangezip()">
+                    (change)="inputErrorMessage('currentcity_id');onchangezip();onchangestate()" >
+                         <option value="value"></option>
 
-                          <option value="value"></option>
-                             <option *ngFor="let citylist of citydetail" value="{{citylist.cityid}}">
-                               {{citylist.cityname}}</option>
+                             <option *ngFor="let citylist of cityalldetail" value="{{citylist.CityId}}">
+                               {{citylist.CityName}}</option>
                           </select>      
                            </div>
 
@@ -99,26 +99,30 @@
                           </select>
                 </div>
 
-                <div class="labelheight">
-                    <label class="labelwidth">State/Province<span class="requiredfield "> *</span> </label>
-                     <select class="State"  formControlName="StateId" id="curstate_id"
-                      (change)="inputErrorMessage('curstate_id');onChangeObj($event)" >
-                    
-        
-                      <option value=""></option>
-                      <option *ngFor="let statelist of statedetail" value="{{statelist.StateId}}">
-                        {{statelist.StateName}}</option>
-                       </select> 
-                           </div>
+                
         
                      <div class="labelheight">
                         <label class="labelwidth">County<span class="requiredfield ">  *</span> </label>
                         <select type="text"  class="County" formControlName="county_name" id="county_id" (change)="inputErrorMessage('county_id')">
                             <option ></option>
+                            <option *ngFor="let statelistid of statetype" value="{{statelistid.DistrictId}}">
+                                {{statelistid.DistrictName}}</option>
                             <option value="1">Fairfax</option>
                         </select>
 
                         </div>
+
+                        <div class="labelheight">
+                            <label class="labelwidth">State/Province<span class="requiredfield "> *</span> </label>
+                             <select class="State"  formControlName="StateId" id="curstate_id"
+                              (change)="inputErrorMessage('curstate_id')" >
+                            
+                
+                              <option value=""></option>
+                              <option *ngFor="let statelistid of statetype" value="{{statelistid.StateId}}">
+                                {{statelistid.StateName}}</option>
+                               </select> 
+                                   </div>
                       
         
                         <div class="labelheight">
