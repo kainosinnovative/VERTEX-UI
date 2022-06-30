@@ -57,11 +57,11 @@ export class RegisterComponent implements OnInit {
       Address1: [],
       Address2: [],
       StateId: [],
-      CityId: [],
+      CityId: [1],
       Zipcode: [],
       county_name: [],
       CountryId: [],
-     
+      AStartDate:['2022-06-29'],
       VendorTypeId: [],
       EIN_SSN:[],
       OutreachEmailOptIn:[],
@@ -72,7 +72,9 @@ export class RegisterComponent implements OnInit {
       EmploymentTypeId:[],
       StartDate:[],
       Phone:[],
-      // AdminUser: [],
+      AdminUser: [],
+      UserStatusId:['N'],
+      EndDate: ['2022-06-30'],
 
 })
 
@@ -120,6 +122,18 @@ number(event: any) {
 
     console.log( 'Contact Information',registercontactinformation);
     // console.log('employee', employeeinformation);
+    console.log("insert");
+      this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
+      
+        data => {
+          console.log("data");
+            console.log('POST Request is successful >>>>>>>>', data);
+  
+        },
+        success => {
+          console.log("success");
+        }
+      );
 
     let FirstName = this.registercontactinformation.get('FirstName').value;
     let LastName = this.registercontactinformation.get('LastName').value;

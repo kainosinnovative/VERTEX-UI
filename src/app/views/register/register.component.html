@@ -122,7 +122,7 @@
                         <div class="labelheight">
                             <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
                             <select class="Country"  formControlName="CountryId" id="country_id" (change)="inputErrorMessage('country_id')">
-                             <option value="value"></option>
+                             <!-- <option value="value"></option> -->
                              <option *ngFor="let countrylist of countrydetail" [value]="countrylist.CountryId">
                                 {{countrylist.CountryName}}</option>
                             </select> 
