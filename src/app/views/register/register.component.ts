@@ -70,8 +70,11 @@ export class RegisterComponent implements OnInit {
       AStartDate:['2022-06-29'],
       VendorTypeId: [],
       EIN_SSN:[],
+      VAStartDate:[],
+
       OutreachEmailOptIn:[],
       BusinessSize: [],
+      VAbusStartDate: [],
       BEClassificationId: [],
 
       JobTitleId:[],
@@ -128,18 +131,18 @@ number(event: any) {
 
     console.log( 'Contact Information',registercontactinformation);
     // console.log('employee', employeeinformation);
-    console.log("insert");
-      this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
+    // console.log("insert");
+    //   this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
       
-        data => {
-          console.log("data");
-            console.log('POST Request is successful >>>>>>>>', data);
+    //     data => {
+    //       console.log("data");
+    //         console.log('POST Request is successful >>>>>>>>', data);
   
-        },
-        success => {
-          console.log("success");
-        }
-      );
+    //     },
+    //     success => {
+    //       console.log("success");
+    //     }
+    //   );
 
     let FirstName = this.registercontactinformation.get('FirstName').value;
     let LastName = this.registercontactinformation.get('LastName').value;
@@ -163,7 +166,9 @@ number(event: any) {
     let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
 
     let EIN_SSN = this.registercontactinformation.get('EIN_SSN').value;
+    let VAStartDate = this.registercontactinformation.get('VAStartDate').value;
     let BusinessSize = this.registercontactinformation.get('BusinessSize').value;
+    let VAbusStartDate = this.registercontactinformation.get('VAbusStartDate').value;
     let BEClassificationId = this.registercontactinformation.get('BEClassificationId').value;
 
     let JobTitleId = this.registercontactinformation.get('JobTitleId').value;
@@ -253,14 +258,15 @@ number(event: any) {
       {
        (document.getElementById('employee_id') as HTMLFormElement).classList.add("validation");
        }
-       if(StartDate == null)
-      {
-       (document.getElementById('startdate_id') as HTMLFormElement).classList.add("validation");
-       }
        if(Phone == null)
       {
        (document.getElementById('phoneno_id') as HTMLFormElement).classList.add("validation");
        }
+       if(StartDate == null)
+      {
+       (document.getElementById('startdate_id') as HTMLFormElement).classList.add("validation");
+       }
+       
 
     }
 
@@ -270,6 +276,10 @@ number(event: any) {
     if(EIN_SSN == null){
       (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
     }
+    if(VAStartDate == null)
+    {
+     (document.getElementById('VAstart_id') as HTMLFormElement).classList.add("validation");
+     }
 
       // if(!EIN_SSN.match(this.socialno)){
 
@@ -284,6 +294,10 @@ number(event: any) {
       if(BusinessSize == null){
         (document.getElementById('business_id') as HTMLFormElement).classList.add("validation");
       }
+      if(VAbusStartDate == null)
+      {
+       (document.getElementById('VAbusstart_id') as HTMLFormElement).classList.add("validation");
+       }
 
       if(BEClassificationId == null){
         (document.getElementById('be_classificationid') as HTMLFormElement).classList.add("validation");
@@ -343,7 +357,7 @@ number(event: any) {
 
             if(active1 == false){
 
-              if(EIN_SSN != null && EIN_SSN != ""){
+              if(EIN_SSN != null && EIN_SSN != "" && VAStartDate != null && VAStartDate != ""){
 
                 this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
@@ -366,7 +380,7 @@ number(event: any) {
 
             if(usertype_id == "VENDOR"){
 
-              if(BusinessSize != null && BusinessSize != "" && BEClassificationId != null && BEClassificationId != ""){
+              if(BusinessSize != null && BusinessSize != "" && VAbusStartDate != null && VAbusStartDate != "" && BEClassificationId != null && BEClassificationId != ""){
 
                 
                 this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
