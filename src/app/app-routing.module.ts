@@ -14,7 +14,7 @@ const newLocal = './views/register/register.module';
 // import { DashboardComponent } from './views/dashboard/dashboard.component';
 const routes: Routes = [
   { path:'', component:LoginComponent, data: { title: 'login'}},
-  { path:'registrationform', component:RegistrationformComponent, data: { title: 'registrationform'}},
+  { path:'', component:RegistrationformComponent, data: { title: 'registrationform'}},
   
   // {path:'', component:RegisterComponent,data: { title: "registerpage"}},
   // { path:'', component:RegisterComponent, data: { title: 'register1'}},
@@ -96,13 +96,13 @@ const routes: Routes = [
       title: 'Login Page'
     }
   },
-  // {
-  //   path: 'registrationform',
-  //   component: RegistrationformComponent,
-  //   data: {
-  //     title: 'registrationform'
-  //   }
-  // },
+  {
+    path: 'registrationform',
+    component: RegistrationformComponent,
+    data: {
+      title: 'registrationform'
+    }
+  },
   // {
   //   path: 'register',
   //   component: RegisterComponent,

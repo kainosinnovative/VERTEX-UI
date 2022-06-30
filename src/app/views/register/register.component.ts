@@ -84,6 +84,7 @@ export class RegisterComponent implements OnInit {
 
       JobTitleId:[],
       EmploymentTypeId:[],
+      JobStartDate: [],
       BusinessRegisteredInSCC: [],
      
       Phone:[],
@@ -184,6 +185,7 @@ number(event: any) {
 
     let JobTitleId = this.registercontactinformation.get('JobTitleId').value;
     let EmploymentTypeId = this.registercontactinformation.get('EmploymentTypeId').value;
+    let JobStartDate = this.registercontactinformation.get('JobStartDate').value;
     
     let Phone = this.registercontactinformation.get('Phone').value;
 
@@ -277,6 +279,10 @@ number(event: any) {
       {
        (document.getElementById('employee_id') as HTMLFormElement).classList.add("validation");
        }
+       if(JobStartDate == null)
+       {
+        (document.getElementById('jobstartdate_id') as HTMLFormElement).classList.add("validation");
+        }
        if(Phone == null)
       {
        (document.getElementById('phoneno_id') as HTMLFormElement).classList.add("validation");
@@ -333,7 +339,7 @@ number(event: any) {
 
           if(usertype_id == "EMPLOY"){
 
-            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && Phone != null && Phone != "" && StartDate != null && StartDate != ""){
+            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && Phone != null && Phone != "" && JobStartDate != null && JobStartDate != ""){
     
               this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
