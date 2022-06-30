@@ -3,7 +3,7 @@
  
 
     <form [formGroup]="registercontactinformation">
-    <p class="mainheading Vendortitle" style="text-align: center;">Registration Form</p>
+    <p class="mainheading Vendortitle" style="text-align: center;margin-top: 40px;">Registration Form</p>
  <div style="padding-left: 115px;">
     <div style=" border: 1px solid yellow;background-color: #ffff00ba;width: 825px;align-items: center !important;">
 
@@ -124,7 +124,7 @@
                         <div class="labelheight">
                             <label class="labelwidth">Country<span class="requiredfield ">  *</span> </label>
                             <select class="Country"  formControlName="CountryId" id="country_id" (change)="inputErrorMessage('country_id')">
-                             <!-- <option value="value"></option> -->
+                             <option value="value"></option>
                              <option *ngFor="let countrylist of countrydetail" [value]="countrylist.CountryId">
                                 {{countrylist.CountryName}}</option>
                             </select> 

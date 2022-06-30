@@ -57,8 +57,10 @@ export class RegisterComponent implements OnInit {
       Address1: [],
       Address2: [],
       StateId: [],
-      CityId: [1],
+      // CityId: [1],
+      CityId: [],
       Zipcode: [],
+      // StateId: [],
       county_name: [],
       CountryId: [],
       AStartDate:['2022-06-29'],
@@ -203,10 +205,7 @@ number(event: any) {
        {
         (document.getElementById('currentsecadd_id') as HTMLFormElement).classList.add("validation");
         }
-        if(StateId == null)
-        {
-         (document.getElementById('curstate_id') as HTMLFormElement).classList.add("validation");
-         }
+       
          if(Zipcode == null)
         {
          (document.getElementById('regcurrentzip_id') as HTMLFormElement).classList.add("validation");
@@ -215,6 +214,10 @@ number(event: any) {
         {
          (document.getElementById('currentcity_id') as HTMLFormElement).classList.add("validation");
          }
+         if(StateId == null)
+         {
+          (document.getElementById('curstate_id') as HTMLFormElement).classList.add("validation");
+          }
          if(county_name == null)
          {
           (document.getElementById('county_id') as HTMLFormElement).classList.add("validation");
