@@ -34,7 +34,7 @@
     
           <div class="labelheight">
                 <label class="labelwidth">User Type</label>
-                  <select class="Country"  formControlName="UserTypeId" id="usertype_id" (change)="inputErrorMessage('usertype_id');vendordetails_display()">
+                  <select class="Country"  formControlName="UserTypeId" id="usertype_id" (change)="inputErrorMessage('usertype_id');vendordetails_display();displaydata()">
                     <option value="value"></option>
                     <option *ngFor="let userlist of usertypedata" [value]="userlist.UserTypeId">
                         {{userlist.UserTypeDesc}}</option>
@@ -59,6 +59,17 @@
                 <label class="labelwidth">Confirm Password<span class="requiredfield ">  *</span> </label>
                 <input type="text" class="tradename" formControlName="conformpassword" id="comformpswd_id" (keypress)="inputErrorMessage('comformpswd_id')">
             </div>  
+            
+            <div class="labelheight" id="display_startdata">
+                <label class="labelwidth">Start Date<span class="requiredfield "> *</span> </label>
+                <input type="date" class="startdate" formControlName="StartDate" id="startdate_id"
+                    (click)="inputErrorMessage('startdate_id')">
+            </div>
+
+            <div class="labelheight" id="display_enddata">
+                <label class="labelwidth">End Date<span class="requiredfield "> *</span> </label>
+                <input type="date" class="startdate"  formControlName="EndDate" id="enddata_id" (click)="inputErrorMessage('enddata_id')">
+            </div>
           
      </div>
     
@@ -134,6 +145,7 @@
                             </select> 
                         </div> 
 
+
                         
      
     
@@ -151,7 +163,11 @@
 
     <div class="col-sm-5 innerlinefont vendortypelabel usernamediv">
         <label class="labelwidth">Vendor Type</label> 
-         <label >Individual</label>
+
+         <label >Individual
+            <!-- *ngFor="let vendortyp of vendoralllist" [value]="vendortyp.VendorTypeId">
+            {{vendortyp.VendorTypeDesc}} -->
+         </label>
          &nbsp;&nbsp;
         <label class="switch">
         <input class="" type="checkbox"  id="active"  (change)="vendortype_display('active')" formControlName="VendorTypeId">
@@ -172,11 +188,11 @@
             <label class="labelwidth">Social Security Number<span class="requiredfield ">  *</span> </label>
             <input type="text" class="social" formControlName="EIN_SSN" id="socialno_id" (keypress)="inputErrorMessage('socialno_id')">
         </div>
-        <div class="labelheight">
+        <!-- <div class="labelheight">
             <label class="labelwidth">Start Date<span class="requiredfield "> *</span> </label>
             <input type="date" class="startdate" formControlName="VAStartDate" id="VAstart_id"
                 (click)="inputErrorMessage('VAstart_id')">
-        </div>
+        </div> -->
     </div>
     <div class="col-sm-6 innerlinefont">
         <div class="labelheight">
@@ -186,10 +202,10 @@
                             <input  type="checkbox" name="outreach_active" id="outreach_activeid" formControlName="OutreachEmailOptIn" checked>
                             <span class="slider round"></span>
                             </label></div>
-       <div class="labelheight">
+       <!-- <div class="labelheight">
             <label class="labelwidth">End Date<span class="requiredfield "> *</span> </label>
             <input type="date" class="startdate" >
-         </div>
+         </div> -->
     </div>
 
 </div>
@@ -205,23 +221,23 @@
             <label class="labelwidth">Business Size<span class="requiredfield ">  *</span> </label>
             <input  type="text" class="Country" formControlName="BusinessSize" id="business_id"  (change)="inputErrorMessage('business_id');number($event)">
         </div>
-        <div class="labelheight">
+        <!-- <div class="labelheight">
             <label class="labelwidth">Start Date<span class="requiredfield "> *</span> </label>
             <input type="date" class="startdate" formControlName="VAbusStartDate" id="VAbusstart_id"
                 (change)="inputErrorMessage('VAbusstart_id')">
-        </div>
+        </div> -->
         <div class="labelheight">
             <label class="wouldla">Is this Business Registered with this County/State ?</label>
             <!-- <label style="width:10px;"></label> -->
             <label class="switch">
-            <input  type="checkbox" name="state_active" id="state_activeid" checked>
+            <input  type="checkbox" name="state_active" id="state_activeid" formControlName="BusinessRegisteredInDistrict" checked>
             <span class="slider round"></span>
             </label></div>
 
         <div class="">
         <label class="wouldla">Is this Business a Franchisee ? </label>
         <label class="switch">
-        <input  type="checkbox" name="franchisee_active" id="franchisee_activeid" checked>
+        <input  type="checkbox" name="franchisee_active" id="franchisee_activeid" formControlName="BusinessIsFranchisee" checked>
         <span class="slider round"></span>
         </label></div>
 
@@ -242,12 +258,20 @@
             <input type="date" class="startdate" >
          </div> -->
 
-        <div>
+        <div class="labelheight">
             <label class="statecorporation">Is this Business registered with this State Corporation Commission ? </label>
             <label class="switch">
-                            <input  type="checkbox" name="statecoms_active" id="statecms_activeid" checked>
+                            <input  type="checkbox" name="statecoms_active" id="statecms_activeid" formControlName="BusinessRegisteredInSCC" checked>
                             <span class="slider round"></span>
                             </label></div>
+
+        <div class="">
+            <label class="wouldla">Would you like to receive outreach emails from us ?</label>
+                                <!-- <label style="width:10px;"></label> -->
+            <label class="switch">
+            <input  type="checkbox" name="outreach_active"  checked>
+            <span class="slider round"></span>
+            </label></div>
     </div>
 
 </div>
@@ -281,11 +305,11 @@
                     </select>
                 </div>
                
-                <div class="labelheight">
+                <!-- <div class="labelheight">
                     <label class="labelwidth">Start Date<span class="requiredfield "> *</span> </label>
                     <input type="date" class="startdate" formControlName="StartDate" id="startdate_id"
                         (change)="inputErrorMessage('startdate_id')">
-                </div>
+                </div> -->
             </div>
             <div class="col-sm-6 innerlinefont">
                 <div class="labelheight">

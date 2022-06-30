@@ -34,6 +34,8 @@ export class RegisterComponent implements OnInit {
   citylist: any;
   cityalldetail:any;
   statedetails:any;
+  vendordatalist: any;
+  vendoralllist: any;
 
 
   constructor(private frmbuilder: FormBuilder,  private http: HttpClient) { }
@@ -43,11 +45,10 @@ export class RegisterComponent implements OnInit {
     this.gejobtitledata();
     this.getemployeedata();
     this.getusertypedata();
-    // this. getstatedata();
     this.getcountrydata();
     this.getbeclassificationdata();
-    // this.onChangeObj();
     this.Getcityall_list();
+    this.getvendorlist()
 
     this.registercontactinformation = this.frmbuilder.group({
 
@@ -67,23 +68,28 @@ export class RegisterComponent implements OnInit {
       // StateId: [],
       county_name: [],
       CountryId: [],
+      StartDate:[],
+      EndDate:[],
       AStartDate:['2022-06-29'],
       VendorTypeId: [],
       EIN_SSN:[],
-      VAStartDate:[],
+      // VAStartDate:[],
 
       OutreachEmailOptIn:[],
       BusinessSize: [],
-      VAbusStartDate: [],
+      BusinessRegisteredInDistrict:[],
+      BusinessIsFranchisee: [],
+      // VAbusStartDate: [],
       BEClassificationId: [],
 
       JobTitleId:[],
       EmploymentTypeId:[],
-      StartDate:[],
+      BusinessRegisteredInSCC: [],
+     
       Phone:[],
       AdminUser: [],
       UserStatusId:['N'],
-      EndDate: ['2022-06-30'],
+      AEndDate: ['2022-06-30'],
 
 })
 
@@ -161,19 +167,24 @@ number(event: any) {
     let Zipcode = this.registercontactinformation.get('Zipcode').value;
     let county_name = this.registercontactinformation.get('county_name').value;
     let CountryId = this.registercontactinformation.get('CountryId').value;
+    let StartDate = this.registercontactinformation.get('StartDate').value;
+    let EndDate = this.registercontactinformation.get('EndDate').value;
     
 
     let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
 
     let EIN_SSN = this.registercontactinformation.get('EIN_SSN').value;
-    let VAStartDate = this.registercontactinformation.get('VAStartDate').value;
+    // let VAStartDate = this.registercontactinformation.get('VAStartDate').value;
     let BusinessSize = this.registercontactinformation.get('BusinessSize').value;
-    let VAbusStartDate = this.registercontactinformation.get('VAbusStartDate').value;
+    let BusinessRegisteredInDistrict = this.registercontactinformation.get('BusinessRegisteredInDistrict').value;
+    // let VAbusStartDate = this.registercontactinformation.get('VAbusStartDate').value;
     let BEClassificationId = this.registercontactinformation.get('BEClassificationId').value;
+    let BusinessRegisteredInSCC = this.registercontactinformation.get('BusinessRegisteredInSCC').value;
+    let BusinessIsFranchisee = this.registercontactinformation.get('BusinessIsFranchisee').value;
 
     let JobTitleId = this.registercontactinformation.get('JobTitleId').value;
     let EmploymentTypeId = this.registercontactinformation.get('EmploymentTypeId').value;
-    let StartDate = this.registercontactinformation.get('StartDate').value;
+    
     let Phone = this.registercontactinformation.get('Phone').value;
 
 
@@ -235,6 +246,14 @@ number(event: any) {
           {
            (document.getElementById('country_id') as HTMLFormElement).classList.add("validation");
            }
+           if(StartDate == null)
+           {
+            (document.getElementById('startdate_id') as HTMLFormElement).classList.add("validation");
+            }
+            if(EndDate == null)
+            {
+             (document.getElementById('enddata_id') as HTMLFormElement).classList.add("validation");
+             }
 
            if(!UserId.match(this.useridmatch)){
 
@@ -262,10 +281,7 @@ number(event: any) {
       {
        (document.getElementById('phoneno_id') as HTMLFormElement).classList.add("validation");
        }
-       if(StartDate == null)
-      {
-       (document.getElementById('startdate_id') as HTMLFormElement).classList.add("validation");
-       }
+     
        
 
     }
@@ -276,17 +292,6 @@ number(event: any) {
     if(EIN_SSN == null){
       (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
     }
-    if(VAStartDate == null)
-    {
-     (document.getElementById('VAstart_id') as HTMLFormElement).classList.add("validation");
-     }
-
-      // if(!EIN_SSN.match(this.socialno)){
-
-    //   (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
-    // }
-  
-      
     }
 
     else{
@@ -294,19 +299,14 @@ number(event: any) {
       if(BusinessSize == null){
         (document.getElementById('business_id') as HTMLFormElement).classList.add("validation");
       }
-      if(VAbusStartDate == null)
-      {
-       (document.getElementById('VAbusstart_id') as HTMLFormElement).classList.add("validation");
-       }
-
-      if(BEClassificationId == null){
+     if(BEClassificationId == null){
         (document.getElementById('be_classificationid') as HTMLFormElement).classList.add("validation");
       }
         
       }
 
       if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
-        CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != ""){
+        CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
         
           
           if(usertype_id == "OTHER"){
@@ -333,7 +333,7 @@ number(event: any) {
 
           if(usertype_id == "EMPLOY"){
 
-            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && StartDate != null && StartDate != "" && Phone != null && Phone != ""){
+            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && Phone != null && Phone != "" && StartDate != null && StartDate != ""){
     
               this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
@@ -357,7 +357,7 @@ number(event: any) {
 
             if(active1 == false){
 
-              if(EIN_SSN != null && EIN_SSN != "" && VAStartDate != null && VAStartDate != ""){
+              if(EIN_SSN != null && EIN_SSN != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
 
                 this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
@@ -380,7 +380,7 @@ number(event: any) {
 
             if(usertype_id == "VENDOR"){
 
-              if(BusinessSize != null && BusinessSize != "" && VAbusStartDate != null && VAbusStartDate != "" && BEClassificationId != null && BEClassificationId != ""){
+              if(BusinessSize != null && BusinessSize != "" && BusinessRegisteredInDistrict != null && BusinessRegisteredInDistrict != "" && BusinessRegisteredInSCC != null && BusinessRegisteredInSCC != "" && BusinessIsFranchisee != null && BusinessIsFranchisee != "" && BEClassificationId != null && BEClassificationId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
 
                 
                 this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
@@ -452,6 +452,23 @@ number(event: any) {
       }
     }
 
+    displaydata(){
+
+      let usertype_id = (<HTMLInputElement>document.getElementById("usertype_id")).value;
+
+      if(usertype_id == 'VENDOR'){
+
+        (<HTMLInputElement>document.getElementById("display_startdata")).style.display ="block";
+        (<HTMLInputElement>document.getElementById("display_enddata")).style.display ="block";
+
+      }
+      else if(usertype_id == 'EMPLOY'){
+        (<HTMLInputElement>document.getElementById("display_startdata")).style.display ="block";
+        (<HTMLInputElement>document.getElementById("display_enddata")).style.display ="none";
+      }
+
+    }
+
     gejobtitledata(){
      
       this.http.get(config_url+'/employee/selectJobTitle').subscribe( (data: {}) => {
@@ -479,37 +496,20 @@ number(event: any) {
     });
     }
 
-    // getstatedata(){
+    getvendorlist(){
+      
+      this.http.get(config_url+'/vendor/GetVendorType').subscribe(
+        (vendordata: {}) => {
 
-    //   this.http.get(config_url+'/app/selectAllState').subscribe(
-    //     (statelistdata: {}) => {
+          // console.log(vendordata)
          
-    //       this.statetype = statelistdata;
-    //       this.statedetail = this.statetype.data.statedetails;
-    //       // console.log("state",this.statedetail)
-    // });
-    // }
+          this.vendordatalist = vendordata;
+          this.vendoralllist = this.vendordatalist.data.vendortype
+       console.log(this.vendoralllist.VendorTypeId);
+       
+    });
 
-//     onChangeObj(newObj: any) {
-  
-//    let stateid = (<HTMLInputElement>document.getElementById("curstate_id")).value;
-
- 
-
-// // alert(cityid);
- 
-//    this.http.get(config_url+'/app/getCityDistrictByState?stateid='+stateid).subscribe(data =>
-//         {
-//           this.citytype=data;
-//           this.citydetail=this.citytype.data.citydistrictdata;
-//           // console.log( 'city', this.citytype)
-//         })
-
-
-        
-
-//       }
-
+    }
   
 
       getcountrydata(){
