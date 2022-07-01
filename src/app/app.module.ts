@@ -10,6 +10,7 @@ import {
   PerfectScrollbarConfigInterface,
   PerfectScrollbarModule,
 } from 'ngx-perfect-scrollbar';
+// import { ToastrModule } from 'ngx-toastr';
 
 // Import routing module
 import { AppRoutingModule } from './app-routing.module';
@@ -94,8 +95,11 @@ const APP_CONTAINERS = [
     ListGroupModule,
     CardModule,
     HttpClientModule,
-    DataTablesModule
-    
+    DataTablesModule,
+    // ToastrModule.forRoot({
+    //   positionClass: 'toast-center-center',
+    //   timeOut: 2000,
+    // }),
 
   ],
   providers: [
