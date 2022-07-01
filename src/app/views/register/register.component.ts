@@ -298,111 +298,114 @@ number(event: any) {
 
     else{
 
-      if(BusinessSize == null){
+      if(BusinessSize == null || BusinessSize == ""){
         (document.getElementById('business_id') as HTMLFormElement).classList.add("validation");
       }
-     if(BEClassificationId == null){
+     if(BEClassificationId == null || BEClassificationId == ""){
         (document.getElementById('be_classificationid') as HTMLFormElement).classList.add("validation");
       }
         
       }
       }
 
-      // if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
-      //   CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
+      if((FirstName != null || FirstName != "") && (LastName != null || LastName != "") && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
+        (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
         
           
-      //     if(usertype_id == "OTHER"){
+          if(usertype_id == "OTHER"){
 
-      //       if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
-      //       CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != ""){
+            if((FirstName != null || FirstName != "") && (LastName != null || LastName != "") && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
+            (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "")){
     
-      //         this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-      //           data => {
-      //             console.log("data");
-      //               console.log('POST Request is successful >>>>>>>>', data);
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
           
-      //           },
-      //           success => {
-      //             console.log("success");
-      //           }
-      //         );
+                },
+                success => {
+                  console.log("success");
+                }
+              );
     
-      //       }
+            }
             
-      //     }
+          }
 
 
-      //     if(usertype_id == "EMPLOY"){
+          if(usertype_id == "EMPLOY"){
 
-      //       if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && JobStartDate != null && JobStartDate != "" && Phone != null && Phone != "" ){
+            if((JobTitleId != null || JobTitleId != "") && (EmploymentTypeId != null || EmploymentTypeId != "") && (JobStartDate != null || JobStartDate != "") && (Phone != null || Phone != "") ){
     
-      //         this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-      //           data => {
-      //             console.log("data");
-      //               console.log('POST Request is successful >>>>>>>>', data);
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
           
-      //           },
-      //           success => {
-      //             console.log("success");
-      //           }
-      //         );
+                },
+                success => {
+                  console.log("success");
+                }
+              );
     
-      //       }
+            }
             
-      //     }
+          }
 
 
 
-      //     if(usertype_id == "VENDOR"){
+          if(usertype_id == "VENDOR"){
 
-      //       if(active1 == false){
+            if(active1 == false){
 
-      //         if(EIN_SSN != null && EIN_SSN != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
+              if((EIN_SSN != null || EIN_SSN != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
 
-      //           this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-      //           data => {
-      //             console.log("data");
-      //               console.log('POST Request is successful >>>>>>>>', data);
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
           
-      //           },
-      //           success => {
-      //             console.log("success");
-      //           }
-      //         );
+                },
+                success => {
+                  console.log("success");
+                }
+              );
     
-      //       }
-      //      if(!EIN_SSN.match(this.socialno)){
-      //            (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
-      //           }
-      //         }
-      //       }
+            }
+           if(!EIN_SSN.match(this.socialno)){
+                 (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
+                }
+              }
+            }
 
-      //       if(usertype_id == "VENDOR"){
+            if(usertype_id == "VENDOR"){
 
-      //         if(BusinessSize != null && BusinessSize != "" && BusinessRegisteredInDistrict != null && BusinessRegisteredInDistrict != "" && BusinessRegisteredInSCC != null && BusinessRegisteredInSCC != "" && BusinessIsFranchisee != null && BusinessIsFranchisee != "" && BEClassificationId != null && BEClassificationId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
+              if(active1 == true){
+
+              if((BusinessSize != null || BusinessSize != "") && (BusinessRegisteredInDistrict != null || BusinessRegisteredInDistrict != "" )&& (BusinessRegisteredInSCC != null || BusinessRegisteredInSCC != "") && (BusinessIsFranchisee != null || BusinessIsFranchisee != "") && (BEClassificationId != null || BEClassificationId != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
 
                 
-      //           this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-      //           data => {
-      //             console.log("data");
-      //               console.log('POST Request is successful >>>>>>>>', data);
+                data => {
+                  console.log("data");
+                    console.log('POST Request is successful >>>>>>>>', data);
           
-      //           },
-      //           success => {
-      //             console.log("success");
-      //           }
-      //         );
+                },
+                success => {
+                  console.log("success");
+                }
+              );
     
-      //       }
-      //         }
+            }
+          }
+              }
 
 
-      //       // }
+            }
 
 
       //        }
