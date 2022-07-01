@@ -52,12 +52,13 @@
 
             <div class="labelheight">
                 <label class="labelwidth">Password<span class="requiredfield ">  *</span> </label>
-                <input type="text" class="tradename" formControlName="UserPassword" id="userpswd_id" (keypress)="inputErrorMessage('userpswd_id')">
+                <input type="text" class="tradename" formControlName="UserPassword" id="userpswd_id" (keypress)="inputErrorMessage('userpswd_id');removepassvalidation()">
             </div>
 
-            <div class="labelheight">
+            <div class="labelheight" style="margin-bottom: 16px;">
                 <label class="labelwidth">Confirm Password<span class="requiredfield ">  *</span> </label>
-                <input type="text" class="tradename" formControlName="conformpassword" id="comformpswd_id" (keypress)="inputErrorMessage('comformpswd_id')">
+                <input type="text" class="tradename" formControlName="conformpassword" id="comformpswd_id" (keypress)="inputErrorMessage('comformpswd_id');removepassvalidation()">
+                    <p id="passvalidationid" style="color: red;"></p>
             </div>  
             
             <div class="labelheight" id="display_startdata">

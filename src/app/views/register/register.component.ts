@@ -251,14 +251,16 @@ number(event: any) {
              (document.getElementById('enddata_id') as HTMLFormElement).classList.add("validation");
              }
 
-          //  if(!UserId.match(this.useridmatch)){
+           if(!UserId.match(this.useridmatch)){
 
-          //   (document.getElementById('userkey') as HTMLFormElement).classList.add("validation");
-          // }
+            (document.getElementById('userkey') as HTMLFormElement).classList.add("validation");
+          }
 
      if(UserPassword != (conformpassword)){
 
       (document.getElementById('comformpswd_id') as HTMLFormElement).classList.add("validation");
+
+      (document.getElementById('passvalidationid') as HTMLFormElement).innerText = 'Passwords must match.!'
     }
 
 
@@ -282,7 +284,10 @@ number(event: any) {
        (document.getElementById('phoneno_id') as HTMLFormElement).classList.add("validation");
        }
      
-       
+     else{
+// alert('test');
+      // (document.getElementById('job_title') as HTMLFormElement).classList.remove("validation");
+     }  
 
     }
 
@@ -295,6 +300,7 @@ number(event: any) {
     }
 
     }
+   
 
     else{
 
@@ -419,7 +425,15 @@ number(event: any) {
   
     }
 
+    inputErrorMessage1(errormessage: any) {
+
+      (document.getElementById('passvalidationid') as HTMLFormElement).innerText = 'Passwords must match.!'
+    
+      }
+
     vendortype_display(active:any){
+
+      // (document.getElementById('job_title') as HTMLFormElement).value="";
 
       let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
      
@@ -456,6 +470,33 @@ number(event: any) {
         (<HTMLInputElement>document.getElementById("vendordetails")).style.display ="none";
         (<HTMLInputElement>document.getElementById("employeeinfo")).style.display ="none";
       }
+
+      if(usertype_id == 'EMPLOY'){
+
+        (document.getElementById('socialno_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('business_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('be_classificationid') as HTMLFormElement).classList.remove("validation");
+
+      }
+      else if(usertype_id == 'VENDOR'){
+
+        (document.getElementById('job_title') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('employee_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('jobstartdate_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('phoneno_id') as HTMLFormElement).classList.remove("validation");
+      }
+
+      else if(usertype_id == 'OTHER'){
+
+        (document.getElementById('socialno_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('business_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('be_classificationid') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('job_title') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('employee_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('jobstartdate_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('phoneno_id') as HTMLFormElement).classList.remove("validation");
+      }
+
     }
 
     displaydata(){
@@ -477,6 +518,8 @@ number(event: any) {
 
     gejobtitledata(){
      
+      console.log('in');
+      // alert('in');
       this.http.get(config_url+'/employee/selectJobTitle').subscribe( (data: {}) => {
           this.jobtitle=data;
           this.jobdetail=this.jobtitle.data.JobTitle;
@@ -485,6 +528,9 @@ number(event: any) {
     }
 
     getemployeedata(){
+      
+      console.log('in');
+      // alert('in');
       this.http.get(config_url+'/employee/selectEmployeeType').subscribe(
         (employeedata: {}) => {
           this.employeetype=employeedata;
@@ -493,7 +539,9 @@ number(event: any) {
     }
 
     getusertypedata(){
-   
+      
+      console.log('in');
+      // alert('in');
       this.http.get(config_url+'/app/selectUserType').subscribe(
         (usertype: {}) => {
           this.userdata=usertype;
@@ -534,6 +582,7 @@ number(event: any) {
 
       getbeclassificationdata(){
         console.log("in");
+        // alert('in');
         this.http.get(config_url+'/app/selectBEClassification').subscribe(
           (beclassificationdata: {}) => {
            
@@ -544,6 +593,9 @@ number(event: any) {
       }
 
        Getcityall_list(){
+
+        console.log('in');
+        // alert('in');
 
         this.http.get(config_url+'/app/selectAllcity').subscribe(
               (citylist: {}) => {
@@ -606,4 +658,9 @@ number(event: any) {
     // inputErrorMessage1(phoneErr: any){
     //   (document.getElementById(phoneErr) as HTMLFormElement).innerHTML = "";
     // }
+
+    removepassvalidation(){
+      // alert('in');
+      (document.getElementById('passvalidationid') as HTMLFormElement).innerText = "";
+    }
 }
