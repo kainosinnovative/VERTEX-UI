@@ -186,75 +186,75 @@ number(event: any) {
 
     let usertype_id = (<HTMLInputElement>document.getElementById("usertype_id")).value;
 
-    if(FirstName == null )
+    if(FirstName == null || FirstName == "")
       {
        (document.getElementById('firstname_id') as HTMLFormElement).classList.add("validation");
      }
 
-    if(LastName == null) 
+    if(LastName == null || LastName == "") 
       {
       (document.getElementById('lastname_id') as HTMLFormElement).classList.add("validation");
      }
 
-     if(UserTypeId == null)
+     if(UserTypeId == null || UserTypeId == "")
      {
      (document.getElementById('usertype_id') as HTMLFormElement).classList.add("validation");
       }
-      if(UserId == null)
+      if(UserId == null || UserId == "")
      {
       (document.getElementById('userkey') as HTMLFormElement).classList.add("validation");
       }
-     if(UserPassword == null)
+     if(UserPassword == null || UserPassword == "")
      {
       (document.getElementById('userpswd_id') as HTMLFormElement).classList.add("validation");
       }
-      if(conformpassword == null)
+      if(conformpassword == null || conformpassword == "")
      {
       (document.getElementById('comformpswd_id') as HTMLFormElement).classList.add("validation");
       }
       
-      if(Address1 == null)
+      if(Address1 == null || Address1 == "")
       {
        (document.getElementById('currentadd_id') as HTMLFormElement).classList.add("validation");
        }
-       if(Address2 == null)
+       if(Address2 == null || Address2 == "")
        {
         (document.getElementById('currentsecadd_id') as HTMLFormElement).classList.add("validation");
         }
        
-         if(Zipcode == null)
+         if(Zipcode == null || Zipcode == "")
         {
          (document.getElementById('regcurrentzip_id') as HTMLFormElement).classList.add("validation");
          }
-         if(CityId == null)
+         if(CityId == null || CityId == "")
         {
          (document.getElementById('currentcity_id') as HTMLFormElement).classList.add("validation");
          }
-         if(StateId == null)
+         if(StateId == null || StateId == "")
          {
           (document.getElementById('curstate_id') as HTMLFormElement).classList.add("validation");
           }
-         if(county_name == null)
+         if(county_name == null || county_name == "")
          {
           (document.getElementById('county_id') as HTMLFormElement).classList.add("validation");
           }
-          if(CountryId == null)
+          if(CountryId == null || CountryId =="")
           {
            (document.getElementById('country_id') as HTMLFormElement).classList.add("validation");
            }
-           if(StartDate == null)
+           if(StartDate == null || StartDate == "")
            {
             (document.getElementById('startdate_id') as HTMLFormElement).classList.add("validation");
             }
-            if(EndDate == null)
+            if(EndDate == null || EndDate == "")
             {
              (document.getElementById('enddata_id') as HTMLFormElement).classList.add("validation");
              }
 
-           if(!UserId.match(this.useridmatch)){
+          //  if(!UserId.match(this.useridmatch)){
 
-            (document.getElementById('userkey') as HTMLFormElement).classList.add("validation");
-          }
+          //   (document.getElementById('userkey') as HTMLFormElement).classList.add("validation");
+          // }
 
      if(UserPassword != (conformpassword)){
 
@@ -265,19 +265,19 @@ number(event: any) {
     if(usertype_id == "EMPLOY"){
     
 
-      if(JobTitleId == null)
+      if(JobTitleId == null || JobTitleId == "")
       {
        (document.getElementById('job_title') as HTMLFormElement).classList.add("validation");
        }
-       if(EmploymentTypeId == null)
+       if(EmploymentTypeId == null || EmploymentTypeId == "")
       {
        (document.getElementById('employee_id') as HTMLFormElement).classList.add("validation");
        }
-       if(JobStartDate == null)
+       if(JobStartDate == null || JobStartDate == "")
        {
         (document.getElementById('jobstartdate_id') as HTMLFormElement).classList.add("validation");
         }
-       if(Phone == null)
+       if(Phone == null || Phone == "")
       {
        (document.getElementById('phoneno_id') as HTMLFormElement).classList.add("validation");
        }
@@ -286,12 +286,14 @@ number(event: any) {
 
     }
 
+    if(usertype_id == "VENDOR"){
 
-    if(active1 == false){
+   if(active1 == false){
 
-    if(EIN_SSN == null){
+  if(EIN_SSN == null || EIN_SSN == ""){
       (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
     }
+
     }
 
     else{
@@ -304,105 +306,106 @@ number(event: any) {
       }
         
       }
+      }
 
-      if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
-        CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
+      // if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
+      //   CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
         
           
-          if(usertype_id == "OTHER"){
+      //     if(usertype_id == "OTHER"){
 
-            if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
-            CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != ""){
+      //       if(FirstName != null && FirstName != "" && LastName != null && LastName != "" && UserId != null && UserId != "" && UserPassword != null && UserPassword != "" && Address1 != null && Address1 != "" && Address2 != null && Address2 != "" && StateId != null && StateId != "" && 
+      //       CityId != null && CityId != "" && Zipcode != null && Zipcode != "" && CountryId != null && CountryId != ""){
     
-              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+      //         this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-                data => {
-                  console.log("data");
-                    console.log('POST Request is successful >>>>>>>>', data);
+      //           data => {
+      //             console.log("data");
+      //               console.log('POST Request is successful >>>>>>>>', data);
           
-                },
-                success => {
-                  console.log("success");
-                }
-              );
+      //           },
+      //           success => {
+      //             console.log("success");
+      //           }
+      //         );
     
-            }
+      //       }
             
-          }
+      //     }
 
 
-          if(usertype_id == "EMPLOY"){
+      //     if(usertype_id == "EMPLOY"){
 
-            if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && JobStartDate != null && JobStartDate != "" && Phone != null && Phone != "" ){
+      //       if(JobTitleId != null && JobTitleId != "" && EmploymentTypeId != null && EmploymentTypeId != "" && JobStartDate != null && JobStartDate != "" && Phone != null && Phone != "" ){
     
-              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+      //         this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-                data => {
-                  console.log("data");
-                    console.log('POST Request is successful >>>>>>>>', data);
+      //           data => {
+      //             console.log("data");
+      //               console.log('POST Request is successful >>>>>>>>', data);
           
-                },
-                success => {
-                  console.log("success");
-                }
-              );
+      //           },
+      //           success => {
+      //             console.log("success");
+      //           }
+      //         );
     
-            }
+      //       }
             
-          }
+      //     }
 
 
 
-          if(usertype_id == "VENDOR"){
+      //     if(usertype_id == "VENDOR"){
 
-            if(active1 == false){
+      //       if(active1 == false){
 
-              if(EIN_SSN != null && EIN_SSN != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
+      //         if(EIN_SSN != null && EIN_SSN != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
 
-                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+      //           this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-                data => {
-                  console.log("data");
-                    console.log('POST Request is successful >>>>>>>>', data);
+      //           data => {
+      //             console.log("data");
+      //               console.log('POST Request is successful >>>>>>>>', data);
           
-                },
-                success => {
-                  console.log("success");
-                }
-              );
+      //           },
+      //           success => {
+      //             console.log("success");
+      //           }
+      //         );
     
-            }
-           if(!EIN_SSN.match(this.socialno)){
-                 (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
-                }
-              }
-            }
+      //       }
+      //      if(!EIN_SSN.match(this.socialno)){
+      //            (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
+      //           }
+      //         }
+      //       }
 
-            if(usertype_id == "VENDOR"){
+      //       if(usertype_id == "VENDOR"){
 
-              if(BusinessSize != null && BusinessSize != "" && BusinessRegisteredInDistrict != null && BusinessRegisteredInDistrict != "" && BusinessRegisteredInSCC != null && BusinessRegisteredInSCC != "" && BusinessIsFranchisee != null && BusinessIsFranchisee != "" && BEClassificationId != null && BEClassificationId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
+      //         if(BusinessSize != null && BusinessSize != "" && BusinessRegisteredInDistrict != null && BusinessRegisteredInDistrict != "" && BusinessRegisteredInSCC != null && BusinessRegisteredInSCC != "" && BusinessIsFranchisee != null && BusinessIsFranchisee != "" && BEClassificationId != null && BEClassificationId != "" && StartDate != null && StartDate != "" && EndDate != null && EndDate != ""){
 
                 
-                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+      //           this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-                data => {
-                  console.log("data");
-                    console.log('POST Request is successful >>>>>>>>', data);
+      //           data => {
+      //             console.log("data");
+      //               console.log('POST Request is successful >>>>>>>>', data);
           
-                },
-                success => {
-                  console.log("success");
-                }
-              );
+      //           },
+      //           success => {
+      //             console.log("success");
+      //           }
+      //         );
     
-            }
-              }
+      //       }
+      //         }
 
 
-            // }
+      //       // }
 
 
-             }
+      //        }
           
 
       }

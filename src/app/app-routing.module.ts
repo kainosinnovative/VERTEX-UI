@@ -7,12 +7,12 @@ import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { AdminmanagementComponent } from './views/adminmanagement/adminmanagement.component';
 import { RegistrationformComponent } from './registrationform/registrationform.component';
-// import { RegisterComponent } from './register/register.component';
-// import { RegisterComponent } from './register/register.component';
 
 const newLocal = './views/register/register.module';
 // import { DashboardComponent } from './views/dashboard/dashboard.component';
+
 const routes: Routes = [
+
   { path:'', component:LoginComponent, data: { title: 'login'}},
   { path:'', component:RegistrationformComponent, data: { title: 'registrationform'}},
   
