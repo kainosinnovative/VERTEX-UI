@@ -339,8 +339,8 @@ number(event: any) {
             
             if((JobTitleId != null) && (EmploymentTypeId != null) && (JobStartDate != null) && (Phone != null) ){
             // if((JobTitleId != null || JobTitleId != "") && (EmploymentTypeId != null || EmploymentTypeId != "") && (JobStartDate != null || JobStartDate != "") && (Phone != null || Phone != "") ){
-              // alert("JobTitleId>>>"+JobTitleId);
-              // alert("Emp in");
+             
+             
               this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
           
                 data => {
