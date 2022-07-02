@@ -413,6 +413,7 @@ number(event: any) {
             }
 
   }
+  }
 
   inputErrorMessage(errormessage: any) {
 
@@ -502,6 +503,7 @@ number(event: any) {
       }
 
     }
+  // }
 
     displaydata(){
 
