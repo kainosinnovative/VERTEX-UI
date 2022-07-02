@@ -18,24 +18,20 @@ export class RegisterComponent implements OnInit {
   employeedetail: any;
   employeetype: any;
   statetype:any;
-  // statedetail:any;
   userdata:any;
   usertypedata:any;
-  selectedStateObj:any;
-  // citytype:any;
-  // citydetail:any;
   zipcodelist:any;
   zipcodedetail: any;
-  overalldata: any;
-  countrytype: any;
+   countrytype: any;
   countrydetail: any;
   beclassificationtype: any;
   beclassificationdetail:any;
   citylist: any;
   cityalldetail:any;
   statedetails:any;
-  vendordatalist: any;
-  vendoralllist: any;
+  zip:any;
+  zipdetail :any;
+  zip2:any;
 
 
   constructor(private frmbuilder: FormBuilder,  private http: HttpClient) { }
@@ -49,11 +45,14 @@ export class RegisterComponent implements OnInit {
     this.getbeclassificationdata();
     this.Getcityall_list();
     // this.getvendorlist()
+    this. Getallzipcode_list();
 
     this.registercontactinformation = this.frmbuilder.group({
 
       FirstName: [],
+      legalbusiness: [],
       LastName: [],
+      tradeName: [],
       UserTypeId: [],
       UserId: [],
       UserPassword: [],
@@ -73,6 +72,7 @@ export class RegisterComponent implements OnInit {
      
 
       OutreachEmailOptIn:[],
+      business_ssn: [],
       BusinessSize: [],
       BusinessRegisteredInDistrict:[],
       BusinessIsFranchisee: [],
@@ -86,13 +86,10 @@ export class RegisterComponent implements OnInit {
       Phone:[],
       AdminUser: [],
       UserStatusId:['N'],
-      // AEndDate: ['2022-06-30'],
-
+     
 })
 
-// this. employeeinformation = this.frmbuilder.group({
 
-//  })
 
 }
 
@@ -133,22 +130,12 @@ number(event: any) {
   validation(registercontactinformation:any){
 
     console.log( 'Contact Information',registercontactinformation);
-    // console.log('employee', employeeinformation);
-    // console.log("insert");
-    //   this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
-      
-    //     data => {
-    //       console.log("data");
-    //         console.log('POST Request is successful >>>>>>>>', data);
-  
-    //     },
-    //     success => {
-    //       console.log("success");
-    //     }
-    //   );
+   
 
     let FirstName = this.registercontactinformation.get('FirstName').value;
+    let legalbusiness = this.registercontactinformation.get('legalbusiness').value;
     let LastName = this.registercontactinformation.get('LastName').value;
+    let tradeName = this.registercontactinformation.get('tradeName').value;
     let UserTypeId = this.registercontactinformation.get('UserTypeId').value;
     // alert(UserTypeId);
     let UserId = this.registercontactinformation.get('UserId').value;
@@ -171,6 +158,7 @@ number(event: any) {
     let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
 
     let EIN_SSN = this.registercontactinformation.get('EIN_SSN').value;
+    let business_ssn = this.registercontactinformation.get('business_ssn').value;
     let BusinessSize = this.registercontactinformation.get('BusinessSize').value;
     let BusinessRegisteredInDistrict = this.registercontactinformation.get('BusinessRegisteredInDistrict').value;
     let BEClassificationId = this.registercontactinformation.get('BEClassificationId').value;
@@ -190,11 +178,18 @@ number(event: any) {
       {
        (document.getElementById('firstname_id') as HTMLFormElement).classList.add("validation");
      }
-
-    if(LastName == null || LastName == "") 
+     if(legalbusiness == null || legalbusiness == "")
+     {
+      (document.getElementById('legal_id') as HTMLFormElement).classList.add("validation");
+    }
+     if(LastName == null || LastName == "") 
       {
       (document.getElementById('lastname_id') as HTMLFormElement).classList.add("validation");
      }
+     if(tradeName == null || tradeName == "") 
+     {
+     (document.getElementById('trade_id') as HTMLFormElement).classList.add("validation");
+    }
 
      if(UserTypeId == null || UserTypeId == "")
      {
@@ -284,11 +279,6 @@ number(event: any) {
        (document.getElementById('phoneno_id') as HTMLFormElement).classList.add("validation");
        }
      
-     else{
-// alert('test');
-      // (document.getElementById('job_title') as HTMLFormElement).classList.remove("validation");
-     }  
-
     }
 
     if(usertype_id == "VENDOR"){
@@ -304,6 +294,9 @@ number(event: any) {
 
     else{
 
+      if(business_ssn == null || business_ssn == ""){
+        (document.getElementById('busssn_id') as HTMLFormElement).classList.add("validation");
+      }
       if(BusinessSize == null || BusinessSize == ""){
         (document.getElementById('business_id') as HTMLFormElement).classList.add("validation");
       }
@@ -314,13 +307,13 @@ number(event: any) {
       }
       }
 
-      if((FirstName != null || FirstName != "") && (LastName != null || LastName != "") && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
+      if((FirstName != null || FirstName != "") && (legalbusiness != null || legalbusiness != "") && (LastName != null || LastName != "") && (tradeName != "" || tradeName != null) && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
         (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
         
           
           if(usertype_id == "OTHER"){
 
-            if((FirstName != null || FirstName != "") && (LastName != null || LastName != "") && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
+            if((FirstName != null || FirstName != "") && (legalbusiness != null || legalbusiness != "") && (LastName != null || LastName != "") && (tradeName != "" || tradeName != null) && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
             (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "")){
     
               this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
@@ -413,11 +406,7 @@ number(event: any) {
 
             }
 
-
-      //        }
-          
-
-      }
+  }
 
   inputErrorMessage(errormessage: any) {
 
@@ -433,29 +422,36 @@ number(event: any) {
 
     vendortype_display(active:any){
 
-      // (document.getElementById('job_title') as HTMLFormElement).value="";
-
       let active1 = (<HTMLInputElement>document.getElementById("active")).checked;
      
       if(active1 == true){
 
         (<HTMLInputElement>document.getElementById("vendorbusiness")).style.display ="block";
         (<HTMLInputElement>document.getElementById("vendorindividual")).style.display ="none";
+        (<HTMLInputElement>document.getElementById("busname1")).style.display ="block";
+        (<HTMLInputElement>document.getElementById("busname2")).style.display ="block";
+        (<HTMLInputElement>document.getElementById("indname1")).style.display ="none";
+        (<HTMLInputElement>document.getElementById("indname2")).style.display ="none";
+
         
       }
+    
 
       else if(active1 == false){
 
         (<HTMLInputElement>document.getElementById("vendorbusiness")).style.display ="none";
         (<HTMLInputElement>document.getElementById("vendorindividual")).style.display ="block";
+        (<HTMLInputElement>document.getElementById("busname1")).style.display ="none";
+        (<HTMLInputElement>document.getElementById("busname2")).style.display ="none";
+        (<HTMLInputElement>document.getElementById("indname1")).style.display ="block";
+        (<HTMLInputElement>document.getElementById("indname2")).style.display ="block";
 
       }
     }
 
     vendordetails_display(){
       let usertype_id = (<HTMLInputElement>document.getElementById("usertype_id")).value;
-      // alert(usertype_id);
-     
+    
       if(usertype_id == 'VENDOR'){
 
         (<HTMLInputElement>document.getElementById("vendordetails")).style.display ="block";
@@ -474,6 +470,7 @@ number(event: any) {
       if(usertype_id == 'EMPLOY'){
 
         (document.getElementById('socialno_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('busssn_id') as HTMLFormElement).classList.remove("validation");
         (document.getElementById('business_id') as HTMLFormElement).classList.remove("validation");
         (document.getElementById('be_classificationid') as HTMLFormElement).classList.remove("validation");
 
@@ -489,6 +486,7 @@ number(event: any) {
       else if(usertype_id == 'OTHER'){
 
         (document.getElementById('socialno_id') as HTMLFormElement).classList.remove("validation");
+        (document.getElementById('busssn_id') as HTMLFormElement).classList.remove("validation");
         (document.getElementById('business_id') as HTMLFormElement).classList.remove("validation");
         (document.getElementById('be_classificationid') as HTMLFormElement).classList.remove("validation");
         (document.getElementById('job_title') as HTMLFormElement).classList.remove("validation");
@@ -541,46 +539,16 @@ number(event: any) {
     getusertypedata(){
       
       console.log('in');
-      // alert('in');
+     
       this.http.get(config_url+'/app/selectUserType').subscribe(
         (usertype: {}) => {
           this.userdata=usertype;
           this.usertypedata=this.userdata.data.UserTypeDetails;
-                // console.log("usertypedata>>>",this.usertypedata)
+              
     });
     }
 
-    // getvendorlist(){
-      
-    //   this.http.get(config_url+'/vendor/GetVendorType').subscribe(
-    //     (vendordata: {}) => {
-
-    //       // console.log(vendordata)
-         
-    //       this.vendordatalist = vendordata;
-    //       this.vendoralllist = this.vendordatalist.data.vendortype
-    //    console.log(this.vendoralllist.VendorTypeId);
-       
-    // });
-
-    // }
-  
-
-      // getcountrydata(){
-
-      // let curstate_id = (<HTMLInputElement>document.getElementById("curstate_id")).value;
-      // alert(curstate_id);
-
-      // // this.http.get(config_url+'/app/getCountryByState?stateid='+countryid).subscribe(
-      // //     (countrydata: {}) => {
-           
-      // //       this.countrytype = countrydata;
-      // //       this.countrydetail = this.countrytype.data.CountryDetails
-      // //       console.log("country",this.countrydetail);
-      // // });
-      // }
-
-      getbeclassificationdata(){
+  getbeclassificationdata(){
         console.log("in");
         // alert('in');
         this.http.get(config_url+'/app/selectBEClassification').subscribe(
@@ -592,11 +560,25 @@ number(event: any) {
       });
       }
 
+
+      Getallzipcode_list(){
+          // alert('in');
+        this.http.get(config_url+'/app/getZipCode').subscribe(
+          (allzipcodelist: {}) => {
+
+          //  console.log(allzipcodelist);
+
+            this.zip=allzipcodelist;
+             this.zipcodedetail=this.zip.data.zipcodedata;
+            //  console.log(this.cityalldetail)
+
+          });
+
+      }
+
        Getcityall_list(){
 
         console.log('in');
-        // alert('in');
-
         this.http.get(config_url+'/app/selectAllcity').subscribe(
               (citylist: {}) => {
               //  console.log( 'citylist', citylist);
@@ -609,6 +591,18 @@ number(event: any) {
 
       }
 
+      // onchangecitybyzip(){
+      //   let zipid = (<HTMLInputElement>document.getElementById("regcurrentzip_id")).value;
+
+      //   this.http.get(config_url+'/app/getCityByZipcode?zipcode='+zipid).subscribe(zip1 =>
+      //     {
+
+      //       this.zip2=zip1;
+      //       this.cityalldetail=this.zip2.data.citydata;
+      //       })
+
+      // }
+
       onchangezip(){
 
         let cityid = (<HTMLInputElement>document.getElementById("currentcity_id")).value;
@@ -616,11 +610,9 @@ number(event: any) {
         this.http.get(config_url+'/app/getZipcodeByCity?cityid='+cityid).subscribe(data1 =>
           {
 
-            // console.log(data1);
             this.zipcodelist=data1;
             this.zipcodedetail=this.zipcodelist.data.zipcodedata;
-            // console.log( 'zipcode', this.zipcodedetail)
-          })
+           })
 
       }
 
@@ -634,8 +626,7 @@ number(event: any) {
             console.log(statelist);
             this.statedetails=statelist;
             this.statetype=this.statedetails.data.Statelist;
-            // console.log( 'zipcode', this.zipcodedetail)
-          })
+           })
 
       }
 
@@ -645,22 +636,16 @@ number(event: any) {
 
         this.http.get(config_url+'/app/getCountryByState?stateid='+state_id).subscribe(countrydata =>
           {
-
-            // console.log( 'country',countrydata);
-            this.countrytype = countrydata;
+ this.countrytype = countrydata;
             this.countrydetail = this.countrytype.data.countrydata
-            // console.log( 'zipcode', this.countrydetail)
           })
 
 
       }
 
-    // inputErrorMessage1(phoneErr: any){
-    //   (document.getElementById(phoneErr) as HTMLFormElement).innerHTML = "";
-    // }
+  
 
     removepassvalidation(){
-      // alert('in');
       (document.getElementById('passvalidationid') as HTMLFormElement).innerText = "";
     }
 }
