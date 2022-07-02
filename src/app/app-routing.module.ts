@@ -33,6 +33,7 @@ const routes: Routes = [
     },
     children: [
       {
+        // path: 'vendormanagement/:id',
         path: 'vendormanagement',
         loadChildren: () =>
           import('./views/vendormanagement/vendormanagement.module').then((m) => m.VendorModule)
@@ -70,7 +71,12 @@ const routes: Routes = [
         path: 'notifications',
         loadChildren: () =>
           import('./views/notifications/notifications.module').then((m) => m.NotificationsModule)
-      }
+      },
+      {
+        path: 'VendorList',
+        loadChildren: () =>
+          import('./views/vendor-list/vendor-list.module').then((m) => m.VendorListModule)
+      },
     ]
   },
   {
