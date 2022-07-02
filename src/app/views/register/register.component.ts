@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl,} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { config_url } from '../shared/constant';
-
+// import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -34,7 +34,9 @@ export class RegisterComponent implements OnInit {
   zip2:any;
 
 
-  constructor(private frmbuilder: FormBuilder,  private http: HttpClient) { }
+  constructor(private frmbuilder: FormBuilder,  private http: HttpClient, 
+  //  private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
 
@@ -128,7 +130,7 @@ number(event: any) {
 }
 
   validation(registercontactinformation:any){
-
+    // this.toastr.error("Holiday deleted");
     console.log( 'Contact Information',registercontactinformation);
    
 
@@ -311,33 +313,35 @@ number(event: any) {
         (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
         
           
-          if(usertype_id == "OTHER"){
+          // if(usertype_id == "OTHER"){
 
             if((FirstName != null || FirstName != "") && (legalbusiness != null || legalbusiness != "") && (LastName != null || LastName != "") && (tradeName != "" || tradeName != null) && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
             (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "")){
     
-              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+          //     this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
-                data => {
-                  console.log("data");
-                    console.log('POST Request is successful >>>>>>>>', data);
+          //       data => {
+          //         console.log("data");
+          //           console.log('POST Request is successful >>>>>>>>', data);
           
-                },
-                success => {
-                  console.log("success");
-                }
-              );
+          //       },
+          //       success => {
+          //         console.log("success");
+          //       }
+          //     );
     
-            }
+          //   }
             
-          }
+          // }
 
 
           if(usertype_id == "EMPLOY"){
-
-            if((JobTitleId != null || JobTitleId != "") && (EmploymentTypeId != null || EmploymentTypeId != "") && (JobStartDate != null || JobStartDate != "") && (Phone != null || Phone != "") ){
-    
-              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+            
+            if((JobTitleId != null) && (EmploymentTypeId != null) && (JobStartDate != null) && (Phone != null) ){
+            // if((JobTitleId != null || JobTitleId != "") && (EmploymentTypeId != null || EmploymentTypeId != "") && (JobStartDate != null || JobStartDate != "") && (Phone != null || Phone != "") ){
+              // alert("JobTitleId>>>"+JobTitleId);
+              // alert("Emp in");
+              this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
           
                 data => {
                   console.log("data");
@@ -348,7 +352,7 @@ number(event: any) {
                   console.log("success");
                 }
               );
-    
+              window.setTimeout(function(){location.reload()},100);
             }
             
           }
@@ -356,12 +360,13 @@ number(event: any) {
 
 
           if(usertype_id == "VENDOR"){
+            
 
             if(active1 == false){
 
-              if((EIN_SSN != null || EIN_SSN != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
-
-                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+              if((EIN_SSN != null) && (StartDate != null) && (EndDate != null)){
+                alert("vendor individual");
+                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
           
                 data => {
                   console.log("data");
@@ -372,7 +377,7 @@ number(event: any) {
                   console.log("success");
                 }
               );
-    
+              window.setTimeout(function(){location.reload()},100);
             }
            if(!EIN_SSN.match(this.socialno)){
                  (document.getElementById('socialno_id') as HTMLFormElement).classList.add("validation");
@@ -381,13 +386,14 @@ number(event: any) {
             }
 
             if(usertype_id == "VENDOR"){
+              
 
               if(active1 == true){
 
-              if((BusinessSize != null || BusinessSize != "") && (BusinessRegisteredInDistrict != null || BusinessRegisteredInDistrict != "" )&& (BusinessRegisteredInSCC != null || BusinessRegisteredInSCC != "") && (BusinessIsFranchisee != null || BusinessIsFranchisee != "") && (BEClassificationId != null || BEClassificationId != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
-
+              if((BusinessSize != null) && (BusinessRegisteredInDistrict != null)&& (BusinessRegisteredInSCC != null) && (BusinessIsFranchisee != null) && (BEClassificationId != null) && (StartDate != null) && (EndDate != null)){
+                // alert("vendor business");
                 
-                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
+                this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
           
                 data => {
                   console.log("data");
@@ -398,7 +404,7 @@ number(event: any) {
                   console.log("success");
                 }
               );
-    
+              window.setTimeout(function(){location.reload()},100);
             }
           }
               }

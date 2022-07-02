@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-
+// import { ToastrModule } from 'ngx-toastr';
 import {
   AvatarModule,
   ButtonGroupModule,
@@ -26,6 +26,10 @@ import { RegisterComponent } from './register.component';
 
 @NgModule({
   imports: [
+    // ToastrModule.forRoot({
+    //   positionClass: 'toast-center-center',
+    //   timeOut: 2000,
+    // }),
     RegisterRoutingModule,
     CardModule,
     NavModule,
