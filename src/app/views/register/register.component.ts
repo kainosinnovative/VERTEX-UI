@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators, FormControl,} from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { config_url } from '../shared/constant';
 // import { ToastrService } from 'ngx-toastr';
+import { MustMatch } from '../_helpers/must-match.validator';
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +13,11 @@ import { config_url } from '../shared/constant';
 })
 export class RegisterComponent implements OnInit {
 
- registercontactinformation:any;
+//  registercontactinformation:any;
+ registercontactinformation: FormGroup | any;
+ submitted = false;
+
+ 
   vendor: any;
   employeeinformation:any;
   jobdetail: any;
@@ -51,6 +58,7 @@ export class RegisterComponent implements OnInit {
 
     this.registercontactinformation = this.frmbuilder.group({
 
+     
       FirstName: [],
       legalbusiness: [],
       LastName: [],
@@ -657,6 +665,20 @@ number(event: any) {
 
     removepassvalidation(){
       (document.getElementById('passvalidationid') as HTMLFormElement).innerText = "";
+    }
+
+
+    get f() { return this.registercontactinformation.controls; }
+
+    onSubmit() {
+        this.submitted = true;
+  
+        // stop here if form is invalid
+        if (this.registercontactinformation.invalid) {
+            return;
+        }
+  
+        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registercontactinformation.value))
     }
 
     

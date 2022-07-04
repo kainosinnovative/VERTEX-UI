@@ -302,9 +302,9 @@ if(!phone_no.match(this.phoneformat)){
 
     let Legal_business = this.vendorMgmt.get('business_name').value;
     let naicscode=this.vendorMgmt.get('naicscode').value;
-    alert(naicscode);
+    // alert(naicscode);
     let commoditycode=this.vendorMgmt.get('commoditycode').value;
-    alert(commoditycode);
+    // alert(commoditycode);
     let federal = this.vendorMgmt.get('federal').value;
     let trade_name = this. vendorMgmt.get('trade_name').value;
     let duns_no = this.vendorMgmt.get('duns_no').value;
@@ -500,7 +500,7 @@ Address_swiping(){
 
 
 GetVendorById(){
-  alert("hi");
+  // alert("hi");
   let vendoridSes = localStorage.getItem('vendoridSes');
 
   this.http.get(config_url+'/vendor/GetVendorById?VendorId='+vendoridSes).subscribe(data1 =>
@@ -527,7 +527,7 @@ GetVendorById(){
 }
 
 GetVendorAddressById(){
- alert("hi");
+//  alert("hi");
   // let vendoridSes = localStorage.getItem('vendoridSes');
   let vendoridSes = "BC75E529-1F26-4993-9469-2797493CD645";
   this.http.get(config_url+'/vendor/GetVendorAddressById?VendorId='+vendoridSes).subscribe(data1 =>
