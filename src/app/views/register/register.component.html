@@ -18,6 +18,7 @@
         <p class="mainheading heading">Contact Information</p>
     
     <div class="row Generaldiv">
+
       <div class="col-sm-6 innerlinefont" > 
         
         <div class="labelheight">
@@ -125,7 +126,7 @@
                      <div class="labelheight">
                         <label class="labelwidth">County<span class="requiredfield ">  *</span> </label>
                         <select type="text"  class="County" formControlName="county_name" id="county_id" (change)="inputErrorMessage('county_id')">
-                            <option ></option>
+                            <!-- <option ></option> -->
                             <option *ngFor="let statelistid of statetype" value="{{statelistid.DistrictId}}">
                                 {{statelistid.DistrictName}}</option>
                          </select>
@@ -138,7 +139,7 @@
                               (change)="inputErrorMessage('curstate_id');onchangecountry()" >
                             
                 
-                              <option value=""></option>
+                              <!-- <option value=""></option> -->
                               <option *ngFor="let statelistid of statetype" value="{{statelistid.StateId}}">
                                 {{statelistid.StateName}}</option>
                                </select> 
