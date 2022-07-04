@@ -50,10 +50,10 @@
                 </div>
             </div>
     
-        </form>
+       
     
         <!--Contact Information Start -->
-        <form [formGroup]="contactindividual">
+       
             <div id="vendor-individual" *ngFor="let s of singleVendorDet">
     
                 <p class="mainheading heading">Contact Information</p>
@@ -86,7 +86,7 @@
                             <label class="wouldla">Would you like to receive outreach emails from us ?</label>
                             <!-- <label style="width:10px;"></label> -->
                             <label class="switch">
-                                <input type="checkbox" name="active" id="active" checked>
+                                <input type="checkbox" name="active" id="active">
                                 <span class="slider round"></span>
                             </label>
                         </div>
@@ -119,13 +119,13 @@
                     </div>
                 </div>
             </div>
-        </form>
+       
         <!--Contact Information End -->
     
     
     
         <!--General Information Start -->
-        <form [formGroup]="generalinformation">
+        
             <div id="General_Information" style="display: none;">
                 <p class="mainheading heading">General Information</p>
     
@@ -218,12 +218,12 @@
                 </div>
     
             </div>
-        </form>
+        
         <!--General Information end -->
     
     
     
-        <form [formGroup]="currentaddress">
+        
             <div id="currentaddress" *ngFor="let Addr of singleVendorAddressDet">
     
                 <p class="mainheading heading">Address Information</p>
@@ -317,7 +317,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+       
     
     
     
@@ -359,7 +359,7 @@
                             </div>
                         </div>
                     </div>
-                    <form [formGroup]="mailingaddress">
+                    
                         <div class="acc" style="display: none;" id="mailing_type">
                             <h2 id="addressheading" class="title mainheading">Mailing Address</h2>
                             <div>
@@ -453,7 +453,7 @@
     
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
     
     
@@ -466,7 +466,7 @@
                             <span class="slider round"></span>
                         </label>
                     </div>
-                    <form [formGroup]="Pastaddress">
+                    
                         <div class="acc1" style="display: none;" id="past_type">
                             <h2 class="title1 mainheading">Past Address</h2>
                             <div>
@@ -546,7 +546,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -556,7 +556,7 @@
     
             <p class="mainheading heading" style=" padding-bottom: 5px; padding-top: 16px;">Contact Information</p>
     
-            <form [formGroup]="ContactBusiness">
+           
                 <div class="row Generaldiv">
     
     
@@ -657,8 +657,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </div>        
         </div>
         <!-- Contact Information End-->
     
@@ -666,10 +665,10 @@
             <input type="button" class="btn btn-primary fixedwidthcls" value="Cancel" />
             &nbsp;&nbsp;
             <input type="button" class="btn btn-primary fixedwidthcls"
-                (click)="Userdata(vendorMgmt.value,contactindividual.value,generalinformation.value,currentaddress.value,mailingaddress.value,Pastaddress.value,ContactBusiness.value)"
+                (click)="Userdata(vendorMgmt.value);"
                 value="Save " />
         </div><br>
     
-        <!-- </form> -->
+        </form>
     
     </div>

@@ -53,18 +53,12 @@ export class VendormanagementComponent implements OnInit {
 
       user_name :[],
       active: [],
-     })
-
-    this.contactindividual = this.frmbuilder.group({
       first_name: [],
       last_name: [],
       middle_name: [],
       social_no: [],
       email_individual: [],
       phone_no:[],
-     })
-
-    this.generalinformation = this.frmbuilder.group({
       alias_name:[],
        business_name: [],
       federal:[],
@@ -73,9 +67,6 @@ export class VendormanagementComponent implements OnInit {
       trade_name: [],
       duns_no: [],
       business_website:[],
-     })
-
-     this.currentaddress = this.frmbuilder.group({
       physical_address:[],
       street: [],
       state_province: [],
@@ -83,10 +74,6 @@ export class VendormanagementComponent implements OnInit {
       zip_code: [],
       county: [],
       country: [],
-
-     })
-
-     this.mailingaddress = this.frmbuilder.group({
       mailing_address: [],
       mailing_street: [],
       state_province1: [],
@@ -96,11 +83,6 @@ export class VendormanagementComponent implements OnInit {
       country_1:[],
       mailingfrom_date: [],
       mailingto_date:[],
-
-     })
-
-     this.Pastaddress = this.frmbuilder.group({
-
       past_address: [],
       past_street: [],
       state_province2: [],
@@ -110,11 +92,6 @@ export class VendormanagementComponent implements OnInit {
       country_2: [],
       pastfrom_date: [],
       pastto_date: [],
-
-     })
-
-     this.ContactBusiness = this.frmbuilder.group({
-
       contact_name: [],
       business_phone: [],
       title: [],
@@ -126,6 +103,78 @@ export class VendormanagementComponent implements OnInit {
       VendorContactPrimary:[],
       VendorContactActive:[]
      })
+
+    // this.contactindividual = this.frmbuilder.group({
+    //   first_name: [],
+    //   last_name: [],
+    //   middle_name: [],
+    //   social_no: [],
+    //   email_individual: [],
+    //   phone_no:[],
+    //  })
+
+    // this.generalinformation = this.frmbuilder.group({
+    //   alias_name:[],
+    //    business_name: [],
+    //   federal:[],
+    //   naicscode: [],
+    //   commoditycode:[],
+    //   trade_name: [],
+    //   duns_no: [],
+    //   business_website:[],
+    //  })
+
+    //  this.currentaddress = this.frmbuilder.group({
+    //   physical_address:[],
+    //   street: [],
+    //   state_province: [],
+    //   city: [],
+    //   zip_code: [],
+    //   county: [],
+    //   country: [],
+
+    //  })
+
+    //  this.mailingaddress = this.frmbuilder.group({
+    //   mailing_address: [],
+    //   mailing_street: [],
+    //   state_province1: [],
+    //   city_1: [],
+    //   zip_code1: [],
+    //   county_1: [],
+    //   country_1:[],
+    //   mailingfrom_date: [],
+    //   mailingto_date:[],
+
+    //  })
+
+    //  this.Pastaddress = this.frmbuilder.group({
+
+    //   past_address: [],
+    //   past_street: [],
+    //   state_province2: [],
+    //   city_2: [],
+    //   zip_code2: [],
+    //   county_2: [],
+    //   country_2: [],
+    //   pastfrom_date: [],
+    //   pastto_date: [],
+
+    //  })
+
+    //  this.ContactBusiness = this.frmbuilder.group({
+
+    //   contact_name: [],
+    //   business_phone: [],
+    //   title: [],
+    //   business_email: [],
+    //   addtional_name: [],
+    //   addtional_title: [],
+    //   addtional_businessmail: [],
+    //   addtional_businessphone: [],
+    //   VendorContactPrimary:[],
+    //   VendorContactActive:[]
+    //  })
 
    
   }
@@ -172,31 +221,31 @@ export class VendormanagementComponent implements OnInit {
 //  ssnformat = /^ [0-9] {3}-? [0-9] {2}-? [0-9] {4}$/;
 
 
-  Userdata(vendorMgmt:any,contactindividual:any,generalinformation:any,currentaddress:any,mailingaddress:any,Pastaddress:any,ContactBusiness:any){
+  Userdata(vendorMgmt:any){
 
-    console.log('contactindividual>>>', contactindividual);
+    // console.log('contactindividual>>>', contactindividual);
 
      if(this.is_business == 'individual'){
 
 
       
-       let first_name = this.contactindividual.get('first_name').value;
-       let last_name = this.contactindividual.get('last_name').value;
-       let social_no = this.contactindividual.get('social_no').value;
-       let email_individual = this.contactindividual.get('email_individual').value;
-       let phone_no =this.contactindividual.get('phone_no').value;
+       let first_name = this.vendorMgmt.get('first_name').value;
+       let last_name = this.vendorMgmt.get('last_name').value;
+       let social_no = this.vendorMgmt.get('social_no').value;
+       let email_individual = this.vendorMgmt.get('email_individual').value;
+       let phone_no =this.vendorMgmt.get('phone_no').value;
 
        
 
 
 
-       let physical_address =this.currentaddress.get('physical_address').value;
-       let street =this.currentaddress.get('street').value;
-       let state_province =this.currentaddress.get('state_province').value;
-       let city= this.currentaddress.get('city').value;
-       let zip_code =this.currentaddress.get('zip_code').value;
-       let county =this.currentaddress.get('county').value;
-       let country =this.currentaddress.get('country').value;
+       let physical_address =this.vendorMgmt.get('physical_address').value;
+       let street =this.vendorMgmt.get('street').value;
+       let state_province =this.vendorMgmt.get('state_province').value;
+       let city= this.vendorMgmt.get('city').value;
+       let zip_code =this.vendorMgmt.get('zip_code').value;
+       let county =this.vendorMgmt.get('county').value;
+       let country =this.vendorMgmt.get('country').value;
 
        if(first_name == null){
         (document.getElementById('firstname_id') as HTMLFormElement).classList.add("validation");
@@ -251,29 +300,29 @@ if(!phone_no.match(this.phoneformat)){
 
   else{
 
-    let Legal_business = this.generalinformation.get('business_name').value;
-    let naicscode=this.generalinformation.get('naicscode').value;
+    let Legal_business = this.vendorMgmt.get('business_name').value;
+    let naicscode=this.vendorMgmt.get('naicscode').value;
     alert(naicscode);
-    let commoditycode=this.generalinformation.get('commoditycode').value;
+    let commoditycode=this.vendorMgmt.get('commoditycode').value;
     alert(commoditycode);
-    let federal = this.generalinformation.get('federal').value;
-    let trade_name = this. generalinformation.get('trade_name').value;
-    let duns_no = this.generalinformation.get('duns_no').value;
-    let business_website = this.generalinformation.get('business_website').value;
+    let federal = this.vendorMgmt.get('federal').value;
+    let trade_name = this. vendorMgmt.get('trade_name').value;
+    let duns_no = this.vendorMgmt.get('duns_no').value;
+    let business_website = this.vendorMgmt.get('business_website').value;
 
-      let physical_address =this.currentaddress.get('physical_address').value;
-       let street =this.currentaddress.get('street').value;
-       let state_province =this.currentaddress.get('state_province').value;
-       let city= this.currentaddress.get('city').value;
-       let zip_code =this.currentaddress.get('zip_code').value;
-       let county =this.currentaddress.get('county').value;
-       let country =this.currentaddress.get('country').value;
+      let physical_address =this.vendorMgmt.get('physical_address').value;
+       let street =this.vendorMgmt.get('street').value;
+       let state_province =this.vendorMgmt.get('state_province').value;
+       let city= this.vendorMgmt.get('city').value;
+       let zip_code =this.vendorMgmt.get('zip_code').value;
+       let county =this.vendorMgmt.get('county').value;
+       let country =this.vendorMgmt.get('country').value;
 
 
-    let contact_name = this.ContactBusiness.get('contact_name').value;
-    let business_phone = this.ContactBusiness.get('business_phone').value;
-    let title= this.ContactBusiness.get('title').value;
-    let business_email = this.ContactBusiness.get('business_email').value;
+    let contact_name = this.vendorMgmt.get('contact_name').value;
+    let business_phone = this.vendorMgmt.get('business_phone').value;
+    let title= this.vendorMgmt.get('title').value;
+    let business_email = this.vendorMgmt.get('business_email').value;
 
 
 if(Legal_business == null){
@@ -428,30 +477,30 @@ Address_swiping(){
       let address_type = (<HTMLInputElement>document.getElementById("address_active")).checked;
       if(address_type == true){
 
-        this.mailingaddress.controls.mailing_address.setValue(this.currentaddress.get('physical_address').value); 
-        this.mailingaddress.controls.mailing_street.setValue(this.currentaddress.get('street').value);
-        this.mailingaddress.controls.state_province1.setValue(this.currentaddress.get('state_province').value);
-        this.mailingaddress.controls.city_1.setValue(this.currentaddress.get('city').value);
-        this.mailingaddress.controls.zip_code1.setValue(this.currentaddress.get('zip_code').value);
-        this.mailingaddress.controls.county_1.setValue(this.currentaddress.get('county').value);
-        this.mailingaddress.controls.country_1.setValue(this.currentaddress.get('country').value);
+        this.vendorMgmt.controls.mailing_address.setValue(this.currentaddress.get('physical_address').value); 
+        this.vendorMgmt.controls.mailing_street.setValue(this.currentaddress.get('street').value);
+        this.vendorMgmt.controls.state_province1.setValue(this.currentaddress.get('state_province').value);
+        this.vendorMgmt.controls.city_1.setValue(this.currentaddress.get('city').value);
+        this.vendorMgmt.controls.zip_code1.setValue(this.currentaddress.get('zip_code').value);
+        this.vendorMgmt.controls.county_1.setValue(this.currentaddress.get('county').value);
+        this.vendorMgmt.controls.country_1.setValue(this.currentaddress.get('country').value);
 
  }
  else{
 
-  this.mailingaddress.controls.mailing_address.setValue(""); 
-  this.mailingaddress.controls.mailing_street.setValue("");
-  this.mailingaddress.controls.state_province1.setValue("");
-  this.mailingaddress.controls.city_1.setValue("");
-  this.mailingaddress.controls.zip_code1.setValue("");
-  this.mailingaddress.controls.county_1.setValue("");
-  this.mailingaddress.controls.country_1.setValue("");
+  this.vendorMgmt.controls.mailing_address.setValue(""); 
+  this.vendorMgmt.controls.mailing_street.setValue("");
+  this.vendorMgmt.controls.state_province1.setValue("");
+  this.vendorMgmt.controls.city_1.setValue("");
+  this.vendorMgmt.controls.zip_code1.setValue("");
+  this.vendorMgmt.controls.county_1.setValue("");
+  this.vendorMgmt.controls.country_1.setValue("");
  }
 }
 
 
 GetVendorById(){
- 
+  alert("hi");
   let vendoridSes = localStorage.getItem('vendoridSes');
 
   this.http.get(config_url+'/vendor/GetVendorById?VendorId='+vendoridSes).subscribe(data1 =>
@@ -478,9 +527,9 @@ GetVendorById(){
 }
 
 GetVendorAddressById(){
- 
-  let vendoridSes = localStorage.getItem('vendoridSes');
-
+ alert("hi");
+  // let vendoridSes = localStorage.getItem('vendoridSes');
+  let vendoridSes = "BC75E529-1F26-4993-9469-2797493CD645";
   this.http.get(config_url+'/vendor/GetVendorAddressById?VendorId='+vendoridSes).subscribe(data1 =>
     {
 
@@ -552,6 +601,5 @@ getstatedata(){
       console.log("state",this.statedetail)
 });
 }
-
 
 }
