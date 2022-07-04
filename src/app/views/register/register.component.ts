@@ -309,14 +309,14 @@ number(event: any) {
       }
       }
 
-      if((FirstName != null || FirstName != "") && (legalbusiness != null || legalbusiness != "") && (LastName != null || LastName != "") && (tradeName != "" || tradeName != null) && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
+      if((FirstName != null) && (LastName != null || LastName != "") && (tradeName != "" || tradeName != null) && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
         (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "") && (StartDate != null || StartDate != "") && (EndDate != null || EndDate != "")){
         
           
           // if(usertype_id == "OTHER"){
 
-            if((FirstName != null || FirstName != "") && (legalbusiness != null || legalbusiness != "") && (LastName != null || LastName != "") && (tradeName != "" || tradeName != null) && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (StateId != null || StateId != "") && 
-            (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "")){
+          //   if((FirstName != null || FirstName != "") && (LastName != null || LastName != "") && (UserId != null || UserId != "") && (UserPassword != null || UserPassword != "") &&  (StateId != null || StateId != "") && 
+          //   (EndDate != null || EndDate != "") && (Address1 != null || Address1 != "") && (Address2 != null || Address2 != "") && (CityId != null || CityId != "") && (Zipcode != null || Zipcode != "") && (CountryId != null || CountryId != "")){
     
           //     this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', this.registercontactinformation).subscribe(
           
@@ -333,14 +333,16 @@ number(event: any) {
           //   }
             
           // }
+         
 
 
           if(usertype_id == "EMPLOY"){
+         
             
             if((JobTitleId != null) && (EmploymentTypeId != null) && (JobStartDate != null) && (Phone != null) ){
             // if((JobTitleId != null || JobTitleId != "") && (EmploymentTypeId != null || EmploymentTypeId != "") && (JobStartDate != null || JobStartDate != "") && (Phone != null || Phone != "") ){
-              // alert("JobTitleId>>>"+JobTitleId);
-              // alert("Emp in");
+              
+             
               this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
           
                 data => {
@@ -390,7 +392,7 @@ number(event: any) {
 
               if(active1 == true){
 
-              if((BusinessSize != null) && (BusinessRegisteredInDistrict != null)&& (BusinessRegisteredInSCC != null) && (BusinessIsFranchisee != null) && (BEClassificationId != null) && (StartDate != null) && (EndDate != null)){
+              if((legalbusiness != null)&&(BusinessSize != null) && (BusinessRegisteredInDistrict != null)&& (BusinessRegisteredInSCC != null) && (BusinessIsFranchisee != null) && (BEClassificationId != null) && (StartDate != null) && (EndDate != null)){
                 // alert("vendor business");
                 
                 this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/AdduserDetails', registercontactinformation).subscribe(
@@ -412,7 +414,7 @@ number(event: any) {
 
             }
 
-  }
+  // }
   }
 
   inputErrorMessage(errormessage: any) {
