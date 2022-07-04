@@ -262,23 +262,21 @@
     
                         <div class="labelheight">
                             <label class="labelwidth">County<span class="requiredfield "> *</span> </label>
-                            <select type="text" id="currentcounty_id" class="County" formControlName="county"
+                            <select type="text" id="currentcounty_id" class="County" formControlName="county" [(ngModel)]="Addr.DistrictId"
                                 (keypress)="EmptyErrorMessage('currentcounty_id')">
-                                <option>county</option>
+                                <option *ngFor="let d of districts" [value]="d.DistrictId ">
+                                    {{d.DistrictName}}
+                                </option>
                             </select>
                         </div>
     
                         <div class="labelheight">
                             <label class="labelwidth">State/province<span class="requiredfield "> *</span> </label>
-                            <select class="State" id="stateprovice_id" formControlName="state_province"
+                            <select class="State" id="stateprovice_id" formControlName="state_province" [(ngModel)]="Addr.StateId"
                                 (change)="EmptyErrorMessage('stateprovice_id')">
-                                <option value="value1">Virginia</option>
-                                <option value="value2">Alabama</option>
-                                <option value="value3">Alaska</option>
-                                <option value="value4">California</option>
-                                <option value="value5">Florida</option>
-                                <option value="value6">Ohio</option>
-                                <option value="value7">Washington</option>
+                                <option *ngFor="let s of statedetail" [value]="s.StateId ">
+                                    {{s.StateName}}
+                                </option>
                             </select>
                         </div>
     

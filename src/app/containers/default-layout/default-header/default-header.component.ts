@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NavigationEnd, Router,ActivatedRoute,ParamMap, Params } from '@angular/router';
 
 import { ClassToggleService, HeaderComponent } from '@coreui/angular';
 
@@ -15,7 +16,13 @@ export class DefaultHeaderComponent extends HeaderComponent {
   public newTasks = new Array(5)
   public newNotifications = new Array(5)
 
-  constructor(private classToggler: ClassToggleService) {
+  constructor(private classToggler: ClassToggleService,private  router:  Router) {
     super();
+  }
+
+  logout(){
+    // alert("in")
+    window.localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

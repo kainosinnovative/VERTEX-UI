@@ -32,6 +32,7 @@ export class VendormanagementComponent implements OnInit {
   mail: any;
   singleVendorDet: any;
   singleVendorAddressDet:any;
+  statedetail:any;
   constructor(
     private frmbuilder: FormBuilder,private http: HttpClient
   ) { }
@@ -47,6 +48,7 @@ export class VendormanagementComponent implements OnInit {
     this.getAllZipcodes();
     this.getcountrydata();
     this.getAllDistricts();
+    this.getstatedata();
     this.vendorMgmt = this.frmbuilder.group({
 
       user_name :[],
@@ -536,7 +538,18 @@ getAllDistricts(){
      
       this.districts = data;
       this.districts = this.districts.data.selectAllDistricts
-      console.log("districts",this.districts);
+      // console.log("districts",this.districts);
+});
+}
+
+getstatedata(){
+ 
+  this.http.get(config_url+'/app/selectAllState').subscribe(
+    (statelistdata: {}) => {
+     
+      this.statedetail = statelistdata;
+      this.statedetail = this.statedetail.data.statedetails;
+      console.log("state",this.statedetail)
 });
 }
 
