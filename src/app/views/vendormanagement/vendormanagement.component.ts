@@ -51,6 +51,7 @@ export class VendormanagementComponent implements OnInit {
     this.getstatedata();
     this.vendorMgmt = this.frmbuilder.group({
 
+      vendorid: [localStorage.getItem('vendoridSes')],
       user_name :[],
       active: [],
       first_name: [],
@@ -63,6 +64,8 @@ export class VendormanagementComponent implements OnInit {
        business_name: [],
       federal:[],
       naicscode: [],
+      BusinessRegisteredInDistrict: [],
+      BusinessIsFranchisee: [],
       commoditycode:[],
       trade_name: [],
       duns_no: [],
