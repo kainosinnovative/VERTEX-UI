@@ -70,7 +70,7 @@ export class VendormanagementComponent implements OnInit {
       trade_name: [],
       duns_no: [],
       business_website:[],
-      physical_address:[],
+      Address1:[],
       street: [],
       state_province: [],
       city: [],
@@ -107,83 +107,15 @@ export class VendormanagementComponent implements OnInit {
       VendorContactActive:[]
      })
 
-    // this.contactindividual = this.frmbuilder.group({
-    //   first_name: [],
-    //   last_name: [],
-    //   middle_name: [],
-    //   social_no: [],
-    //   email_individual: [],
-    //   phone_no:[],
-    //  })
-
-    // this.generalinformation = this.frmbuilder.group({
-    //   alias_name:[],
-    //    business_name: [],
-    //   federal:[],
-    //   naicscode: [],
-    //   commoditycode:[],
-    //   trade_name: [],
-    //   duns_no: [],
-    //   business_website:[],
-    //  })
-
-    //  this.currentaddress = this.frmbuilder.group({
-    //   physical_address:[],
-    //   street: [],
-    //   state_province: [],
-    //   city: [],
-    //   zip_code: [],
-    //   county: [],
-    //   country: [],
-
-    //  })
-
-    //  this.mailingaddress = this.frmbuilder.group({
-    //   mailing_address: [],
-    //   mailing_street: [],
-    //   state_province1: [],
-    //   city_1: [],
-    //   zip_code1: [],
-    //   county_1: [],
-    //   country_1:[],
-    //   mailingfrom_date: [],
-    //   mailingto_date:[],
-
-    //  })
-
-    //  this.Pastaddress = this.frmbuilder.group({
-
-    //   past_address: [],
-    //   past_street: [],
-    //   state_province2: [],
-    //   city_2: [],
-    //   zip_code2: [],
-    //   county_2: [],
-    //   country_2: [],
-    //   pastfrom_date: [],
-    //   pastto_date: [],
-
-    //  })
-
-    //  this.ContactBusiness = this.frmbuilder.group({
-
-    //   contact_name: [],
-    //   business_phone: [],
-    //   title: [],
-    //   business_email: [],
-    //   addtional_name: [],
-    //   addtional_title: [],
-    //   addtional_businessmail: [],
-    //   addtional_businessphone: [],
-    //   VendorContactPrimary:[],
-    //   VendorContactActive:[]
-    //  })
-
+   
    
   }
   mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   phoneformat= /^[0-9]{10}$/;
   socialno = /^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/;
+
+
+
 
   alpha(event: any){
     var inp = String.fromCharCode(event.keyCode);
@@ -226,6 +158,19 @@ export class VendormanagementComponent implements OnInit {
 
   Userdata(vendorMgmt:any){
 
+    console.log('alldata',vendorMgmt);
+
+    alert('calling');
+    this.http.post('http://localhost/VERTEX-PHP-API/vendor/UpdateVendor',vendorMgmt).subscribe(
+    // this.http.post("http://localhost/VERTEX-PHP-API/"+'vendor/UpdateVendor',vendorMgmt).subscribe(
+      
+      data => {
+        console.log("data");
+          console.log('POST Request is successful >>>>>>>>', data);
+
+      },
+      success => {});
+
     // console.log('contactindividual>>>', contactindividual);
 
      if(this.is_business == 'individual'){
@@ -242,7 +187,7 @@ export class VendormanagementComponent implements OnInit {
 
 
 
-       let physical_address =this.vendorMgmt.get('physical_address').value;
+       let physical_address =this.vendorMgmt.get('Address1').value;
        let street =this.vendorMgmt.get('street').value;
        let state_province =this.vendorMgmt.get('state_province').value;
        let city= this.vendorMgmt.get('city').value;
@@ -313,7 +258,7 @@ if(!phone_no.match(this.phoneformat)){
     let duns_no = this.vendorMgmt.get('duns_no').value;
     let business_website = this.vendorMgmt.get('business_website').value;
 
-      let physical_address =this.vendorMgmt.get('physical_address').value;
+      let physical_address =this.vendorMgmt.get('Address1').value;
        let street =this.vendorMgmt.get('street').value;
        let state_province =this.vendorMgmt.get('state_province').value;
        let city= this.vendorMgmt.get('city').value;
